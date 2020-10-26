@@ -1,0 +1,31 @@
+CREATE TABLE IF NOT EXISTS address (
+    id BIGINT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+
+    street VARCHAR NOT NULL,
+    city VARCHAR NOT NULL,
+    voivodeship VARCHAR NOT NULL,
+
+    location VARCHAR NOT NULL -- link or coords
+);
+
+CREATE TABLE IF NOT EXISTS contact (
+    id BIGINT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+
+    email VARCHAR(320) NOT NULL UNIQUE,
+    phone_number VARCHAR(13),
+);
+
+CREATE TABLE IF NOT EXISTS person (
+    id BIGINT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+
+    address_id INT REFERENCES address(id) NOT NULL,
+    contact_id INT REFERENCES contact(id) NOT NULL UNIQUE,
+
+    pesel CHAR(11) NOT NULL UNIQUE,
+    
+    first_name VARCHAR NOT NULL,
+    second_name VARCHAR,
+    last_name VARCHAR NOT NULL,
+
+    birth_date DATE NOT NULL
+);
