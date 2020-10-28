@@ -29,9 +29,9 @@ CREATE TABLE IF NOT EXISTS person (
     birth_date DATE NOT NULL
 );
 
-CREATE INDEX ON person(birth_date);
-CREATE INDEX ON person(pesel);
-CREATE INDEX ON person(last_name);
+CREATE INDEX IF NOT EXISTS p_bd ON person(birth_date);
+CREATE INDEX IF NOT EXISTS p_p ON person(pesel);
+CREATE INDEX IF NOT EXISTS p_ln ON person(last_name);
 
 CREATE TABLE IF NOT EXISTS deceased_person (
     person_id BIGINT PRIMARY KEY REFERENCES person(id),
@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS deceased_person (
     date_of_death DATE NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE INDEX ON deceased_person(date_of_death);
+CREATE INDEX IF NOT EXISTS dp_dod ON deceased_person(date_of_death);
 
 CREATE TABLE IF NOT EXISTS person_address (
     person_id BIGINT REFERENCES person(id),
@@ -50,7 +50,7 @@ CREATE TABLE IF NOT EXISTS person_address (
     assigned DATE NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE INDEX ON person_address(assigned);
+CREATE INDEX IF NOT EXISTS pa_a ON person_address(assigned);
 
 CREATE TABLE IF NOT EXISTS person_contact (
     person_id BIGINT REFERENCES person(id),
@@ -61,4 +61,4 @@ CREATE TABLE IF NOT EXISTS person_contact (
     assigned DATE NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE INDEX ON person_contact(assigned);
+CREATE INDEX IF NOT EXISTS pc_a ON person_contact(assigned);

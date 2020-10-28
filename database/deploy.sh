@@ -15,5 +15,5 @@ if [ -z "$(which psql)" ]; then
 fi
 
 sudo -u postgres psql -f "./init.sql"
-sudo -u postgres psql -f "./tables.sql"
-
+sudo -u postgres psql -d fakers_db -f "./tables.sql"
+sudo -u postgres psql -d fakers_db -f "./triggers.sql"
