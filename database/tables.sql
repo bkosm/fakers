@@ -29,7 +29,6 @@ CREATE TABLE IF NOT EXISTS person (
     birth_date DATE NOT NULL
 );
 
-CREATE INDEX ON person(email);
 CREATE INDEX ON person(birth_date);
 CREATE INDEX ON person(pesel);
 CREATE INDEX ON person(last_name);
@@ -48,7 +47,7 @@ CREATE TABLE IF NOT EXISTS person_address (
 
     PRIMARY KEY (person_id, address_id),
 
-    assigned DATE NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    assigned DATE NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE INDEX ON person_address(assigned);

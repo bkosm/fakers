@@ -14,5 +14,6 @@ if [ -z "$(which psql)" ]; then
     fi
 fi
 
-sudo -u postgres psql
+sudo -u postgres psql -f "./init.sql"
+sudo -u postgres psql -f "./tables.sql"
 
