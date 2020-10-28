@@ -7,13 +7,16 @@ if [ -z "$(which psql)" ]; then
 	sudo pg_createcluster 13 main
 	sudo pg_ctlcluster 13 main start
 
-
-
-    if [ ! -z "$(which psql)" ]; then
-        echo instalation successful, configuring database
+    if [ -z "$(which psql)" ]; then
+      echo error while installing postgres, aborting
+      exit 1 
     fi
 fi
 
-sudo -u postgres psql -f "./database/init.sql"
-sudo -u postgres psql -d fakers_db -f "./database/tables.sql"
-sudo -u postgres psql -d fakers_db -f "./database/triggers.sql"
+ echo postgresql present, configuring database
+
+sudo -u postgres psql -f "./init.sql"
+sudo -u postgres psql -d fakers_db -f "./tables.sql"
+sudo -u postgres psql -d fakers_db -f "./triggers.sql"
+
+exit 0
