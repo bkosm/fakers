@@ -1,28 +1,26 @@
-import { useState } from "react";
+import React from "react";
+import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 import "./App.css";
-import QueryInputWindow from "./Components/QueryInputWindow";
-import { ResultDisplayWindow } from "./Components/ResultDisplayWindow";
+import Home from "./Pages/Home";
+import Info from "./Pages/Info";
+import Graph from "./Pages/Graph";
 
 function App() {
-  const [text, setText] = useState("");
-
-  const [isRequestInProgress, setIsRequestInProgress] = useState(false);
   return (
     <div className="App">
-      <div className="row">
-        <QueryInputWindow header={"jakis tytul"} onChange={setText} />
-        <ResultDisplayWindow result={text} />
-      </div>
-
-      <button
-        style={{ width: 200, height: 75 }}
-        onClick={() => {
-          setIsRequestInProgress(true);
-          setTimeout(() => setIsRequestInProgress(false), 2000);
-        }}
-      >
-        {isRequestInProgress ? "Loading..." : "Start"}
-      </button>
+      <Router>
+        <Switch>
+          <Route exact path="/">
+            <Home></Home>
+          </Route>
+          <Route path="/Info">
+            <Info></Info>
+          </Route>
+          <Route path="/Graph">
+            <Graph></Graph>
+          </Route>
+        </Switch>
+      </Router>
     </div>
   );
 }

@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: rgb(39, 39, 39);
 }
 
 code {
@@ -17,19 +18,76 @@ code {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  max-width: 800px;
+  max-width: 1200px;
   width: 100%;
+  margin: 0 auto;
+  padding-top: 100px;
 }
 
 .row {
   display: flex;
   flex-direction: row;
+  gap: 10%;
+  width: 100%;
+  height: 500px;
+}
+
+.inputColumn{
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background-color: firebrick;
+}
+
+.inputButton{
+  background-color: chartreuse;
+  width: 30%;
+  height: 8%;
+  border-radius: 10px;
+}
+
+.linksButtons{
+  display: flex;
+  gap: 10%;
   width: 100%;
 }
 
-.window {
-  width: 50%;
-  height: 400px;
+.githubButton{
+  padding: 10%;
+  display: inline-block;
+  background-color: darkviolet;
+  border-radius: 7px;
+}
+
+.infoButton{
+  padding: 10%;
+  border-radius: 7px;
+}
+
+.graphButton{
+  padding: 10%;
+  border-radius: 7px;
+}
+
+textarea {
+  width: 100%;
+  height: 100%;
+  padding: 20px 20px;
+  box-sizing: border-box;
+  border: 1px black solid;
+  border-radius: 10px;
+  background-color: aquamarine;
+  resize: none;
+}
+
+.windowInput {
+  flex: 1;
+  height: 40%;
+}
+
+.windowOutput {
+  flex: 2;
   background-color: aquamarine;
   border-radius: 10px;
   border: 1px black solid;
