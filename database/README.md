@@ -8,7 +8,7 @@
 
 ### Create the database
 
-On Ubuntu or Debian run from this folder:
+On any `apt` based distro run from this folder:
 
 ```sh
 sudo bash ./deploy.sh
