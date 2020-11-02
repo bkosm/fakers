@@ -26,6 +26,8 @@ CREATE TABLE IF NOT EXISTS person (
     second_name VARCHAR,
     last_name VARCHAR NOT NULL,
 
+    sex CHAR(1) NOT NULL CHECK(sex in ('f', 'm')),
+
     birth_date DATE NOT NULL
 );
 
