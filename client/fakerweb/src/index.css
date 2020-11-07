@@ -14,6 +14,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: rgb(39, 39, 39);
+  --animation-duration: 1s;
 }
 
 code {
@@ -34,7 +35,12 @@ code {
   width: 100%;
   height: 100%;
   margin: 0 auto;
-  padding-top: 100px;
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+.graphiql-container{
+  border-radius: 10px;
 }
 
 .row {
@@ -43,6 +49,17 @@ code {
   gap: 10%;
   width: 100%;
   height: 500px;
+}
+
+@keyframes rotate{
+  from{transform: rotate(0deg);}
+  to{transform: rotate(360deg);}
+}
+
+.rotate{
+   animation-delay: var(--animation-duration);
+   animation-name: rotate;
+   animation-duration: var(--animation-duration);
 }
 
 .LogoNavBarOpen {
@@ -75,11 +92,14 @@ code {
   position: fixed;
   display: flex;
   flex-direction: column;
-  height: 200px;
+  height: 0;
+  overflow: hidden;
   bottom: 100px;
-  opacity: 0;
   transition-delay: 1s;
   justify-content: space-between;
+  transition: height 1s;
+  transition-delay: 1s;
+  padding: 0 17px;
 }
 
 ul {
@@ -115,7 +135,7 @@ ul {
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  padding: 0 10px;
+  padding: 0;
 }
 
 .nav-item + .nav-item {
