@@ -6,6 +6,7 @@ import Logo from "../Assets/logo512frs.png";
 import GitHub from "../Assets/github512.png";
 import Sign from "../Assets/sign512.png";
 import DataBase from "../Assets/data512.png";
+//import Info from "../Assets/info512.png";
 import GraphiQL from "graphiql";
 import "graphiql/graphiql.min.css";
 

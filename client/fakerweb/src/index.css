@@ -13,7 +13,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: rgb(39, 39, 39);
+  background-color: rgb(97, 97, 97);
   --animation-duration: 1s;
 }
 
@@ -42,15 +42,78 @@ code {
 .graphiql-container{
   border-radius: 10px;
   background-color: rgb(0, 143, 179);
+  color: whitesmoke !important;
 }
 
-.graphiql-container .topBar{
-  background:  rgb(0, 143, 179);
+.title{ background: none #4b4b4b !important;}
+
+.editorWrap{  background: none #4b4b4b;}
+
+.topBar{   
+  border-bottom: 1px solid black !important;
+  background: none #4b4b4b !important;}
+
+.variable-editor{   background: none #4b4b4b !important;}
+
+.search-box{  background: none #4b4b4b !important;}
+
+.CodeMirror-gutters{  background: none #4b4b4b !important;}
+
+.doc-explorer-contents{   background: none #4b4b4b !important;}
+
+.doc-explorer-title-bar{   
+  padding: 3px 0 3px 3px !important;
+  background: none #4b4b4b !important;}
+
+.doc-category-title{   
+  color: white !important;
+  text-align: center !important;
+  background: none #4b4b4b !important;}
+
+.secondary-editor-title{  
+  border-top: 1px solid black !important;
+  border-bottom: 1px solid black !important;
+  background: none #4b4b4b !important;
+  color: whitesmoke !important;
 }
 
-.docExplorerWrap{
-  background: rgb(0, 143, 179);
-}
+.variable-editor-title{  color: whitesmoke !important;}
+
+.variable-editor{  color: whitesmoke !important;}
+
+.secondary-editor{   color: whitesmoke !important;}
+
+.CodeMirror-vscrollbar{  background: none #4b4b4b !important;}
+
+.CodeMirror-gutters{ color: whitesmoke !important; }
+
+.CodeMirror-gutter{ color: whitesmoke !important;}
+
+.CodeMirror-linenumber{  color: whitesmoke !important;}
+
+.variable-editor-title{  background: none#4b4b4b!important;}
+
+.search-box{  background-color:  #4b4b4b;}
+
+.toolbar{  background: none #4b4b4b !important;}
+
+.toolbar-button{  
+  color: whitesmoke !important;
+  box-shadow: none !important;    
+  background: none #a8a8a8 !important;}
+
+.execute-button{ 
+  color: whitesmoke !important;
+  box-shadow: none !important;
+  background: none #a8a8a8 !important;}
+
+.docExplorerWrap{  background: none #4b4b4b !important;}
+
+.CodeMirror-code{  
+  border-radius: 10px;
+  background-color: rgb(255, 255, 255);}
+
+.CodeMirror-scroll{  background-color: rgb(230, 230, 230);}
 
 .row {
   display: flex;
@@ -97,7 +160,7 @@ code {
 }
 
 .navbar {
-  left: 25px;
+  left: 23px;
   position: fixed;
   display: flex;
   flex-direction: column;
@@ -127,7 +190,7 @@ ul {
   left: 0;
   right: 0;
   filter: blur(8px);
-  background-color: rgb(0, 161, 201);
+  background-color: #3b3b3b;
   z-index: -1;
 }
 
