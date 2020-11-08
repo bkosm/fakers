@@ -41,6 +41,15 @@ code {
 
 .graphiql-container{
   border-radius: 10px;
+  background-color: rgb(0, 143, 179);
+}
+
+.graphiql-container .topBar{
+  background:  rgb(0, 143, 179);
+}
+
+.docExplorerWrap{
+  background: rgb(0, 143, 179);
 }
 
 .row {
@@ -88,7 +97,7 @@ code {
 }
 
 .navbar {
-  left: 30px;
+  left: 25px;
   position: fixed;
   display: flex;
   flex-direction: column;
@@ -118,7 +127,7 @@ ul {
   left: 0;
   right: 0;
   filter: blur(8px);
-  background-color: white;
+  background-color: rgb(0, 161, 201);
   z-index: -1;
 }
 

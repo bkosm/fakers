@@ -3,6 +3,9 @@ import React, { useState } from "react";
 import NavBar from "../Components/NavBar";
 import NavItem from "../Components/NavItem";
 import Logo from "../Assets/logo512frs.png";
+import GitHub from "../Assets/github512.png";
+import Sign from "../Assets/sign512.png";
+import DataBase from "../Assets/data512.png";
 import GraphiQL from "graphiql";
 import "graphiql/graphiql.min.css";
 
@@ -28,11 +31,13 @@ function Home() {
         }}
       >
         <NavItem
-          icon={<img className="navitemicon" src={Logo} alt="logo" />}
+          icon={<img className="navitemicon" src={GitHub} alt="logo" />}
           href="https://github.com/bart-kosmala/fakers"
         />
-        <NavItem icon={<img className="navitemicon" src={Logo} alt="logo" />} />
-        <NavItem icon={<img className="navitemicon" src={Logo} alt="logo" />} />
+        <NavItem
+          icon={<img className="navitemicon" src={DataBase} alt="logo" />}
+        />
+        <NavItem icon={<img className="navitemicon" src={Sign} alt="logo" />} />
       </NavBar>
       <GraphiQL
         fetcher={async (graphQLParams) => {
