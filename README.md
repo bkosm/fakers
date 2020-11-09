@@ -2,7 +2,7 @@
 
 # About
 <p align="center">
-  <img src="/src/gui/app/resources/LogoSZTOS.png" width="250" title="Logo">
+  <img src="fakers/client/fakerweb/src/Assets/logo512frs.png" width="250" title="Logo">
 </p>
 
 # Screenshots
