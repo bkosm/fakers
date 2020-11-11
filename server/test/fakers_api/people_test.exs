@@ -6,8 +6,8 @@ defmodule FakersApi.PeopleTest do
   describe "people" do
     alias FakersApi.People.Person
 
-    @valid_attrs %{birth_date: ~D[2010-04-17], first_name: "some first_name", last_name: "some last_name", pesel: "some pesel", second_name: "some second_name", sex: "some sex"}
-    @update_attrs %{birth_date: ~D[2011-05-18], first_name: "some updated first_name", last_name: "some updated last_name", pesel: "some updated pesel", second_name: "some updated second_name", sex: "some updated sex"}
+    @valid_attrs %{birth_date: ~D[2010-04-17], first_name: "some first_name", last_name: "some last_name", pesel: "11111111111", second_name: "some second_name", sex: "f"}
+    @update_attrs %{birth_date: ~D[2011-05-18], first_name: "some updated first_name", last_name: "some updated last_name", pesel: "11111111112", second_name: "some updated second_name", sex: "m"}
     @invalid_attrs %{birth_date: nil, first_name: nil, last_name: nil, pesel: nil, second_name: nil, sex: nil}
 
     def person_fixture(attrs \\ %{}) do
@@ -34,9 +34,9 @@ defmodule FakersApi.PeopleTest do
       assert person.birth_date == ~D[2010-04-17]
       assert person.first_name == "some first_name"
       assert person.last_name == "some last_name"
-      assert person.pesel == "some pesel"
+      assert person.pesel == "11111111111"
       assert person.second_name == "some second_name"
-      assert person.sex == "some sex"
+      assert person.sex == "f"
     end
 
     test "create_person/1 with invalid data returns error changeset" do
@@ -49,9 +49,9 @@ defmodule FakersApi.PeopleTest do
       assert person.birth_date == ~D[2011-05-18]
       assert person.first_name == "some updated first_name"
       assert person.last_name == "some updated last_name"
-      assert person.pesel == "some updated pesel"
+      assert person.pesel == "11111111112"
       assert person.second_name == "some updated second_name"
-      assert person.sex == "some updated sex"
+      assert person.sex == "m"
     end
 
     test "update_person/2 with invalid data returns error changeset" do

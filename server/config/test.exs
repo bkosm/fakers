@@ -8,7 +8,7 @@ use Mix.Config
 config :fakers_api, FakersApi.Repo,
   username: "postgres",
   password: "postgres",
-  database: "fakers_api_test#{System.get_env("MIX_TEST_PARTITION")}",
+  database: "fakers_db",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox
 

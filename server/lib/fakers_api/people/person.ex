@@ -9,8 +9,6 @@ defmodule FakersApi.People.Person do
     field :pesel, :string
     field :second_name, :string
     field :sex, :string
-
-    timestamps()
   end
 
   @doc false
