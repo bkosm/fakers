@@ -1,7 +1,8 @@
-import React from "react";
+import React from 'react';
+import DbGraph from '../Assets/fakers_db.png';
 
 function Graph(prop) {
-  return <h1>Graph</h1>;
+  return <img src={DbGraph} alt='database-graph' />;
 }
 
 export default Graph;

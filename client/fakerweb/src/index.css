@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Turret+Road:wght@800&display=swap');
+
 *,
 *:before,
 *:after {
@@ -39,81 +41,123 @@ code {
   padding-bottom: 60px;
 }
 
-.graphiql-container{
+.graphiql-container {
   border-radius: 10px;
   background-color: rgb(0, 143, 179);
   color: whitesmoke !important;
 }
 
-.title{ background: none #4b4b4b !important;}
+.title {
+  background: none #4b4b4b !important;
+}
 
-.editorWrap{  background: none #4b4b4b;}
+.editorWrap {
+  background: none #4b4b4b;
+}
 
-.topBar{   
+.topBar {
   border-bottom: 1px solid black !important;
-  background: none #4b4b4b !important;}
+  background: none #4b4b4b !important;
+}
 
-.variable-editor{   background: none #4b4b4b !important;}
+.variable-editor {
+  background: none #4b4b4b !important;
+}
 
-.search-box{  background: none #4b4b4b !important;}
+.search-box {
+  background: none #4b4b4b !important;
+}
 
-.CodeMirror-gutters{  background: none #4b4b4b !important;}
+.CodeMirror-gutters {
+  background: none #4b4b4b !important;
+}
 
-.doc-explorer-contents{   background: none #4b4b4b !important;}
+.doc-explorer-contents {
+  background: none #4b4b4b !important;
+}
 
-.doc-explorer-title-bar{   
+.doc-explorer-title-bar {
   padding: 3px 0 3px 3px !important;
-  background: none #4b4b4b !important;}
+  background: none #4b4b4b !important;
+}
 
-.doc-category-title{   
+.doc-category-title {
   color: white !important;
   text-align: center !important;
-  background: none #4b4b4b !important;}
+  background: none #4b4b4b !important;
+}
 
-.secondary-editor-title{  
+.secondary-editor-title {
   border-top: 1px solid black !important;
   border-bottom: 1px solid black !important;
   background: none #4b4b4b !important;
   color: whitesmoke !important;
 }
 
-.variable-editor-title{  color: whitesmoke !important;}
-
-.variable-editor{  color: whitesmoke !important;}
-
-.secondary-editor{   color: whitesmoke !important;}
-
-.CodeMirror-vscrollbar{  background: none #4b4b4b !important;}
-
-.CodeMirror-gutters{ color: whitesmoke !important; }
-
-.CodeMirror-gutter{ color: whitesmoke !important;}
-
-.CodeMirror-linenumber{  color: whitesmoke !important;}
-
-.variable-editor-title{  background: none#4b4b4b!important;}
-
-.search-box{  background-color:  #4b4b4b;}
-
-.toolbar{  background: none #4b4b4b !important;}
-
-.toolbar-button{  
+.variable-editor-title {
   color: whitesmoke !important;
-  box-shadow: none !important;    
-  background: none #a8a8a8 !important;}
+}
 
-.execute-button{ 
+.variable-editor {
+  color: whitesmoke !important;
+}
+
+.secondary-editor {
+  color: whitesmoke !important;
+}
+
+.CodeMirror-vscrollbar {
+  background: none #4b4b4b !important;
+}
+
+.CodeMirror-gutters {
+  color: whitesmoke !important;
+}
+
+.CodeMirror-gutter {
+  color: whitesmoke !important;
+}
+
+.CodeMirror-linenumber {
+  color: whitesmoke !important;
+}
+
+.variable-editor-title {
+  background: none#4b4b4b !important;
+}
+
+.search-box {
+  background-color: #4b4b4b;
+}
+
+.toolbar {
+  background: none #4b4b4b !important;
+}
+
+.toolbar-button {
   color: whitesmoke !important;
   box-shadow: none !important;
-  background: none #a8a8a8 !important;}
+  background: none #a8a8a8 !important;
+}
 
-.docExplorerWrap{  background: none #4b4b4b !important;}
+.execute-button {
+  color: whitesmoke !important;
+  box-shadow: none !important;
+  background: none #a8a8a8 !important;
+}
 
-.CodeMirror-code{  
+.docExplorerWrap {
+  background: none #4b4b4b !important;
+}
+
+.CodeMirror-code {
   border-radius: 10px;
-  background-color: rgb(255, 255, 255);}
+  background-color: rgb(255, 255, 255);
+}
 
-.CodeMirror-scroll{  background-color: rgb(230, 230, 230);}
+.CodeMirror-scroll {
+  background-color: rgb(230, 230, 230);
+}
 
 .row {
   display: flex;
@@ -123,15 +167,27 @@ code {
   height: 500px;
 }
 
-@keyframes rotate{
-  from{transform: rotate(0deg);}
-  to{transform: rotate(360deg);}
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
-.rotate{
-   animation-delay: var(--animation-duration);
-   animation-name: rotate;
-   animation-duration: var(--animation-duration);
+.rotate,
+.rotate-delay {
+  animation-name: rotate;
+  animation-duration: var(--animation-duration);
+}
+
+.rotate-delay {
+  animation-delay: var(--animation-duration);
+}
+
+.rotate {
+  transition-delay: var(--animation-duration);
 }
 
 .LogoNavBarOpen {
@@ -152,6 +208,8 @@ code {
   margin-left: 10px;
   width: 100px;
   height: 100px;
+  transition-duration: 1s;
+  z-index: 10;
 }
 
 .LogoImage {
@@ -166,16 +224,25 @@ code {
   flex-direction: column;
   height: 0;
   overflow: hidden;
-  bottom: 100px;
-  transition-delay: 1s;
+  bottom: 150px;
   justify-content: space-between;
   transition: height 1s;
-  transition-delay: 1s;
   padding: 0 17px;
+  z-index: 9;
 }
 
 ul {
   list-style-type: none;
+}
+
+.info {
+  color: whitesmoke;
+  font-family: 'Turret Road', cursive;
+  font-size: 28px;
+}
+
+#secondary-editor-title div {
+  color: whitesmoke !important;
 }
 
 .navitemicon {
@@ -192,6 +259,8 @@ ul {
   filter: blur(8px);
   background-color: #3b3b3b;
   z-index: -1;
+  border-radius: 50%;
+  margin: -6px;
 }
 
 .nav-item {

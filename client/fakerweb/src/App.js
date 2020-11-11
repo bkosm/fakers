@@ -4,11 +4,13 @@ import './App.css';
 import Home from './Pages/Home';
 import Info from './Pages/Info';
 import Graph from './Pages/Graph';
+import NavBarContainer from './Components/NavBarContainer';
 
 function App() {
   return (
     <div className='App'>
       <Router>
+        <NavBarContainer />
         <Switch>
           <Route exact path='/'>
             <Home></Home>
