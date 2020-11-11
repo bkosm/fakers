@@ -14,6 +14,7 @@ defmodule FakersApi.People.PersonAddress do
   @doc false
   def changeset(person_address, attrs) do
     person_address
-    |> cast(attrs, [:assigned])
+    |> cast(attrs, [:assigned, :person_id, :address_id])
+    |> unique_constraint(:composite_key, name: :person_address_pkey)
   end
 end

@@ -316,14 +316,15 @@ defmodule FakersApi.People do
 
   ## Examples
 
-      iex> get_person_address!(123)
+      iex> get_person_address_by_person!(123)
       %PersonAddress{}
 
       iex> get_person_address!(456)
       ** (Ecto.NoResultsError)
 
   """
-  def get_person_address!(id), do: Repo.get!(PersonAddress, id)
+  def get_person_address_by_person!(id), do: Repo.get_by!(PersonAddress, person_id: id)
+  def get_person_address_by_address!(id), do: Repo.get_by!(PersonAddress, address_id: id)
 
   @doc """
   Creates a person_address.
@@ -337,28 +338,12 @@ defmodule FakersApi.People do
       {:error, %Ecto.Changeset{}}
 
   """
-  def create_person_address(%Person{} = person, %Address{} = address, attrs \\ %{}) do
-    %PersonAddress{}
-    |> PersonAddress.changeset(attrs) // TODO assoc
-    |> Repo.insert()
-  end
+  def create_person_address(attrs, %Person{} = person, %Address{} = address) do
+    person_address = Ecto.build_assoc(person, :person_addresses)
 
-  @doc """
-  Updates a person_address.
-
-  ## Examples
-
-      iex> update_person_address(person_address, %{field: new_value})
-      {:ok, %PersonAddress{}}
-
-      iex> update_person_address(person_address, %{field: bad_value})
-      {:error, %Ecto.Changeset{}}
-
-  """
-  def update_person_address(%PersonAddress{} = person_address, attrs) do
-    person_address
+    Ecto.build_assoc(address, :person_addresses, person_address)
     |> PersonAddress.changeset(attrs)
-    |> Repo.update()
+    |> Repo.insert()
   end
 
   @doc """
@@ -374,7 +359,15 @@ defmodule FakersApi.People do
 
   """
   def delete_person_address(%PersonAddress{} = person_address) do
-    Repo.delete(person_address)
+    query = 
+      from u in PersonAddress,
+      where: u.address_id == ^person_address.address_id,
+      where: u.person_id == ^person_address.person_id
+    
+    case Repo.delete_all(query) do
+      {1, nil} -> {:ok, person_address}
+      _ -> {:error, PersonAddress.changeset(person_address, %{})}
+    end
   end
 
   @doc """

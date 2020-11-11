@@ -255,90 +255,47 @@ defmodule FakersApi.PeopleTest do
     }
 
     @valid_attrs %{assigned: ~D[2010-04-17]}
-    @update_attrs %{assigned: ~D[2011-05-18]}
-    @invalid_attrs %{assigned: nil}
 
     def person_address_fixture(attrs \\ %{}) do
-      {:ok, person} =
-        attrs
-        |> Enum.into(@valid_person)
-        |> People.create_person()
-
-      {:ok, address} =
-        attrs
-        |> Enum.into(@valid_address)
-        |> People.create_address()
-
-      fixture =
-        @valid_attrs
-        |> Map.put(:person, person)
-        |> Map.put(:address, address)
-
-      fixture =
-        attrs
-        |> Enum.into(fixture)
-      
-      x = 
-      person
-      |> Ecto.build_assoc(:person_addresses)
-      |> Ecto.Changeset.change()
-      |> Ecto.Changeset.put_assoc(:person_addresses, address)
-
-      IO.inspect x
+      {:ok, person} = People.create_person(@valid_person)
+      {:ok, address} = People.create_address(@valid_address)
 
       {:ok, person_address} =
         attrs
-        |> Enum.into(fixture)
-        |> People.create_person_address()
+        |> Enum.into(@valid_attrs)
+        |> People.create_person_address(person, address)
 
-      person_address
+      {person, address, person_address}
     end
 
     test "list_person_address/0 returns all person_address" do
-      person_address = person_address_fixture()
+      {_, _, person_address} = person_address_fixture()
       assert People.list_person_address() == [person_address]
     end
 
     test "get_person_address!/1 returns the person_address with given id" do
-      person_address = person_address_fixture()
-      assert People.get_person_address!(person_address.id) == person_address
+      {person, address, person_address} = person_address_fixture()
+      assert People.get_person_address_by_person!(person.id) == person_address
+      assert People.get_person_address_by_address!(address.id) == person_address
     end
 
-    test "create_person_address/1 with valid data creates a person_address" do
-      assert {:ok, %PersonAddress{} = person_address} = People.create_person_address(@valid_attrs)
-      assert person_address.assigned == ~D[2010-04-17]
-    end
-
-    test "create_person_address/1 with invalid data returns error changeset" do
-      assert {:error, %Ecto.Changeset{}} = People.create_person_address(@invalid_attrs)
-    end
-
-    test "update_person_address/2 with valid data updates the person_address" do
-      person_address = person_address_fixture()
-
-      assert {:ok, %PersonAddress{} = person_address} =
-               People.update_person_address(person_address, @update_attrs)
-
-      assert person_address.assigned == ~D[2011-05-18]
-    end
-
-    test "update_person_address/2 with invalid data returns error changeset" do
-      person_address = person_address_fixture()
+    test "create_person_address/3 with valid data conforms to unique key and returns error changeset" do
+      {person, address, _} = person_address_fixture()
 
       assert {:error, %Ecto.Changeset{}} =
-               People.update_person_address(person_address, @invalid_attrs)
-
-      assert person_address == People.get_person_address!(person_address.id)
+               People.create_person_address(@valid_attrs, person, address)
     end
 
     test "delete_person_address/1 deletes the person_address" do
-      person_address = person_address_fixture()
+      {_, address, person_address} = person_address_fixture()
+
       assert {:ok, %PersonAddress{}} = People.delete_person_address(person_address)
-      assert_raise Ecto.NoResultsError, fn -> People.get_person_address!(person_address.id) end
+
+      assert_raise Ecto.NoResultsError, fn -> People.get_person_address_by_address!(address.id) end
     end
 
     test "change_person_address/1 returns a person_address changeset" do
-      person_address = person_address_fixture()
+      {_, _, person_address} = person_address_fixture()
       assert %Ecto.Changeset{} = People.change_person_address(person_address)
     end
   end
