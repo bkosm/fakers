@@ -2,8 +2,8 @@ use Mix.Config
 
 # Configure your database
 config :fakers_api, FakersApi.Repo,
-  username: "postgres",
-  password: "postgres",
+  username: "fakers_u",
+  password: "fakers",
   database: "fakers_db",
   hostname: "localhost",
   show_sensitive_data_on_connection_error: true,

@@ -6,9 +6,9 @@ use Mix.Config
 # to provide built-in test partitioning in CI environment.
 # Run `mix help test` for more information.
 config :fakers_api, FakersApi.Repo,
-  username: "postgres",
-  password: "postgres",
-  database: "fakers_db",
+  username: "fakers_u",
+  password: "fakers",
+  database: "fakers_db_test",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox
 
