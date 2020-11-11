@@ -1,14 +1,9 @@
 # fakers
-<<<<<<< HEAD
-=======
 
 # About
 <p align="center">
   <img src="client/fakerweb/src/Assets/logo512frs.png" width="250" title="Logo">
 </p>
-
-# Screenshots
-
 
 # Authors
 - Bartosz Kosmala
@@ -18,4 +13,3 @@
 - Hubert Knioła
 
 > 2020 SEM 5
->>>>>>> client
