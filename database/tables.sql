@@ -5,7 +5,9 @@ CREATE TABLE IF NOT EXISTS address (
     city VARCHAR NOT NULL,
     voivodeship VARCHAR NOT NULL,
 
-    location VARCHAR NOT NULL -- link or coords
+    location VARCHAR NOT NULL, -- link or coords
+	
+	UNIQUE (street, city, voivodeship, location)
 );
 
 GRANT ALL ON address TO fakers_u;
@@ -42,7 +44,7 @@ CREATE INDEX IF NOT EXISTS p_p ON person(pesel);
 CREATE INDEX IF NOT EXISTS p_ln ON person(last_name);
 
 CREATE TABLE IF NOT EXISTS deceased_person (
-    person_id BIGINT PRIMARY KEY REFERENCES person(id),
+    person_id BIGINT PRIMARY KEY REFERENCES person(id) ON DELETE CASCADE,
 
     date_of_death DATE NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
@@ -52,8 +54,8 @@ GRANT ALL ON deceased_person TO fakers_u;
 CREATE INDEX IF NOT EXISTS dp_dod ON deceased_person(date_of_death);
 
 CREATE TABLE IF NOT EXISTS person_address (
-    person_id BIGINT REFERENCES person(id),
-    address_id BIGINT REFERENCES address(id),
+    person_id BIGINT REFERENCES person(id) ON DELETE CASCADE,
+    address_id BIGINT REFERENCES address(id) ON DELETE CASCADE,
 
     PRIMARY KEY (person_id, address_id),
 
@@ -65,8 +67,8 @@ GRANT ALL ON person_address TO fakers_u;
 CREATE INDEX IF NOT EXISTS pa_a ON person_address(assigned);
 
 CREATE TABLE IF NOT EXISTS person_contact (
-    person_id BIGINT REFERENCES person(id),
-    contact_id BIGINT REFERENCES contact(id) UNIQUE,
+    person_id BIGINT REFERENCES person(id) ON DELETE CASCADE,
+    contact_id BIGINT REFERENCES contact(id) UNIQUE ON DELETE CASCADE,
 
     PRIMARY KEY (person_id, contact_id),
 
