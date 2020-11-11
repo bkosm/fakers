@@ -1,5 +1,7 @@
 CREATE USER fakers_u WITH ENCRYPTED PASSWORD 'fakers' CREATEDB;
 
 DROP DATABASE IF EXISTS fakers_db;
+DROP DATABASE IF EXISTS fakers_db_test;
 
 CREATE DATABASE fakers_db OWNER fakers_u;
+CREATE DATABASE fakers_db_test OWNER fakers_u;

@@ -25,6 +25,8 @@ echo postgresql present, configuring database
 
 sudo -u postgres psql -f "./init.sql"
 sudo -u postgres psql -d fakers_db -f "./tables.sql"
+sudo -u postgres psql -d fakers_db_test -f "./tables.sql"
 sudo -u postgres psql -d fakers_db -f "./triggers.sql"
+sudo -u postgres psql -d fakers_db_test -f "./triggers.sql"
 
 exit 0
