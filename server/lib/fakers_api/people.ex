@@ -337,9 +337,9 @@ defmodule FakersApi.People do
       {:error, %Ecto.Changeset{}}
 
   """
-  def create_person_address(attrs \\ %{}) do
+  def create_person_address(%Person{} = person, %Address{} = address, attrs \\ %{}) do
     %PersonAddress{}
-    |> PersonAddress.changeset(attrs)
+    |> PersonAddress.changeset(attrs) // TODO assoc
     |> Repo.insert()
   end
 

@@ -6,9 +6,30 @@ defmodule FakersApi.PeopleTest do
   describe "people" do
     alias FakersApi.People.Person
 
-    @valid_attrs %{birth_date: ~D[2010-04-17], first_name: "some first_name", last_name: "some last_name", pesel: "11111111111", second_name: "some second_name", sex: "f"}
-    @update_attrs %{birth_date: ~D[2011-05-18], first_name: "some updated first_name", last_name: "some updated last_name", pesel: "11111111112", second_name: "some updated second_name", sex: "m"}
-    @invalid_attrs %{birth_date: nil, first_name: nil, last_name: nil, pesel: nil, second_name: nil, sex: nil}
+    @valid_attrs %{
+      birth_date: ~D[2010-04-17],
+      first_name: "some first_name",
+      last_name: "some last_name",
+      pesel: "11111111111",
+      second_name: "some second_name",
+      sex: "f"
+    }
+    @update_attrs %{
+      birth_date: ~D[2011-05-18],
+      first_name: "some updated first_name",
+      last_name: "some updated last_name",
+      pesel: "11111111112",
+      second_name: "some updated second_name",
+      sex: "m"
+    }
+    @invalid_attrs %{
+      birth_date: nil,
+      first_name: nil,
+      last_name: nil,
+      pesel: nil,
+      second_name: nil,
+      sex: nil
+    }
 
     def person_fixture(attrs \\ %{}) do
       {:ok, person} =
@@ -75,8 +96,18 @@ defmodule FakersApi.PeopleTest do
   describe "addresses" do
     alias FakersApi.People.Address
 
-    @valid_attrs %{city: "some city", location: "some location", street: "some street", voivodeship: "some voivodeship"}
-    @update_attrs %{city: "some updated city", location: "some updated location", street: "some updated street", voivodeship: "some updated voivodeship"}
+    @valid_attrs %{
+      city: "some city",
+      location: "some location",
+      street: "some street",
+      voivodeship: "some voivodeship"
+    }
+    @update_attrs %{
+      city: "some updated city",
+      location: "some updated location",
+      street: "some updated street",
+      voivodeship: "some updated voivodeship"
+    }
     @invalid_attrs %{city: nil, location: nil, street: nil, voivodeship: nil}
 
     def address_fixture(attrs \\ %{}) do
@@ -174,7 +205,9 @@ defmodule FakersApi.PeopleTest do
     end
 
     test "create_contact/1 with no phone succeeds" do
-      assert {:ok, %Contact{} = contact} = People.create_contact(%{email: "some mail", phone_number: nil})
+      assert {:ok, %Contact{} = contact} =
+               People.create_contact(%{email: "some mail", phone_number: nil})
+
       assert contact.phone_number == nil
     end
 
@@ -206,14 +239,56 @@ defmodule FakersApi.PeopleTest do
   describe "person_address" do
     alias FakersApi.People.PersonAddress
 
+    @valid_person %{
+      birth_date: ~D[2010-04-17],
+      first_name: "some first_name",
+      last_name: "some last_name",
+      pesel: "11111111111",
+      second_name: "some second_name",
+      sex: "f"
+    }
+    @valid_address %{
+      city: "some city",
+      location: "some location",
+      street: "some street",
+      voivodeship: "some voivodeship"
+    }
+
     @valid_attrs %{assigned: ~D[2010-04-17]}
     @update_attrs %{assigned: ~D[2011-05-18]}
     @invalid_attrs %{assigned: nil}
 
     def person_address_fixture(attrs \\ %{}) do
+      {:ok, person} =
+        attrs
+        |> Enum.into(@valid_person)
+        |> People.create_person()
+
+      {:ok, address} =
+        attrs
+        |> Enum.into(@valid_address)
+        |> People.create_address()
+
+      fixture =
+        @valid_attrs
+        |> Map.put(:person, person)
+        |> Map.put(:address, address)
+
+      fixture =
+        attrs
+        |> Enum.into(fixture)
+      
+      x = 
+      person
+      |> Ecto.build_assoc(:person_addresses)
+      |> Ecto.Changeset.change()
+      |> Ecto.Changeset.put_assoc(:person_addresses, address)
+
+      IO.inspect x
+
       {:ok, person_address} =
         attrs
-        |> Enum.into(@valid_attrs)
+        |> Enum.into(fixture)
         |> People.create_person_address()
 
       person_address
@@ -240,13 +315,19 @@ defmodule FakersApi.PeopleTest do
 
     test "update_person_address/2 with valid data updates the person_address" do
       person_address = person_address_fixture()
-      assert {:ok, %PersonAddress{} = person_address} = People.update_person_address(person_address, @update_attrs)
+
+      assert {:ok, %PersonAddress{} = person_address} =
+               People.update_person_address(person_address, @update_attrs)
+
       assert person_address.assigned == ~D[2011-05-18]
     end
 
     test "update_person_address/2 with invalid data returns error changeset" do
       person_address = person_address_fixture()
-      assert {:error, %Ecto.Changeset{}} = People.update_person_address(person_address, @invalid_attrs)
+
+      assert {:error, %Ecto.Changeset{}} =
+               People.update_person_address(person_address, @invalid_attrs)
+
       assert person_address == People.get_person_address!(person_address.id)
     end
 

@@ -3,6 +3,7 @@ defmodule FakersApi.People.PersonAddress do
   import Ecto.Changeset
   alias FakersApi.People.{Person, Address}
 
+  @primary_key false
   schema "person_address" do
     field :assigned, :date
 
@@ -14,6 +15,5 @@ defmodule FakersApi.People.PersonAddress do
   def changeset(person_address, attrs) do
     person_address
     |> cast(attrs, [:assigned])
-    |> validate_required([:assigned])
   end
 end
