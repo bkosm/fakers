@@ -8,6 +8,8 @@ CREATE TABLE IF NOT EXISTS address (
     location VARCHAR NOT NULL -- link or coords
 );
 
+GRANT ALL ON address TO fakers_u;
+
 CREATE TABLE IF NOT EXISTS contact (
     id BIGINT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
 
@@ -16,6 +18,8 @@ CREATE TABLE IF NOT EXISTS contact (
 
     UNIQUE(email, phone_number)
 );
+
+GRANT ALL ON contact TO fakers_u;
 
 CREATE TABLE IF NOT EXISTS person (
     id BIGINT PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
@@ -31,6 +35,8 @@ CREATE TABLE IF NOT EXISTS person (
     birth_date DATE NOT NULL
 );
 
+GRANT ALL ON person TO fakers_u;
+
 CREATE INDEX IF NOT EXISTS p_bd ON person(birth_date);
 CREATE INDEX IF NOT EXISTS p_p ON person(pesel);
 CREATE INDEX IF NOT EXISTS p_ln ON person(last_name);
@@ -40,6 +46,8 @@ CREATE TABLE IF NOT EXISTS deceased_person (
 
     date_of_death DATE NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
+
+GRANT ALL ON deceased_person TO fakers_u;
 
 CREATE INDEX IF NOT EXISTS dp_dod ON deceased_person(date_of_death);
 
@@ -52,6 +60,8 @@ CREATE TABLE IF NOT EXISTS person_address (
     assigned DATE NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 
+GRANT ALL ON person_address TO fakers_u;
+
 CREATE INDEX IF NOT EXISTS pa_a ON person_address(assigned);
 
 CREATE TABLE IF NOT EXISTS person_contact (
@@ -62,5 +72,7 @@ CREATE TABLE IF NOT EXISTS person_contact (
 
     assigned DATE NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
+
+GRANT ALL ON person_contact TO fakers_u;
 
 CREATE INDEX IF NOT EXISTS pc_a ON person_contact(assigned);
