@@ -68,7 +68,7 @@ CREATE INDEX IF NOT EXISTS pa_a ON person_address(assigned);
 
 CREATE TABLE IF NOT EXISTS person_contact (
     person_id BIGINT REFERENCES person(id) ON DELETE CASCADE,
-    contact_id BIGINT REFERENCES contact(id) UNIQUE ON DELETE CASCADE,
+    contact_id BIGINT REFERENCES contact(id) ON DELETE CASCADE,
 
     PRIMARY KEY (person_id, contact_id),
 
