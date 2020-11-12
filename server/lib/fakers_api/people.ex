@@ -316,15 +316,16 @@ defmodule FakersApi.People do
 
   ## Examples
 
-      iex> get_person_address_by_person!(123)
+      iex> get_person_address!(123, 3)
       %PersonAddress{}
 
-      iex> get_person_address!(456)
+      iex> get_person_address!(456, 123)
       ** (Ecto.NoResultsError)
 
   """
-  def get_person_address_by_person!(id), do: Repo.get_by!(PersonAddress, person_id: id)
-  def get_person_address_by_address!(id), do: Repo.get_by!(PersonAddress, address_id: id)
+  def get_person_address!(person_id, address_id) do
+     Repo.get_by!(PersonAddress, person_id: person_id, address_id: address_id)
+  end
 
   @doc """
   Creates a person_address.
@@ -366,7 +367,7 @@ defmodule FakersApi.People do
     
     case Repo.delete_all(query) do
       {1, nil} -> {:ok, person_address}
-      _ -> {:error, PersonAddress.changeset(person_address, %{})}
+      {0, _} -> {:error, PersonAddress.changeset(person_address, %{})}
     end
   end
 
@@ -381,5 +382,87 @@ defmodule FakersApi.People do
   """
   def change_person_address(%PersonAddress{} = person_address, attrs \\ %{}) do
     PersonAddress.changeset(person_address, attrs)
+  end
+
+  alias FakersApi.People.PersonContact
+
+  @doc """
+  Returns the list of person_contact.
+
+  ## Examples
+
+      iex> list_person_contact()
+      [%PersonContact{}, ...]
+
+  """
+  def list_person_contact do
+    Repo.all(PersonContact)
+  end
+
+  @doc """
+  Gets a single person_contact.
+
+  Raises `Ecto.NoResultsError` if the Person contact does not exist.
+
+  ## Examples
+
+      iex> get_person_contact!(123, 2)
+      %PersonContact{}
+
+      iex> get_person_contact!(456, 3)
+      ** (Ecto.NoResultsError)
+
+  """
+  def get_person_contact!(person_id, contact_id) do
+     Repo.get_by!(PersonContact, person_id: person_id, contact_id: contact_id)
+  end
+  
+  @doc """
+  Creates a person_contact.
+
+  """
+  def create_person_contact(attrs, %Person{} = person, %Contact{} = contact) do
+    person_contact = Ecto.build_assoc(person, :person_contacts)
+
+    Ecto.build_assoc(contact, :person_contacts, person_contact)
+    |> PersonContact.changeset(attrs)
+    |> Repo.insert()
+  end
+
+  @doc """
+  Deletes a person_contact.
+
+  ## Examples
+
+      iex> delete_person_contact(person_contact)
+      {:ok, %PersonContact{}}
+
+      iex> delete_person_contact(person_contact)
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def delete_person_contact(%PersonContact{} = person_contact) do
+    query = 
+      from u in PersonContact,
+      where: u.contact_id == ^person_contact.contact_id,
+      where: u.person_id == ^person_contact.person_id
+    
+    case Repo.delete_all(query) do
+      {1, nil} -> {:ok, person_contact}
+      {0, _} -> {:error, PersonContact.changeset(person_contact, %{})}
+    end
+  end
+
+  @doc """
+  Returns an `%Ecto.Changeset{}` for tracking person_contact changes.
+
+  ## Examples
+
+      iex> change_person_contact(person_contact)
+      %Ecto.Changeset{data: %PersonContact{}}
+
+  """
+  def change_person_contact(%PersonContact{} = person_contact, attrs \\ %{}) do
+    PersonContact.changeset(person_contact, attrs)
   end
 end

@@ -275,11 +275,10 @@ defmodule FakersApi.PeopleTest do
 
     test "get_person_address!/1 returns the person_address with given id" do
       {person, address, person_address} = person_address_fixture()
-      assert People.get_person_address_by_person!(person.id) == person_address
-      assert People.get_person_address_by_address!(address.id) == person_address
+      assert People.get_person_address!(person.id, address.id) == person_address
     end
 
-    test "create_person_address/3 with valid data conforms to unique key and returns error changeset" do
+    test "create_person_address/3 with invalid data conforms to unique key and returns error changeset" do
       {person, address, _} = person_address_fixture()
 
       assert {:error, %Ecto.Changeset{}} =
@@ -287,16 +286,73 @@ defmodule FakersApi.PeopleTest do
     end
 
     test "delete_person_address/1 deletes the person_address" do
-      {_, address, person_address} = person_address_fixture()
+      {person, address, person_address} = person_address_fixture()
 
       assert {:ok, %PersonAddress{}} = People.delete_person_address(person_address)
 
-      assert_raise Ecto.NoResultsError, fn -> People.get_person_address_by_address!(address.id) end
+      assert_raise Ecto.NoResultsError, fn -> People.get_person_address!(person.id, address.id) end
     end
 
     test "change_person_address/1 returns a person_address changeset" do
       {_, _, person_address} = person_address_fixture()
       assert %Ecto.Changeset{} = People.change_person_address(person_address)
+    end
+  end
+
+  describe "person_contact" do
+    alias FakersApi.People.PersonContact
+
+    @valid_contact %{email: "some email", phone_number: "1111111111"}
+
+    @valid_person %{
+      birth_date: ~D[2010-04-17],
+      first_name: "some first_name",
+      last_name: "some last_name",
+      pesel: "11111111111",
+      second_name: "some second_name",
+      sex: "f"
+    }
+
+    @valid_attrs %{assigned: ~D[2010-04-17]}
+    @update_attrs %{assigned: ~D[2011-05-18]}
+
+    def person_contact_fixture(attrs \\ %{}) do
+      {:ok, person} = People.create_person(@valid_person)
+      {:ok, contact} = People.create_contact(@valid_contact)
+
+      {:ok, person_contact} =
+        attrs
+        |> Enum.into(@valid_attrs)
+        |> People.create_person_contact(person, contact)
+
+      {person, contact, person_contact}
+    end
+
+    test "list_person_contact/0 returns all person_contact" do
+      {_, _, person_contact} = person_contact_fixture()
+      assert People.list_person_contact() == [person_contact]
+    end
+
+    test "get_person_contact!/1 returns the person_contact with given id" do
+      {person, contact, person_contact} = person_contact_fixture()
+      assert People.get_person_contact!(person.id, contact.id) == person_contact
+    end
+
+    test "create_person_contact/3 with invalid data conforms to unique key and returns error changeset" do
+      {person, contact, _} = person_contact_fixture()
+
+      assert {:error, %Ecto.Changeset{}} = People.create_person_contact(@valid_attrs, person, contact)
+    end
+
+    test "delete_person_contact/1 deletes the person_contact" do
+      {person, contact, person_contact} = person_contact_fixture()
+      assert {:ok, %PersonContact{}} = People.delete_person_contact(person_contact)
+      assert_raise Ecto.NoResultsError, fn -> People.get_person_contact!(person.id, contact.id) end
+    end
+
+    test "change_person_contact/1 returns a person_contact changeset" do
+      {_, _, person_contact} = person_contact_fixture()
+      assert %Ecto.Changeset{} = People.change_person_contact(person_contact)
     end
   end
 end
