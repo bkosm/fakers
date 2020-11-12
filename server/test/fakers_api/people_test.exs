@@ -355,4 +355,70 @@ defmodule FakersApi.PeopleTest do
       assert %Ecto.Changeset{} = People.change_person_contact(person_contact)
     end
   end
+
+  describe "deceased_person" do
+    alias FakersApi.People.DeceasedPerson
+
+    @valid_person %{
+      birth_date: ~D[2010-04-17],
+      first_name: "some first_name",
+      last_name: "some last_name",
+      pesel: "11111111111",
+      second_name: "some second_name",
+      sex: "f"
+    }
+
+    @valid_attrs %{date_of_death: ~D[2010-04-17]}
+    @update_attrs %{date_of_death: ~D[2011-05-18]}
+
+    def deceased_person_fixture(attrs \\ %{}) do
+      {:ok, person} = People.create_person(@valid_person)
+
+      {:ok, deceased_person} =
+        attrs
+        |> Enum.into(@valid_attrs)
+        |> People.create_deceased_person(person)
+
+      {person, deceased_person}
+    end
+
+    test "list_deceased_person/0 returns all deceased_person" do
+      {_, deceased_person} = deceased_person_fixture()
+      assert People.list_deceased_person() == [deceased_person]
+    end
+
+    test "get_deceased_person!/1 returns the deceased_person with given id" do
+      {person, deceased_person} = deceased_person_fixture()
+      assert People.get_deceased_person!(person.id) == deceased_person
+    end
+
+    test "create_deceased_person/2 with valid data creates a deceased_person" do
+      {:ok, person} = People.create_person(@valid_person)
+      assert {:ok, %DeceasedPerson{} = deceased_person} = People.create_deceased_person(@valid_attrs, person)
+      assert deceased_person.date_of_death == ~D[2010-04-17]
+    end
+
+    test "create_deceased_person/1 with invalid data conforms to unique key and returns error changeset" do
+      {person, _} = deceased_person_fixture()
+
+      assert {:error, %Ecto.Changeset{}} = People.create_deceased_person(@valid_attrs, person)
+    end
+
+    test "update_deceased_person/2 with valid data updates the deceased_person" do
+      {_, deceased_person} = deceased_person_fixture()
+      assert {:ok, %DeceasedPerson{} = deceased_person} = People.update_deceased_person(deceased_person, @update_attrs)
+      assert deceased_person.date_of_death == ~D[2011-05-18]
+    end
+
+    test "delete_deceased_person/1 deletes the deceased_person" do
+      {person, deceased_person} = deceased_person_fixture()
+      assert {:ok, %DeceasedPerson{}} = People.delete_deceased_person(deceased_person)
+      assert_raise Ecto.NoResultsError, fn -> People.get_deceased_person!(person.id) end
+    end
+
+    test "change_deceased_person/1 returns a deceased_person changeset" do
+      {_, deceased_person} = deceased_person_fixture()
+      assert %Ecto.Changeset{} = People.change_deceased_person(deceased_person)
+    end
+  end
 end

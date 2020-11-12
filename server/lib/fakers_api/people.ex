@@ -360,15 +360,7 @@ defmodule FakersApi.People do
 
   """
   def delete_person_address(%PersonAddress{} = person_address) do
-    query = 
-      from u in PersonAddress,
-      where: u.address_id == ^person_address.address_id,
-      where: u.person_id == ^person_address.person_id
-    
-    case Repo.delete_all(query) do
-      {1, nil} -> {:ok, person_address}
-      {0, _} -> {:error, PersonAddress.changeset(person_address, %{})}
-    end
+    Repo.delete(person_address)
   end
 
   @doc """
@@ -442,15 +434,7 @@ defmodule FakersApi.People do
 
   """
   def delete_person_contact(%PersonContact{} = person_contact) do
-    query = 
-      from u in PersonContact,
-      where: u.contact_id == ^person_contact.contact_id,
-      where: u.person_id == ^person_contact.person_id
-    
-    case Repo.delete_all(query) do
-      {1, nil} -> {:ok, person_contact}
-      {0, _} -> {:error, PersonContact.changeset(person_contact, %{})}
-    end
+    Repo.delete(person_contact)
   end
 
   @doc """
@@ -464,5 +448,101 @@ defmodule FakersApi.People do
   """
   def change_person_contact(%PersonContact{} = person_contact, attrs \\ %{}) do
     PersonContact.changeset(person_contact, attrs)
+  end
+
+  alias FakersApi.People.DeceasedPerson
+
+  @doc """
+  Returns the list of deceased_person.
+
+  ## Examples
+
+      iex> list_deceased_person()
+      [%DeceasedPerson{}, ...]
+
+  """
+  def list_deceased_person do
+    Repo.all(DeceasedPerson)
+  end
+
+  @doc """
+  Gets a single deceased_person.
+
+  Raises `Ecto.NoResultsError` if the Deceased person does not exist.
+
+  ## Examples
+
+      iex> get_deceased_person!(123)
+      %DeceasedPerson{}
+
+      iex> get_deceased_person!(456)
+      ** (Ecto.NoResultsError)
+
+  """
+  def get_deceased_person!(id), do: Repo.get_by!(DeceasedPerson, person_id: id)
+
+  @doc """
+  Creates a deceased_person.
+
+  ## Examples
+
+      iex> create_deceased_person(%{field: value})
+      {:ok, %DeceasedPerson{}}
+
+      iex> create_deceased_person(%{field: bad_value})
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def create_deceased_person(attrs, %Person{} = person) do
+    Ecto.build_assoc(person, :deceased_person)
+    |> DeceasedPerson.changeset(attrs)
+    |> Repo.insert()
+  end
+
+  @doc """
+  Updates a deceased_person.
+
+  ## Examples
+
+      iex> update_deceased_person(deceased_person, %{field: new_value})
+      {:ok, %DeceasedPerson{}}
+
+      iex> update_deceased_person(deceased_person, %{field: bad_value})
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def update_deceased_person(%DeceasedPerson{} = deceased_person, attrs) do
+    deceased_person
+    |> DeceasedPerson.changeset(attrs)
+    |> Repo.update()
+  end
+
+  @doc """
+  Deletes a deceased_person.
+
+  ## Examples
+
+      iex> delete_deceased_person(deceased_person)
+      {:ok, %DeceasedPerson{}}
+
+      iex> delete_deceased_person(deceased_person)
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def delete_deceased_person(%DeceasedPerson{} = deceased_person) do
+    Repo.delete(deceased_person)
+  end
+
+  @doc """
+  Returns an `%Ecto.Changeset{}` for tracking deceased_person changes.
+
+  ## Examples
+
+      iex> change_deceased_person(deceased_person)
+      %Ecto.Changeset{data: %DeceasedPerson{}}
+
+  """
+  def change_deceased_person(%DeceasedPerson{} = deceased_person, attrs \\ %{}) do
+    DeceasedPerson.changeset(deceased_person, attrs)
   end
 end

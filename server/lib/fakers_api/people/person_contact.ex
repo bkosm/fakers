@@ -7,8 +7,8 @@ defmodule FakersApi.People.PersonContact do
   schema "person_contact" do
     field :assigned, :date
 
-    belongs_to :person, Person
-    belongs_to :contact, Contact
+    belongs_to :person, Person, primary_key: true
+    belongs_to :contact, Contact, primary_key: true
   end
 
   @doc false
