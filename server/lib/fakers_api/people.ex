@@ -21,12 +21,26 @@ defmodule FakersApi.People do
     Repo.all(Person)
   end
 
-  def list_people_by_last_name(last_name) do
-    query =
-      from p in Person,
-        where: p.last_name == ^last_name
+  # %{id: id, first_name: first_name, last_name: last_name, pesel: pesel, sex: sex, birth_date: birth_date}
+  def list_people_by_filters(input_object) do
+    list_people()
+    |> filter_list_by_input_object(input_object)
+  end
 
-    Repo.all(query)
+  defp filter_list_by_input_object(list, input_object) do
+    input_object
+    |> Map.keys()
+    |> Enum.reduce(list, &filter_list_by_struct_value(&2, input_object, &1))
+  end
+
+  defp filter_list_by_struct_value(list, map, key) do
+    Enum.filter(list, fn struct ->
+      elem = Map.from_struct(struct)
+      if key == :id do
+        IO.inspect(map[key])
+      end
+      elem[key] == map[key]
+    end)
   end
 
   @doc """
@@ -45,7 +59,6 @@ defmodule FakersApi.People do
   """
   def get_person!(id), do: Repo.get!(Person, id)
   def get_person(id), do: Repo.get(Person, id)
-  def get_person_by_pesel(pesel), do: Repo.get_by(Person, pesel: pesel)
 
   @doc """
   Creates a person.

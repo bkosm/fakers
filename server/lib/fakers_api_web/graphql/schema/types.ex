@@ -44,6 +44,17 @@ defmodule FakersApiWeb.GraphQL.Schema.Types do
     field :contacts, list_of(:contact), resolve: dataloader(People)
   end
 
+  @desc "Person filter type."
+  input_object :person_filter do
+    field :id, :integer
+    field :birth_date, :date
+    field :first_name, :string
+    field :second_name, :string
+    field :last_name, :string
+    field :pesel, :string
+    field :sex, :string
+  end
+
   @desc "An object that represents an association between a person and an address."
   object :person_address do
     field :person_id, non_null(:id)

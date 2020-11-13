@@ -7,28 +7,11 @@ defmodule FakersApiWeb.GraphQL.Schema do
   import_types(Schema.Types)
 
   query do
-    @desc "Get a list of all people."
-    field :people, list_of(:person), resolve: &Resolvers.get_people/2
+    @desc "Get a list of people that match the filter."
+    field :people, list_of(:person) do
+      arg(:filter, :person_filter)
 
-    @desc "Get a list of people with given last name."
-    field :people_with_last_name, list_of(:person) do
-      arg(:last_name, non_null(:string))
-
-      resolve(&Resolvers.get_people_by_last_name/2)
-    end
-
-    @desc "Get a person with given id."
-    field :person, :person do
-      arg(:id, non_null(:id))
-
-      resolve(&Resolvers.get_person_by_id/2)
-    end
-
-    @desc "Get a person with given PESEL."
-    field :person_with_pesel, :person do
-      arg(:pesel, non_null(:string))
-
-      resolve(&Resolvers.get_person_by_pesel/2)
+      resolve(&Resolvers.get_people/2)
     end
 
     @desc "Get an address with given id."
