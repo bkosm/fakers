@@ -7,7 +7,7 @@ defmodule FakersApiWeb.Router do
   scope "/api" do
     pipe_through :graphql
 
-    forward "/", Absinthe.Plug, schema: FakersApiWeb.Schema
+    forward "/", Absinthe.Plug, schema: FakersApiWeb.GraphQL.Schema
   end
 
   # Enables LiveDashboard only for development
@@ -25,6 +25,6 @@ defmodule FakersApiWeb.Router do
       live_dashboard "/dashboard", metrics: FakersApiWeb.Telemetry
     end
 
-    forward "/graphiql", Absinthe.Plug.GraphiQL, schema: FakersApiWeb.Schema
+    forward "/graphiql", Absinthe.Plug.GraphiQL, schema: FakersApiWeb.GraphQL.Schema
   end
 end

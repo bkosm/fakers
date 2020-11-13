@@ -40,12 +40,20 @@ defmodule FakersApiWeb.GraphQL.Schema.Types do
     field :sex, :string
 
     field :addresses, list_of(:address) do
-      #TODO resolve
+      resolve(fn parent, _, _ ->
+        addresses = FakersApi.Repo.all(Ecto.assoc(parent, :addresses))
+
+        {:ok, addresses}
+      end)
       description("List of addresses that are assigned to this person.")
     end
 
     field :contacts, list_of(:contact) do
-      #TODO resolve
+      resolve(fn parent, _, _ ->
+        contacts = FakersApi.Repo.all(Ecto.assoc(parent, :contacts))
+
+        {:ok, contacts}
+      end)
       description("List of contacts that are assigned to this person.")
     end
   end

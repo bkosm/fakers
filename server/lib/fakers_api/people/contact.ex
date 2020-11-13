@@ -8,6 +8,7 @@ defmodule FakersApi.People.Contact do
     field :phone_number, :string
 
     has_many :person_contacts, PersonContact
+    has_many :people, through: [:person_contacts, :person]
   end
 
   @doc false

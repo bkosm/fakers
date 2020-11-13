@@ -10,6 +10,7 @@ defmodule FakersApi.People.Address do
     field :voivodeship, :string
 
     has_many :person_addresses, PersonAddress
+    has_many :people, through: [:person_addresses, :person]
   end
 
   @doc false
