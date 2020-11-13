@@ -24,7 +24,7 @@ defmodule FakersApi.People do
   def list_people_by_last_name(last_name) do
     query =
       from p in Person,
-      where: p.last_name == ^last_name
+        where: p.last_name == ^last_name
 
     Repo.all(query)
   end
@@ -338,6 +338,7 @@ defmodule FakersApi.People do
   def get_person_address!(person_id, address_id) do
     Repo.get_by!(PersonAddress, person_id: person_id, address_id: address_id)
   end
+
   def get_person_address(person_id, address_id) do
     Repo.get_by(PersonAddress, person_id: person_id, address_id: address_id)
   end

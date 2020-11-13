@@ -3,7 +3,7 @@ defmodule FakersApiWeb.GraphQL.Schema.Types do
   import Absinthe.Resolution.Helpers, only: [dataloader: 1]
   alias FakersApi.People
 
-  import_types Absinthe.Type.Custom
+  import_types(Absinthe.Type.Custom)
 
   @desc "An object that defines an address."
   object :address do
@@ -42,7 +42,6 @@ defmodule FakersApiWeb.GraphQL.Schema.Types do
 
     @desc "List of contacts that are assigned to this person."
     field :contacts, list_of(:contact), resolve: dataloader(People)
-
   end
 
   @desc "An object that represents an association between a person and an address."

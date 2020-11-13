@@ -4,7 +4,7 @@ defmodule FakersApiWeb.GraphQL.Schema do
   alias FakersApiWeb.GraphQL.{Resolvers, Schema}
   alias FakersApi.People
 
-  import_types Schema.Types
+  import_types(Schema.Types)
 
   query do
     @desc "Get a list of all people."
