@@ -36,6 +36,7 @@ defmodule FakersApi.People do
 
   """
   def get_person!(id), do: Repo.get!(Person, id)
+  def get_person(id), do: Repo.get(Person, id)
 
   @doc """
   Creates a person.
@@ -132,6 +133,7 @@ defmodule FakersApi.People do
 
   """
   def get_address!(id), do: Repo.get!(Address, id)
+  def get_address(id), do: Repo.get(Address, id)
 
   @doc """
   Creates a address.
@@ -228,6 +230,7 @@ defmodule FakersApi.People do
 
   """
   def get_contact!(id), do: Repo.get!(Contact, id)
+  def get_contact(id), do: Repo.get(Contact, id)
 
   @doc """
   Creates a contact.
@@ -408,6 +411,9 @@ defmodule FakersApi.People do
   def get_person_contact!(person_id, contact_id) do
     Repo.get_by!(PersonContact, person_id: person_id, contact_id: contact_id)
   end
+  def get_person_contact(person_id, contact_id) do
+    Repo.get_by(PersonContact, person_id: person_id, contact_id: contact_id)
+  end
 
   @doc """
   Creates a person_contact.
@@ -480,6 +486,7 @@ defmodule FakersApi.People do
 
   """
   def get_deceased_person!(id), do: Repo.get_by!(DeceasedPerson, person_id: id)
+  def get_deceased_person(id), do: Repo.get_by(DeceasedPerson, person_id: id)
 
   @doc """
   Creates a deceased_person.
