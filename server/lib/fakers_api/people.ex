@@ -7,6 +7,7 @@ defmodule FakersApi.People do
   alias FakersApi.Repo
 
   alias FakersApi.People.Person
+  alias FakersApi.People.DeceasedPerson
 
   @doc """
   Returns the list of people.
@@ -17,12 +18,30 @@ defmodule FakersApi.People do
       [%Person{}, ...]
 
   """
-  def list_people do
-    Repo.all(Person)
+
+  def list_people, do: Repo.all(Person)
+
+  def list_people(only_alive) do
+
+    if only_alive do
+      query =
+        from dp in DeceasedPerson,
+          right_join:  p in Person,
+          on: p.id == dp.person_id,
+          where: is_nil(dp.person_id),
+          select: p
+
+      Repo.all(query)
+      |> IO.inspect()
+    else
+      list_people()
+    end
   end
 
   def list_people_by_filters(input_object) do
-    list_people()
+    {only_alive, input_object} = Map.pop(input_object, :only_alive)
+
+    list_people(only_alive)
     |> filter_list_by_input_object(input_object)
   end
 
@@ -487,8 +506,6 @@ defmodule FakersApi.People do
   def change_person_contact(%PersonContact{} = person_contact, attrs \\ %{}) do
     PersonContact.changeset(person_contact, attrs)
   end
-
-  alias FakersApi.People.DeceasedPerson
 
   @doc """
   Returns the list of deceased_person.

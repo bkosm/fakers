@@ -53,6 +53,8 @@ defmodule FakersApiWeb.GraphQL.Schema.Types do
     field :last_name, :string
     field :pesel, :string
     field :sex, :string
+    @desc "Set to true to filter deceased people."
+    field :only_alive, :boolean, default_value: false
   end
 
   @desc "An object that represents an association between a person and an address."
