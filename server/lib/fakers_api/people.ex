@@ -324,7 +324,7 @@ defmodule FakersApi.People do
 
   """
   def get_person_address!(person_id, address_id) do
-     Repo.get_by!(PersonAddress, person_id: person_id, address_id: address_id)
+    Repo.get_by!(PersonAddress, person_id: person_id, address_id: address_id)
   end
 
   @doc """
@@ -406,9 +406,9 @@ defmodule FakersApi.People do
 
   """
   def get_person_contact!(person_id, contact_id) do
-     Repo.get_by!(PersonContact, person_id: person_id, contact_id: contact_id)
+    Repo.get_by!(PersonContact, person_id: person_id, contact_id: contact_id)
   end
-  
+
   @doc """
   Creates a person_contact.
 
