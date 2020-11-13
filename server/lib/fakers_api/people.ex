@@ -21,13 +21,21 @@ defmodule FakersApi.People do
     Repo.all(Person)
   end
 
-  # %{id: id, first_name: first_name, last_name: last_name, pesel: pesel, sex: sex, birth_date: birth_date}
   def list_people_by_filters(input_object) do
     list_people()
     |> filter_list_by_input_object(input_object)
   end
 
-  defp filter_list_by_input_object(list, input_object) do
+  @doc """
+  Filters a list of structs leaving out only those that values match these given in input_object.
+
+  ## Examples
+
+      iex> filter_list_by_input_object([%S{id: 2}, %S{id: 4}], %{id: 2})
+      [%S{id: 2}]
+
+  """
+  def filter_list_by_input_object(list, input_object) do
     input_object
     |> Map.keys()
     |> Enum.reduce(list, &filter_list_by_struct_value(&2, input_object, &1))
@@ -36,9 +44,6 @@ defmodule FakersApi.People do
   defp filter_list_by_struct_value(list, map, key) do
     Enum.filter(list, fn struct ->
       elem = Map.from_struct(struct)
-      if key == :id do
-        IO.inspect(map[key])
-      end
       elem[key] == map[key]
     end)
   end
