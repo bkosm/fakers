@@ -329,6 +329,9 @@ defmodule FakersApi.People do
   def get_person_address!(person_id, address_id) do
     Repo.get_by!(PersonAddress, person_id: person_id, address_id: address_id)
   end
+  def get_person_address(person_id, address_id) do
+    Repo.get_by(PersonAddress, person_id: person_id, address_id: address_id)
+  end
 
   @doc """
   Creates a person_address.
@@ -552,16 +555,5 @@ defmodule FakersApi.People do
   """
   def change_deceased_person(%DeceasedPerson{} = deceased_person, attrs \\ %{}) do
     DeceasedPerson.changeset(deceased_person, attrs)
-  end
-
-
-  @doc """
-  Dataloader helper function
-
-  """
-  def data, do: Dataloader.Ecto.new(Repo, query: &query/2)
-
-  def query(queryable, _params) do
-    queryable
   end
 end
