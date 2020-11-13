@@ -1,6 +1,10 @@
 defmodule FakersApiWeb.Schema.Types do
   use Absinthe.Schema.Notation
 
+  import Absinthe.Resolution.Helpers, only: [dataloader: 1]
+
+  alias FakersApi.People
+
   @desc "An object that defines an address."
   object :address do
     field :id, :id
@@ -18,7 +22,9 @@ defmodule FakersApiWeb.Schema.Types do
     field :email, :string
     field :phone_number, :string
 
-    field :people, list_of(:person), description: "List of people reachable with this contact."
+    field :people, list_of(:person),
+      resolve: dataloader(People.Person),
+      description: "List of people reachable with this contact."
   end
 
   @desc "An object that defines a person."
@@ -32,9 +38,11 @@ defmodule FakersApiWeb.Schema.Types do
     field :sex, :string
 
     field :addresses, list_of(:address),
+      resolve: dataloader(People.Address),
       description: "List of addresses that are assigned to this person."
 
     field :contacts, list_of(:contact),
+      resolve: dataloader(People.Contact),
       description: "List of contacts that are assigned to this person."
   end
 end
