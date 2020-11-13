@@ -25,6 +25,6 @@ defmodule FakersApiWeb.Router do
       live_dashboard "/dashboard", metrics: FakersApiWeb.Telemetry
     end
 
-    forward "/graphiql", Absinthe.Plug.GraphiQL, schema: FakersApiWeb.GraphQL.Schema
+    forward "/", Absinthe.Plug.GraphiQL, schema: FakersApiWeb.GraphQL.Schema
   end
 end

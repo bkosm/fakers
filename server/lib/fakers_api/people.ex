@@ -21,6 +21,14 @@ defmodule FakersApi.People do
     Repo.all(Person)
   end
 
+  def list_people_by_last_name(last_name) do
+    query =
+      from p in Person,
+      where: p.last_name == ^last_name
+
+    Repo.all(query)
+  end
+
   @doc """
   Gets a single person.
 
@@ -37,6 +45,7 @@ defmodule FakersApi.People do
   """
   def get_person!(id), do: Repo.get!(Person, id)
   def get_person(id), do: Repo.get(Person, id)
+  def get_person_by_pesel(pesel), do: Repo.get_by(Person, pesel: pesel)
 
   @doc """
   Creates a person.
@@ -555,5 +564,19 @@ defmodule FakersApi.People do
   """
   def change_deceased_person(%DeceasedPerson{} = deceased_person, attrs \\ %{}) do
     DeceasedPerson.changeset(deceased_person, attrs)
+  end
+
+  @doc """
+  Dataloader initalizer.
+
+  """
+  def data, do: Dataloader.Ecto.new(Repo, query: &query/2)
+
+  @doc """
+  Generic dataloader handler.
+
+  """
+  def query(queryable, _params) do
+    queryable
   end
 end
