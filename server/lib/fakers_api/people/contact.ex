@@ -7,7 +7,7 @@ defmodule FakersApi.People.Contact do
     field :email, :string
     field :phone_number, :string
 
-    has_many :person_contacts, PersonContact, on_delete: :delete_all
+    has_many :person_contacts, PersonContact
   end
 
   @doc false

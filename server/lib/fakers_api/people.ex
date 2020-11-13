@@ -411,6 +411,7 @@ defmodule FakersApi.People do
   def get_person_contact!(person_id, contact_id) do
     Repo.get_by!(PersonContact, person_id: person_id, contact_id: contact_id)
   end
+
   def get_person_contact(person_id, contact_id) do
     Repo.get_by(PersonContact, person_id: person_id, contact_id: contact_id)
   end
