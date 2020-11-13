@@ -9,6 +9,8 @@ function Info() {
         <li>Bartosz Kosmala</li>
         <li>Hubert Knioła</li>
         <li>Roch Goszczyński</li>
+        <li>Mateusz Kuźniak</li>
+        <li>Jordan Kondracki</li>
       </ul>
     </article>
   );
