@@ -1,12 +1,14 @@
 defmodule FakersApiWeb.Router do
   use FakersApiWeb, :router
 
-  pipeline :api do
-    plug :accepts, ["json"]
+  pipeline :graphql do
+
   end
 
-  scope "/api", FakersApiWeb do
-    pipe_through :api
+  scope "/api" do
+    pipe_through :graphql
+
+    forward "/", Absinthe.Plug, schema: FakersApiWeb.Schema
   end
 
   # Enables LiveDashboard only for development
@@ -16,12 +18,14 @@ defmodule FakersApiWeb.Router do
   # If your application does not have an admins-only section yet,
   # you can use Plug.BasicAuth to set up some basic authentication
   # as long as you are also using SSL (which you should anyway).
-  if Mix.env() in [:dev, :test] do
+  if Mix.env()  == :dev do
     import Phoenix.LiveDashboard.Router
 
     scope "/" do
       pipe_through [:fetch_session, :protect_from_forgery]
       live_dashboard "/dashboard", metrics: FakersApiWeb.Telemetry
     end
+
+    forward "/graphiql", Absinthe.Plug.GraphiQL, schema: FakersApiWeb.Schema
   end
 end
