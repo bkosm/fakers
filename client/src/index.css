@@ -355,14 +355,28 @@ textarea {
   margin-bottom: 0;
 }
 
+.connectButton{
+  height: 33px;
+  border-radius: 5px;
+  background-color: #a8a8a8;
+  border: 1px black solid;
+  position: fixed; 
+  bottom: 5px; 
+  right: 5px;
+}
+
+.connectButton:hover{
+  background-color: #4b4b4b;
+}
+
 .windowInput {
   flex: 1;
   height: 70px;
   background-color: rgb(97, 97, 97);
   align-self: flex-end;
   position: fixed; 
-  bottom: -20px; 
-  right: 70px;
+  bottom: -30px; 
+  right: 130px;
 }
 
 .windowOutput {
