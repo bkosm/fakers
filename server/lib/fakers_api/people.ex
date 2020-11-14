@@ -45,6 +45,7 @@ defmodule FakersApi.People do
     |> filter_list_by_input_object(input_object)
   end
 
+  @spec filter_list_by_input_object(List.t(), Map.t()) :: List.t()
   @doc """
   Filters a list of structs leaving out only those that values match these given in input_object.
 
