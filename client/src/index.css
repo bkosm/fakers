@@ -76,6 +76,14 @@ code {
   background: none #4b4b4b !important;
 }
 
+.historyPaneWrap{
+  color: black;
+}
+
+.history-title{
+  padding: 3px 0 3px 3px !important;
+}
+
 .doc-explorer-title-bar {
   padding: 3px 0 3px 3px !important;
   background: none #4b4b4b !important;
@@ -334,19 +342,27 @@ ul {
 }
 
 textarea {
-  width: 100%;
-  height: 100%;
-  padding: 20px 20px;
+  width: 130%;
+  height: 50%;
+  padding: 7px 7px;
   box-sizing: border-box;
   border: 1px black solid;
   border-radius: 10px;
-  background-color: aquamarine;
+  background-color: #a8a8a8;
+  color: black;
   resize: none;
+  margin-right: 0;
+  margin-bottom: 0;
 }
 
 .windowInput {
   flex: 1;
-  height: 40%;
+  height: 70px;
+  background-color: rgb(97, 97, 97);
+  align-self: flex-end;
+  position: fixed; 
+  bottom: -20px; 
+  right: 70px;
 }
 
 .windowOutput {
