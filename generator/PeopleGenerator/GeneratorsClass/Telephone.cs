@@ -17,11 +17,18 @@ namespace GeneratorsClass
         static int _endPointNumber = 9999999;
         static int[] _numberArray;
 
+        /// <summary>
+        /// Konstruktor statyczny, wywołuje się tylko raz
+        /// </summary>
         static Telephone()
         {
             _numberArray = _generateNumber();
         }
 
+        /// <summary>
+        /// Generuje wszystkie możliwe numery 
+        /// </summary>
+        /// <returns></returns>
         static int[] _generateNumber()
         {
             int wst = 0;
@@ -35,11 +42,20 @@ namespace GeneratorsClass
             return tab;
         }
 
+        /// <summary>
+        /// Zamienia bieżący numer na miejsce[index końcowy - index bieżący]
+        /// </summary>
+        /// <param name="index"></param>
+        /// <param name="increment"></param>
         static void _changeNumber(int index, int increment)
         {
             _numberArray[index] = _numberArray[_numberArray.Length - increment];
         }
 
+        /// <summary>
+        /// Zmniejsza wielkość tablicy numerów o ilość pobranych numerów
+        /// </summary>
+        /// <param name="howMuch"></param>
         static void _changeArraySize(int howMuch)
         {
             using(var myInt = new MyInt(_numberArray.Length - howMuch))
@@ -52,6 +68,11 @@ namespace GeneratorsClass
             }
         }
 
+        /// <summary>
+        /// Generuje określoną liczbę numerów telefonu
+        /// </summary>
+        /// <param name="howMuch"></param>
+        /// <returns></returns>
         public static int[] _getMultipleNumbers(int howMuch)
         {
             using (var tab = new MyInt(howMuch))
