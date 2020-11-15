@@ -1,16 +1,15 @@
 ﻿using System;
 using System.ComponentModel;
 
+
 /* url do poczytania: https://docs.microsoft.com/en-us/dotnet/api/system.idisposable?view=net-5.0 */
 
 namespace ExternalAPI
 {
-    public class PersonFromAPI : IDisposable
+    public sealed class PersonFromAPI : DisposableElement.Disposable
     {
         #region IMPELEMEN_IDISPOSABLE
-        IntPtr _handle;
-        Component _component = new Component();
-        bool _disposed = false;
+
         #endregion
 
         #region VARIABLE_PERSONAL_DATA
@@ -54,40 +53,10 @@ namespace ExternalAPI
 
         #endregion
 
-        #region DISPOSE
-        public void Dispose()
-        {
-            Dispose(true);
-            GC.SuppressFinalize(this);
-        }
-
-        protected virtual void Dispose(bool disposing)
-        {
-            if (!_disposed)
-            {
-
-                if (disposing)
-                {
-                    _component.Dispose();
-                }
-
-                CloseHandle(_handle);
-                _handle = IntPtr.Zero;
-
-                _disposed = true;
-            }
-        }
-
-        [System.Runtime.InteropServices.DllImport("Kernel32")]
-        private extern static Boolean CloseHandle(IntPtr handle);
-        #endregion
-
         ~PersonFromAPI()
         {
             Dispose(false);
         }
-
-
 
     }
 }
