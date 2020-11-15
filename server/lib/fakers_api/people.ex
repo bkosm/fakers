@@ -22,7 +22,6 @@ defmodule FakersApi.People do
   def list_people, do: Repo.all(Person)
 
   def list_people(only_alive) do
-
     if only_alive do
       query =
         from dp in DeceasedPerson,
@@ -32,7 +31,6 @@ defmodule FakersApi.People do
           select: p
 
       Repo.all(query)
-      |> IO.inspect()
     else
       list_people()
     end
