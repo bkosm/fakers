@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "crgyTQZa8GOlxEdMJBsnQtJ8IJWNdWdAYkTqrILWI77k0Q9l4QhAN3Cd306hM4RDFZkggYVUhGcXHuBppZ8yUQ==",
+  "dgSpecHash": "co1vW141gHnLyFoBKBKfhzkJyvyKyCZzwHW444UFfuUkp75p5MmihKjYBXxnQ3Vg6BwFjpc/FZbe9gCQsIB+eg==",
   "success": true,
   "projectFilePath": "C:\\Users\\Mateusz Kuźniak\\VisualStudio2019 - Student Project\\fakerGenerator\\fakers\\generator\\PeopleGenerator\\Database\\Database.csproj",
   "expectedPackageFiles": [
@@ -9,7 +9,6 @@
     "C:\\Users\\Mateusz Kuźniak\\.nuget\\packages\\microsoft.netcore.platforms\\3.0.0\\microsoft.netcore.platforms.3.0.0.nupkg.sha512",
     "C:\\Users\\Mateusz Kuźniak\\.nuget\\packages\\microsoft.win32.registry\\4.6.0\\microsoft.win32.registry.4.6.0.nupkg.sha512",
     "C:\\Users\\Mateusz Kuźniak\\.nuget\\packages\\microsoft.win32.systemevents\\4.6.0\\microsoft.win32.systemevents.4.6.0.nupkg.sha512",
-    "C:\\Users\\Mateusz Kuźniak\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512",
     "C:\\Users\\Mateusz Kuźniak\\.nuget\\packages\\runtime.native.system.data.sqlclient.sni\\4.6.0\\runtime.native.system.data.sqlclient.sni.4.6.0.nupkg.sha512",
     "C:\\Users\\Mateusz Kuźniak\\.nuget\\packages\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
     "C:\\Users\\Mateusz Kuźniak\\.nuget\\packages\\runtime.win-x64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",

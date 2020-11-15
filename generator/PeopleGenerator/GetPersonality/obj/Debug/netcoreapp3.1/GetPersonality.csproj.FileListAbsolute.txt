@@ -2,3 +2,4 @@ C:\Users\Mateusz Kuźniak\VisualStudio2019 - Student Project\fakerGenerator\fake
 C:\Users\Mateusz Kuźniak\VisualStudio2019 - Student Project\fakerGenerator\fakers\generator\PeopleGenerator\GetPersonality\bin\Debug\netcoreapp3.1\GetPersonality.dll
 C:\Users\Mateusz Kuźniak\VisualStudio2019 - Student Project\fakerGenerator\fakers\generator\PeopleGenerator\GetPersonality\obj\Debug\netcoreapp3.1\GetPersonality.AssemblyInfoInputs.cache
 C:\Users\Mateusz Kuźniak\VisualStudio2019 - Student Project\fakerGenerator\fakers\generator\PeopleGenerator\GetPersonality\obj\Debug\netcoreapp3.1\GetPersonality.AssemblyInfo.cs
+C:\Users\Mateusz Kuźniak\VisualStudio2019 - Student Project\fakerGenerator\fakers\generator\PeopleGenerator\GetPersonality\obj\Debug\netcoreapp3.1\GetPersonality.csprojAssemblyReference.cache

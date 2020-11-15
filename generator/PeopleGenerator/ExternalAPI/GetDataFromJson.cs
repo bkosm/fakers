@@ -5,14 +5,26 @@ using System.Net;
 using System.Runtime.CompilerServices;
 using System.Security.Cryptography.X509Certificates;
 
-/*url do poczytania = https://www.codeproject.com/Tips/397574/Use-Csharp-to-get-JSON-Data-from-the-Web-and-Map-i */
+/*
+ * url do poczytania = https://www.codeproject.com/Tips/397574/Use-Csharp-to-get-JSON-Data-from-the-Web-and-Map-i 
+ * https://www.codeproject.com/Tips/397574/Use-Csharp-to-get-JSON-Data-from-the-Web-and-Map-i
+ * 
+ */
+
+/*HOW TO USE
+    List<ClearDataPerson> persons = new List<ClearDataPerson>();
+    persons.Add(GetDataFromJson.GetClearPerson(Gender.RANDOM));
+    Thread.Sleep(10);
+ */
 
 namespace ExternalAPI
 {
     public enum Gender { MALE, FEMALE, RANDOM};
     public static class GetDataFromJson
     {
-        private static string _url = @"https://api.namefake.com/polish-poland/";
+        private static string _randomPeopleUrl = @"https://api.namefake.com/polish-poland/";
+        private static string _geoUrl = @"https://api.geoapify.com/v1/geocode/search?text=";
+        private static string _geoKEY = "&apiKey=78cad425e0b745aaaf94c02f457ed95a";
         private static T _download_serialized_json_data<T>(string url) where T : new()
         {
             using (var w = new WebClient())
@@ -37,13 +49,20 @@ namespace ExternalAPI
             return person;
         }
 
-        public static ClearDataPerson GetClearPerson(Gender gender)
+        public static ClearDataPerson getClearPerson(Gender gender)
         {
-            using (var person = _download_serialized_json_data<PersonFromAPI>(_url + ((gender == Gender.MALE) ? "male/" : ((gender == Gender.FEMALE) ? "female/" : ""))))
+            using (var person = _download_serialized_json_data<PersonFromAPI>(_randomPeopleUrl + ((gender == Gender.MALE) ? "male/" : ((gender == Gender.FEMALE) ? "female/" : ""))))
             {
 
                 return _skipTitle(new ClearDataPerson(person.name, person.address));
             }
         }
+
+        public static  GeoAPI getGeo(string city, string street)
+        {
+            return _download_serialized_json_data<GeoAPI>($"{_geoUrl}{street},{city}{_geoKEY}");
+        }
+
+
     }
 }

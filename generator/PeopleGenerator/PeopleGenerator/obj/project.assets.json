@@ -465,10 +465,21 @@
           }
         }
       },
+      "DisposableElement/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "compile": {
+          "bin/placeholder/DisposableElement.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DisposableElement.dll": {}
+        }
+      },
       "ExternalAPI/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
+          "DisposableElement": "1.0.0",
           "Newtonsoft.Json": "12.0.3"
         },
         "compile": {
@@ -478,14 +489,17 @@
           "bin/placeholder/ExternalAPI.dll": {}
         }
       },
-      "TerytUslugaWs1/1.0.0": {
+      "GeneratorsClass/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "Newtonsoft.Json": "12.0.3"
+        },
         "compile": {
-          "bin/placeholder/TerytUslugaWs1.dll": {}
+          "bin/placeholder/GeneratorsClass.dll": {}
         },
         "runtime": {
-          "bin/placeholder/TerytUslugaWs1.dll": {}
+          "bin/placeholder/GeneratorsClass.dll": {}
         }
       }
     }
@@ -2739,26 +2753,31 @@
         "version.txt"
       ]
     },
+    "DisposableElement/1.0.0": {
+      "type": "project",
+      "path": "../DisposableElement/DisposableElement.csproj",
+      "msbuildProject": "../DisposableElement/DisposableElement.csproj"
+    },
     "ExternalAPI/1.0.0": {
       "type": "project",
       "path": "../ExternalAPI/ExternalAPI.csproj",
       "msbuildProject": "../ExternalAPI/ExternalAPI.csproj"
     },
-    "TerytUslugaWs1/1.0.0": {
+    "GeneratorsClass/1.0.0": {
       "type": "project",
-      "path": "../TerytUslugaWs1/TerytUslugaWs1.csproj",
-      "msbuildProject": "../TerytUslugaWs1/TerytUslugaWs1.csproj"
+      "path": "../GeneratorsClass/GeneratorsClass.csproj",
+      "msbuildProject": "../GeneratorsClass/GeneratorsClass.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
       "ExternalAPI >= 1.0.0",
+      "GeneratorsClass >= 1.0.0",
       "Microsoft.Extensions.ApiDescription.Client >= 3.0.0",
       "NSwag.ApiDescription.Client >= 13.0.5",
       "Newtonsoft.Json >= 12.0.3",
       "System.Data.SQLite >= 1.0.113.6",
-      "System.ServiceModel.Primitives >= 4.8.0",
-      "TerytUslugaWs1 >= 1.0.0"
+      "System.ServiceModel.Primitives >= 4.8.0"
     ]
   },
   "packageFolders": {
@@ -2790,8 +2809,8 @@
             "C:\\Users\\Mateusz Kuźniak\\VisualStudio2019 - Student Project\\fakerGenerator\\fakers\\generator\\PeopleGenerator\\ExternalAPI\\ExternalAPI.csproj": {
               "projectPath": "C:\\Users\\Mateusz Kuźniak\\VisualStudio2019 - Student Project\\fakerGenerator\\fakers\\generator\\PeopleGenerator\\ExternalAPI\\ExternalAPI.csproj"
             },
-            "C:\\Users\\Mateusz Kuźniak\\VisualStudio2019 - Student Project\\fakerGenerator\\fakers\\generator\\PeopleGenerator\\TerytUslugaWs1\\TerytUslugaWs1.csproj": {
-              "projectPath": "C:\\Users\\Mateusz Kuźniak\\VisualStudio2019 - Student Project\\fakerGenerator\\fakers\\generator\\PeopleGenerator\\TerytUslugaWs1\\TerytUslugaWs1.csproj"
+            "C:\\Users\\Mateusz Kuźniak\\VisualStudio2019 - Student Project\\fakerGenerator\\fakers\\generator\\PeopleGenerator\\GeneratorsClass\\GeneratorsClass.csproj": {
+              "projectPath": "C:\\Users\\Mateusz Kuźniak\\VisualStudio2019 - Student Project\\fakerGenerator\\fakers\\generator\\PeopleGenerator\\GeneratorsClass\\GeneratorsClass.csproj"
             }
           }
         }

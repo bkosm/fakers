@@ -21,7 +21,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ExternalAPI\ExternalAPI.csproj" />
-    <ProjectReference Include="..\TerytUslugaWs1\TerytUslugaWs1.csproj" />
+    <ProjectReference Include="..\GeneratorsClass\GeneratorsClass.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "9nfTACl3qW6wwEFulzozQaiOJkUj09+tV3MD83966wgGClfJ9QKfApIMnTlI+8DlhFzEX7kRfDoIIm25Ir5Ing==",
+  "dgSpecHash": "omyJsMhlfe14Z8Em1xfeABWgg0QCLmHzL0NMHJmLtYqHFJJBpWA4huNIkCXOTrxITXCeg0q0StMtLdUQvDzPOw==",
   "success": true,
   "projectFilePath": "C:\\Users\\Mateusz Kuźniak\\VisualStudio2019 - Student Project\\fakerGenerator\\fakers\\generator\\PeopleGenerator\\GeneratorsClass\\GeneratorsClass.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Mateusz Kuźniak\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512"
+  ],
   "logs": []
 }

@@ -10,6 +10,16 @@
         "runtime": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {}
         }
+      },
+      "DisposableElement/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "compile": {
+          "bin/placeholder/DisposableElement.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/DisposableElement.dll": {}
+        }
       }
     }
   },
@@ -44,10 +54,16 @@
         "newtonsoft.json.nuspec",
         "packageIcon.png"
       ]
+    },
+    "DisposableElement/1.0.0": {
+      "type": "project",
+      "path": "../DisposableElement/DisposableElement.csproj",
+      "msbuildProject": "../DisposableElement/DisposableElement.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
+      "DisposableElement >= 1.0.0",
       "Newtonsoft.Json >= 12.0.3"
     ]
   },
@@ -76,7 +92,11 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\Mateusz Kuźniak\\VisualStudio2019 - Student Project\\fakerGenerator\\fakers\\generator\\PeopleGenerator\\DisposableElement\\DisposableElement.csproj": {
+              "projectPath": "C:\\Users\\Mateusz Kuźniak\\VisualStudio2019 - Student Project\\fakerGenerator\\fakers\\generator\\PeopleGenerator\\DisposableElement\\DisposableElement.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
