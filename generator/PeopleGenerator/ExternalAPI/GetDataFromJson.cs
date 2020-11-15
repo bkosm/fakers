@@ -58,9 +58,14 @@ namespace ExternalAPI
             }
         }
 
-        public static  GeoAPI getGeo(string city, string street)
+        public static  ClearGeoAPI getGeo(string city, string street)
         {
-            return _download_serialized_json_data<GeoAPI>($"{_geoUrl}{street},{city}{_geoKEY}");
+            using (var place = _download_serialized_json_data<GeoAPI>($"{_geoUrl}{street},{city}{_geoKEY}"))
+            {
+                return new ClearGeoAPI(place.features[0].properties.city, place.features[0].properties.street, place.features[0].properties.postcode,
+                                       place.features[0].properties.state, place.features[0].properties.country, place.features[0].properties.lon.ToString(),
+                                       place.features[0].properties.lat.ToString());
+            }
         }
 
 
