@@ -17,7 +17,14 @@ defmodule FakersApiWeb.GraphQL.Schema.Types.Objects do
     field :people, list_of(:person), resolve: dataloader(People)
 
     @desc "List of person association defining objects."
-    field :person_addresses, list_of(:person_address), resolve: dataloader(People)
+    field :person_addresses, list_of(:person_address) do
+      @desc "Sorting order for 'assigned' field."
+      arg(:sort, :sort_order)
+      @desc "Limit amount of pulled associations."
+      arg(:limit, :integer)
+
+      resolve(dataloader(People))
+    end
   end
 
   @desc "An object that defines a contact."
@@ -30,7 +37,15 @@ defmodule FakersApiWeb.GraphQL.Schema.Types.Objects do
     field :people, list_of(:person), resolve: dataloader(People)
 
     @desc "List of person association defining objects."
-    field :person_contacts, list_of(:person_contact), resolve: dataloader(People)
+    @desc "List of person association defining objects."
+    field :person_contact, list_of(:person_contact) do
+      @desc "Sorting order for 'assigned' field."
+      arg(:sort, :sort_order)
+      @desc "Limit amount of pulled associations."
+      arg(:limit, :integer)
+
+      resolve(dataloader(People))
+    end
   end
 
   @desc "An object that defines a person."
@@ -84,6 +99,7 @@ defmodule FakersApiWeb.GraphQL.Schema.Types.Objects do
 
     @desc "The associated address."
     field :address, list_of(:address), resolve: dataloader(People)
+
   end
 
   @desc "An object that represents an association between a person and a contact."

@@ -29,17 +29,17 @@ defmodule FakersApiWeb.GraphQL.Schema.Types.Filters do
 
   @desc "Address filter type. Matches equal values."
   input_object :address_filter do
-    field :id, non_null(:id)
-    field :city, non_null(:string)
-    field :location, non_null(:string)
-    field :street, non_null(:string)
-    field :voivodeship, non_null(:string)
+    field :id, :integer
+    field :city, :string
+    field :location, :string
+    field :street, :string
+    field :voivodeship, :string
   end
 
   @desc "Contact filter type. Matches equal values."
   input_object :contact_filter do
-    field :id, non_null(:id)
-    field :email, non_null(:string)
+    field :id, :integer
+    field :email, :string
     field :phone_number, :string
   end
 end

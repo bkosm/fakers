@@ -26,14 +26,14 @@ defmodule FakersApiWeb.GraphQL.Schema do
     end
 
     @desc "Get an address with given id."
-    field :addresses, :address do
+    field :addresses, list_of(:address) do
       arg(:filter, :address_filter)
 
       resolve(&Query.get_addresses/2)
     end
 
     @desc "Get a contact with given id."
-    field :contacts, :contact do
+    field :contacts, list_of(:contact) do
       arg(:filter, :contact_filter)
 
       resolve(&Query.get_contacts/2)

@@ -60,17 +60,6 @@ defmodule FakersApi.People do
     |> Repo.all()
   end
 
-  defp do_filter_query(params, query, filter_expr, select_list, select_table) do
-    params
-    |> to_keyword_list()
-    |> Enum.reduce(query, fn {key, value}, query ->
-        filter_expr.(query, key, value)
-
-        #from ^select_list in query, where: field(^filtered_table, ^key) == ^value
-    end)
-    |> select(^select_list, ^select_table)
-  end
-
   @doc """
   Gets a single person.
 
@@ -168,8 +157,13 @@ defmodule FakersApi.People do
     Repo.all(Address)
   end
 
-  def list_addresses_by_filters(filters) do
-
+  def list_addresses_by_filters(input_object) do
+    input_object
+    |> to_keyword_list()
+    |> Enum.reduce(Address, fn {key, value}, query ->
+      from p in query, where: field(p, ^key) == ^value
+    end)
+    |> Repo.all()
   end
 
   @doc """
@@ -269,8 +263,13 @@ defmodule FakersApi.People do
     Repo.all(Contact)
   end
 
-  def list_contacts_by_filters(filters) do
-
+  def list_contacts_by_filters(input_object) do
+    input_object
+    |> to_keyword_list()
+    |> Enum.reduce(Address, fn {key, value}, query ->
+      from p in query, where: field(p, ^key) == ^value
+    end)
+    |> Repo.all()
   end
 
   @doc """
