@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "chkHCbSP2GxN3lV4F9G0XwAkW7t9fE6pMEK8UdcNHFndjCiXxhALp3KmBxgUFl3EwyuCd8NuqnBtxS2kozORVw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Mateusz Kuźniak\\VisualStudio2019 - Student Project\\fakerGenerator\\fakers\\generator\\PeopleGenerator\\ExternalAPI\\ExternalAPI.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Mateusz Kuźniak\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
