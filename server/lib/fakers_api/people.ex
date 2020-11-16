@@ -21,25 +21,23 @@ defmodule FakersApi.People do
 
   def list_people, do: Repo.all(Person)
 
-  def list_people(only_alive) do
-    if only_alive do
-      query =
-        from dp in DeceasedPerson,
-          right_join:  p in Person,
-          on: p.id == dp.person_id,
-          where: is_nil(dp.person_id),
-          select: p
+  def list_people_by_filters(%{only_alive: only_alive} = input_object) when only_alive do
+    input_object = Map.delete(input_object, :only_alive)
 
-      Repo.all(query)
-    else
-      list_people()
-    end
+    query =
+      from dp in DeceasedPerson,
+        right_join: p in Person,
+        on: p.id == dp.person_id,
+        where: is_nil(dp.person_id),
+        select: p
+
+    query
+    |> Repo.all()
+    |> filter_list_by_input_object(input_object)
   end
 
   def list_people_by_filters(input_object) do
-    {only_alive, input_object} = Map.pop(input_object, :only_alive)
-
-    list_people(only_alive)
+    list_people()
     |> filter_list_by_input_object(input_object)
   end
 
@@ -515,8 +513,25 @@ defmodule FakersApi.People do
       [%DeceasedPerson{}, ...]
 
   """
-  def list_deceased_person do
+  def list_deceased_people do
     Repo.all(DeceasedPerson)
+  end
+
+  def list_deceased_people_by_filters(%{date_of_death: date_of_death} = input_object) do
+    query =
+      from p in DeceasedPerson,
+        where: p.date_of_death == ^date_of_death
+
+    input_object = Map.delete(input_object, :date_of_death)
+
+    query
+    |> Repo.all()
+    |> filter_list_by_input_object(input_object)
+  end
+
+  def list_deceased_people_by_filters(input_object) do
+    list_deceased_people()
+    |> filter_list_by_input_object(input_object)
   end
 
   @doc """

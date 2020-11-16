@@ -15,6 +15,9 @@ defmodule FakersApiWeb.GraphQL.Schema.Types do
 
     @desc "List of people assigned to this address."
     field :people, list_of(:person), resolve: dataloader(People)
+
+    @desc "List of person association defining objects."
+    field :person_addresses, list_of(:person_address), resolve: dataloader(People)
   end
 
   @desc "An object that defines a contact."
@@ -25,6 +28,9 @@ defmodule FakersApiWeb.GraphQL.Schema.Types do
 
     @desc "List of people reachable with this contact info."
     field :people, list_of(:person), resolve: dataloader(People)
+
+    @desc "List of person association defining objects."
+    field :person_contacts, list_of(:person_contact), resolve: dataloader(People)
   end
 
   @desc "An object that defines a person."
@@ -42,9 +48,15 @@ defmodule FakersApiWeb.GraphQL.Schema.Types do
 
     @desc "List of contacts that are assigned to this person."
     field :contacts, list_of(:contact), resolve: dataloader(People)
+
+    @desc "List of address association defining objects."
+    field :person_addresses, list_of(:person_address), resolve: dataloader(People)
+
+    @desc "List of contact association defining objects."
+    field :person_contacts, list_of(:person_contact), resolve: dataloader(People)
   end
 
-  @desc "Person filter type."
+  @desc "Person filter type. Matches equal values."
   input_object :person_filter do
     field :id, :integer
     field :birth_date, :date
@@ -53,6 +65,7 @@ defmodule FakersApiWeb.GraphQL.Schema.Types do
     field :last_name, :string
     field :pesel, :string
     field :sex, :string
+
     @desc "Set to true to filter deceased people."
     field :only_alive, :boolean, default_value: false
   end
@@ -89,6 +102,18 @@ defmodule FakersApiWeb.GraphQL.Schema.Types do
     field :date_of_death, non_null(:date)
 
     @desc "The person's profile."
-    field :person, list_of(:person), resolve: dataloader(People)
+    field :person, non_null(:person), resolve: dataloader(People)
+  end
+
+  @desc "Deceased person filter type. Matches equal values."
+  input_object :deceased_person_filter do
+    field :id, :integer
+    field :birth_date, :date
+    field :first_name, :string
+    field :second_name, :string
+    field :last_name, :string
+    field :pesel, :string
+    field :sex, :string
+    field :date_of_death, :date
   end
 end

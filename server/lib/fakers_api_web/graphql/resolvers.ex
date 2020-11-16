@@ -9,6 +9,14 @@ defmodule FakersApiWeb.GraphQL.Resolvers do
     {:ok, Context.list_people()}
   end
 
+  def get_deceased_people(%{filter: filters}, _) do
+    {:ok, Context.list_deceased_people_by_filters(filters)}
+  end
+
+  def get_deceased_people(_, _) do
+    {:ok, Context.list_deceased_people()}
+  end
+
   def get_address(%{id: id}, _) do
     case Context.get_address(id) do
       nil ->

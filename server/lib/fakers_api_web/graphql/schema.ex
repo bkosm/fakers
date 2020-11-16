@@ -14,6 +14,13 @@ defmodule FakersApiWeb.GraphQL.Schema do
       resolve(&Resolvers.get_people/2)
     end
 
+    @desc "Get a list of deceased people that match the filter."
+    field :deceased_people, list_of(:deceased_person) do
+      arg(:filter, :deceased_person_filter)
+
+      resolve(&Resolvers.get_deceased_people/2)
+    end
+
     @desc "Get an address with given id."
     field :address, :address do
       arg(:id, non_null(:id))
@@ -45,5 +52,5 @@ defmodule FakersApiWeb.GraphQL.Schema do
   Add dataloader do Absinthe plugins.
 
   """
-  def plugins, do: [Absinthe.Middleware.Dataloader] ++ Absinthe.Plugin.defaults()
+  def plugins, do: [Absinthe.Middleware.Dataloader | Absinthe.Plugin.defaults()]
 end
