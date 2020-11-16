@@ -601,24 +601,35 @@ defmodule FakersApi.People do
   def data, do: Dataloader.Ecto.new(Repo, query: &query/2)
 
   def query(PersonAddress, %{sort_order: order, limit: limit}) when limit > 0 do
-    order_by = [{order, :assigned}]
-
-    from pa in PersonAddress, order_by: ^order_by, limit: ^limit
+    PersonAddress
+    |> order_by(^[{order, :assigned}])
+    |> limit(^limit)
   end
 
   def query(PersonAddress, %{limit: limit}) when limit > 0 do
-    from pa in PersonAddress, limit: ^limit
+    PersonAddress
+    |> limit(^limit)
   end
 
   def query(PersonAddress, %{sort_order: order}) do
-    order_by = [{order, :assigned}]
-
-    from pa in PersonAddress, order_by: ^order_by
+    PersonAddress
+    |> order_by(^[{order, :assigned}])
   end
 
-  def query(PersonContact, params) do
-    IO.puts("pc")
-    params |> IO.inspect()
+  def query(PersonContact, %{sort_order: order, limit: limit}) when limit > 0 do
+    PersonContact
+    |> order_by(^[{order, :assigned}])
+    |> limit(^limit)
+  end
+
+  def query(PersonContact, %{limit: limit}) when limit > 0 do
+    PersonContact
+    |> limit(^limit)
+  end
+
+  def query(PersonContact, %{sort_order: order}) do
+    PersonContact
+    |> order_by(^[{order, :assigned}])
   end
 
   @doc """
