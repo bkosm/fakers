@@ -1,4 +1,4 @@
-defmodule FakersApiWeb.GraphQL.Resolvers do
+defmodule FakersApiWeb.GraphQL.Resolvers.Query do
   alias FakersApi.People, as: Context
 
   def get_people(%{filter: filters}, _) do

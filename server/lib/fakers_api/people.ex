@@ -21,47 +21,33 @@ defmodule FakersApi.People do
 
   def list_people, do: Repo.all(Person)
 
-  def list_people_by_filters(%{only_alive: only_alive} = input_object) when only_alive do
-    input_object = Map.delete(input_object, :only_alive)
+  defp to_keyword_list(map), do: Enum.map(map, fn {key, value} -> {key, value} end)
 
+  def list_people_by_filters(%{only_alive: only_alive} = input_object) when only_alive do
     query =
       from dp in DeceasedPerson,
         right_join: p in Person,
         on: p.id == dp.person_id,
-        where: is_nil(dp.person_id),
-        select: p
+        where: is_nil(dp.person_id)
 
-    query
+    input_object
+    |> Map.delete(:only_alive)
+    |> to_keyword_list()
+    |> Enum.reduce(query, fn {key, value}, query ->
+      from [dp, p] in query, where: field(p, ^key) == ^value
+    end)
+    |> select([dp, p], p)
     |> Repo.all()
-    |> filter_list_by_input_object(input_object)
   end
 
   def list_people_by_filters(input_object) do
-    list_people()
-    |> filter_list_by_input_object(input_object)
-  end
-
-  @spec filter_list_by_input_object(List.t(), Map.t()) :: List.t()
-  @doc """
-  Filters a list of structs leaving out only those that values match these given in input_object.
-
-  ## Examples
-
-      iex> filter_list_by_input_object([%S{id: 2}, %S{id: 4}], %{id: 2})
-      [%S{id: 2}]
-
-  """
-  def filter_list_by_input_object(list, input_object) do
     input_object
-    |> Map.keys()
-    |> Enum.reduce(list, &filter_list_by_struct_value(&2, input_object, &1))
-  end
-
-  defp filter_list_by_struct_value(list, map, key) do
-    Enum.filter(list, fn struct ->
-      elem = Map.from_struct(struct)
-      elem[key] == map[key]
+    |> Map.delete(:only_alive)
+    |> to_keyword_list()
+    |> Enum.reduce(Person, fn {key, value}, query ->
+      from p in query, where: field(p, ^key) == ^value
     end)
+    |> Repo.all()
   end
 
   @doc """
@@ -517,21 +503,13 @@ defmodule FakersApi.People do
     Repo.all(DeceasedPerson)
   end
 
-  def list_deceased_people_by_filters(%{date_of_death: date_of_death} = input_object) do
-    query =
-      from p in DeceasedPerson,
-        where: p.date_of_death == ^date_of_death
-
-    input_object = Map.delete(input_object, :date_of_death)
-
-    query
-    |> Repo.all()
-    |> filter_list_by_input_object(input_object)
-  end
-
   def list_deceased_people_by_filters(input_object) do
-    list_deceased_people()
-    |> filter_list_by_input_object(input_object)
+    input_object
+    |> to_keyword_list()
+    |> Enum.reduce(DeceasedPerson, fn {key, value}, query ->
+      from p in query, where: field(p, ^key) == ^value
+    end) |> IO.inspect()
+    |> Repo.all()
   end
 
   @doc """
@@ -621,6 +599,27 @@ defmodule FakersApi.People do
 
   """
   def data, do: Dataloader.Ecto.new(Repo, query: &query/2)
+
+  def query(PersonAddress, %{sort_order: order, limit: limit}) when limit > 0 do
+    order_by = [{order, :assigned}]
+
+    from pa in PersonAddress, order_by: ^order_by, limit: ^limit
+  end
+
+  def query(PersonAddress, %{limit: limit}) when limit > 0 do
+    from pa in PersonAddress, limit: ^limit
+  end
+
+  def query(PersonAddress, %{sort_order: order}) do
+    order_by = [{order, :assigned}]
+
+    from pa in PersonAddress, order_by: ^order_by
+  end
+
+  def query(PersonContact, params) do
+    IO.puts("pc")
+    params |> IO.inspect()
+  end
 
   @doc """
   Generic dataloader handler.

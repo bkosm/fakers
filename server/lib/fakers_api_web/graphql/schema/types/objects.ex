@@ -1,9 +1,9 @@
-defmodule FakersApiWeb.GraphQL.Schema.Types do
+defmodule FakersApiWeb.GraphQL.Schema.Types.Objects do
   use Absinthe.Schema.Notation
-  import Absinthe.Resolution.Helpers, only: [dataloader: 1]
+  import Absinthe.Resolution.Helpers
   alias FakersApi.People
 
-  import_types(Absinthe.Type.Custom)
+  enum(:sort_order, values: [:asc, :desc])
 
   @desc "An object that defines an address."
   object :address do
@@ -49,25 +49,25 @@ defmodule FakersApiWeb.GraphQL.Schema.Types do
     @desc "List of contacts that are assigned to this person."
     field :contacts, list_of(:contact), resolve: dataloader(People)
 
-    @desc "List of address association defining objects."
-    field :person_addresses, list_of(:person_address), resolve: dataloader(People)
+    # @desc "List of address association defining objects."
+    # field :person_addresses, list_of(:person_address) do
+    #   @desc "Sorting order for 'assigned' field."
+    #   arg(:sorting_order, :sort_order)
+    #   @desc "Limit amount of pulled associations."
+    #   arg(:limit, :integer)
 
-    @desc "List of contact association defining objects."
-    field :person_contacts, list_of(:person_contact), resolve: dataloader(People)
-  end
+    #   resolve(dataloader(People))
+    # end
 
-  @desc "Person filter type. Matches equal values."
-  input_object :person_filter do
-    field :id, :integer
-    field :birth_date, :date
-    field :first_name, :string
-    field :second_name, :string
-    field :last_name, :string
-    field :pesel, :string
-    field :sex, :string
+    # @desc "List of contact association defining objects."
+    # field :person_contacts, list_of(:person_contact) do
+    #   @desc "Sorting order for 'assigned' field."
+    #   arg(:sort, :sort_order)
+    #   @desc "Limit amount of pulled associations."
+    #   arg(:limit, :integer)
 
-    @desc "Set to true to filter deceased people."
-    field :only_alive, :boolean, default_value: false
+    #   resolve(dataloader(People))
+    # end
   end
 
   @desc "An object that represents an association between a person and an address."
@@ -103,17 +103,5 @@ defmodule FakersApiWeb.GraphQL.Schema.Types do
 
     @desc "The person's profile."
     field :person, non_null(:person), resolve: dataloader(People)
-  end
-
-  @desc "Deceased person filter type. Matches equal values."
-  input_object :deceased_person_filter do
-    field :id, :integer
-    field :birth_date, :date
-    field :first_name, :string
-    field :second_name, :string
-    field :last_name, :string
-    field :pesel, :string
-    field :sex, :string
-    field :date_of_death, :date
   end
 end
