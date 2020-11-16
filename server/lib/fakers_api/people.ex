@@ -10,6 +10,18 @@ defmodule FakersApi.People do
   alias FakersApi.People.DeceasedPerson
 
   @doc """
+  Transforms an atom keyed map into a keyword list.
+  Used in Ecto query filtering.
+
+  ## Examples
+
+      iex> to_keyword_list(%{id: 3, name: "sth"})
+      [{:id, 3}, {:name, "sth"}]
+
+  """
+  def to_keyword_list(%{} = map), do: Enum.map(map, fn {key, value} -> {key, value} end)
+
+  @doc """
   Returns the list of people.
 
   ## Examples
@@ -20,8 +32,6 @@ defmodule FakersApi.People do
   """
 
   def list_people, do: Repo.all(Person)
-
-  defp to_keyword_list(map), do: Enum.map(map, fn {key, value} -> {key, value} end)
 
   def list_people_by_filters(%{only_alive: only_alive} = input_object) when only_alive do
     query =
@@ -48,6 +58,17 @@ defmodule FakersApi.People do
       from p in query, where: field(p, ^key) == ^value
     end)
     |> Repo.all()
+  end
+
+  defp do_filter_query(params, query, filter_expr, select_list, select_table) do
+    params
+    |> to_keyword_list()
+    |> Enum.reduce(query, fn {key, value}, query ->
+        filter_expr.(query, key, value)
+
+        #from ^select_list in query, where: field(^filtered_table, ^key) == ^value
+    end)
+    |> select(^select_list, ^select_table)
   end
 
   @doc """
@@ -147,6 +168,10 @@ defmodule FakersApi.People do
     Repo.all(Address)
   end
 
+  def list_addresses_by_filters(filters) do
+
+  end
+
   @doc """
   Gets a single address.
 
@@ -242,6 +267,10 @@ defmodule FakersApi.People do
   """
   def list_contacts do
     Repo.all(Contact)
+  end
+
+  def list_contacts_by_filters(filters) do
+
   end
 
   @doc """

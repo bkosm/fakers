@@ -39,6 +39,8 @@ defmodule FakersApiWeb.GraphQL.Schema.Types.Objects do
     field :birth_date, non_null(:date)
     field :first_name, non_null(:string)
     field :last_name, non_null(:string)
+
+    @desc "Polish unique person identifier."
     field :pesel, non_null(:string)
     field :second_name, :string
     field :sex, non_null(:string)
@@ -74,6 +76,7 @@ defmodule FakersApiWeb.GraphQL.Schema.Types.Objects do
   object :person_address do
     field :person_id, non_null(:id)
     field :address_id, non_null(:id)
+    @desc "The date at which given association had been inserted."
     field :assigned, non_null(:date)
 
     @desc "The associated person."
@@ -87,6 +90,7 @@ defmodule FakersApiWeb.GraphQL.Schema.Types.Objects do
   object :person_contact do
     field :person_id, non_null(:id)
     field :contact_id, non_null(:id)
+    @desc "The date at which given association had been inserted."
     field :assigned, non_null(:date)
 
     @desc "The associated person."
