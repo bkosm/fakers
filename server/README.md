@@ -11,5 +11,5 @@ Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 ## GraphQL auto-generated diagram
 
 <p align="center">
-  <img src="/diagrams/graph.png" width="800" title="Graph">
+  <img src="/server/diagrams/graph.png" title="Graph">
 </p>
