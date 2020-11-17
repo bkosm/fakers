@@ -7,7 +7,7 @@ using System.Security.Cryptography.X509Certificates;
 
 /*
  * url do poczytania = https://www.codeproject.com/Tips/397574/Use-Csharp-to-get-JSON-Data-from-the-Web-and-Map-i 
- * https://www.codeproject.com/Tips/397574/Use-Csharp-to-get-JSON-Data-from-the-Web-and-Map-i
+ *
  * 
  */
 

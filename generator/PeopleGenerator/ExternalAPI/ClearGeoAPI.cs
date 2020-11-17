@@ -4,22 +4,24 @@ using System.Text;
 
 namespace ExternalAPI
 {
-    class ClearGeoAPI
+    public  class ClearGeoAPI : DisposableElement.Disposable
     {
         string _city;
         string _street;
         string _postcode;
         string _state;
+        string _country;
         string _longitude;
         string _latiude;
 
 
-        public ClearGeoAPI(string city, string street, string postcode, string state, string longitude, string latiude )
+        public ClearGeoAPI(string city, string street, string postcode, string state, string country, string longitude, string latiude )
         {
             City = city;
             Street = street;
             Postcode = postcode;
-            State = longitude;
+            State = state;
+            Country = country;
             Longitude= longitude;
             Latiude = latiude;
         }
@@ -30,5 +32,11 @@ namespace ExternalAPI
         public string State { get => _state; set => _state = value; }
         public string Longitude { get => _longitude; set => _longitude = value; }
         public string Latiude { get => _latiude; set => _latiude = value; }
+        public string Country { get => _country; set => _country = value; }
+
+        ~ClearGeoAPI()
+        {
+            Dispose(false);
+        }
     }
 }

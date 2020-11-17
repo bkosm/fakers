@@ -6,3 +6,4 @@ C:\Users\Mateusz Kuźniak\VisualStudio2019 - Student Project\fakerGenerator\fake
 C:\Users\Mateusz Kuźniak\VisualStudio2019 - Student Project\fakerGenerator\fakers\generator\PeopleGenerator\DisposableElement\obj\Debug\netcoreapp3.1\DisposableElement.csproj.CoreCompileInputs.cache
 C:\Users\Mateusz Kuźniak\VisualStudio2019 - Student Project\fakerGenerator\fakers\generator\PeopleGenerator\DisposableElement\obj\Debug\netcoreapp3.1\DisposableElement.dll
 C:\Users\Mateusz Kuźniak\VisualStudio2019 - Student Project\fakerGenerator\fakers\generator\PeopleGenerator\DisposableElement\obj\Debug\netcoreapp3.1\DisposableElement.pdb
+C:\Users\Mateusz Kuźniak\VisualStudio2019 - Student Project\fakerGenerator\fakers\generator\PeopleGenerator\DisposableElement\obj\Debug\netcoreapp3.1\DisposableElement.csprojAssemblyReference.cache

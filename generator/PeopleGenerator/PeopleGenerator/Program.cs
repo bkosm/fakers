@@ -29,13 +29,16 @@ namespace PeopleGenerator
             Stopwatch stopWatch = new Stopwatch();
             stopWatch.Start();
 
-            var person = ExternalAPI.GetDataFromJson.getClearPerson(ExternalAPI.Gender.MALE);
-            //var place = ExternalAPI.GetDataFromJson.getGeo("Rydzyna", "Wolnosci");
+            //var place = ExternalAPI.GetDataFromJson.getGeo("poznan","mielzyńskiego");
+            //var person = ExternalAPI.GetDataFromJson.getClearPerson(ExternalAPI.Gender.RANDOM);
+            var place = ExternalAPI.GetDataFromJson.getGeo("64-130", "Wolności");
             //Console.WriteLine(place.query.parsed.city);
             //Console.WriteLine(place.query.parsed.street);
             //Console.WriteLine(place.features[0].properties.lon);
             //Console.WriteLine(place.features[0].properties.lat);
             //Console.WriteLine(place.features[0].properties.postcode);
+
+
 
             stopWatch.Stop();
             TimeSpan ts = stopWatch.Elapsed;
