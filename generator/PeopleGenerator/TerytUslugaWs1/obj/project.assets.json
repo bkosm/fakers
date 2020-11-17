@@ -52,20 +52,25 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Mateusz Kuźniak\\.nuget\\packages\\": {}
+    "C:\\Users\\JordanK\\.nuget\\packages\\": {},
+    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Mateusz Kuźniak\\VisualStudio2019 - Student Project\\fakerGenerator\\fakers\\generator\\PeopleGenerator\\TerytUslugaWs1\\TerytUslugaWs1.csproj",
+      "projectUniqueName": "C:\\Users\\JordanK\\Desktop\\fakers\\generator\\PeopleGenerator\\TerytUslugaWs1\\TerytUslugaWs1.csproj",
       "projectName": "TerytUslugaWs1",
-      "projectPath": "C:\\Users\\Mateusz Kuźniak\\VisualStudio2019 - Student Project\\fakerGenerator\\fakers\\generator\\PeopleGenerator\\TerytUslugaWs1\\TerytUslugaWs1.csproj",
-      "packagesPath": "C:\\Users\\Mateusz Kuźniak\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Mateusz Kuźniak\\VisualStudio2019 - Student Project\\fakerGenerator\\fakers\\generator\\PeopleGenerator\\TerytUslugaWs1\\obj\\",
+      "projectPath": "C:\\Users\\JordanK\\Desktop\\fakers\\generator\\PeopleGenerator\\TerytUslugaWs1\\TerytUslugaWs1.csproj",
+      "packagesPath": "C:\\Users\\JordanK\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\JordanK\\Desktop\\fakers\\generator\\PeopleGenerator\\TerytUslugaWs1\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Microsoft\\Xamarin\\NuGet\\"
+      ],
       "configFilePaths": [
-        "C:\\Users\\Mateusz Kuźniak\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\JordanK\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
