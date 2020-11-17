@@ -3,11 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30611.23
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PeopleGenerator", "PeopleGenerator\PeopleGenerator.csproj", "{105994B4-716A-448C-8B22-0676968D1D1D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PeopleGenerator", "PeopleGenerator\PeopleGenerator.csproj", "{105994B4-716A-448C-8B22-0676968D1D1D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Database", "Database\Database.csproj", "{DF7EFC06-FFE9-4719-8AE6-6DDF89311CB0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Database", "Database\Database.csproj", "{DF7EFC06-FFE9-4719-8AE6-6DDF89311CB0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GeneratorsClass", "GeneratorsClass\GeneratorsClass.csproj", "{6A027F9F-4443-4743-B3A3-A13919A4463A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GeneratorsClass", "GeneratorsClass\GeneratorsClass.csproj", "{6A027F9F-4443-4743-B3A3-A13919A4463A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GetPersonality", "GetPersonality\GetPersonality.csproj", "{A7CED0B4-E7EE-488F-8E0C-1EE420F1B2C9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExternalAPI", "ExternalAPI\ExternalAPI.csproj", "{E88F38F4-C6A2-4EF7-918C-6C6DB6160490}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TerytUslugaWs1", "TerytUslugaWs1\TerytUslugaWs1.csproj", "{9ACC1193-86B9-48FD-A62A-3580B431017D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +33,18 @@ Global
 		{6A027F9F-4443-4743-B3A3-A13919A4463A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6A027F9F-4443-4743-B3A3-A13919A4463A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6A027F9F-4443-4743-B3A3-A13919A4463A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7CED0B4-E7EE-488F-8E0C-1EE420F1B2C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7CED0B4-E7EE-488F-8E0C-1EE420F1B2C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7CED0B4-E7EE-488F-8E0C-1EE420F1B2C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7CED0B4-E7EE-488F-8E0C-1EE420F1B2C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E88F38F4-C6A2-4EF7-918C-6C6DB6160490}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E88F38F4-C6A2-4EF7-918C-6C6DB6160490}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E88F38F4-C6A2-4EF7-918C-6C6DB6160490}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E88F38F4-C6A2-4EF7-918C-6C6DB6160490}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9ACC1193-86B9-48FD-A62A-3580B431017D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9ACC1193-86B9-48FD-A62A-3580B431017D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9ACC1193-86B9-48FD-A62A-3580B431017D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9ACC1193-86B9-48FD-A62A-3580B431017D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

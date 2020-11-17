@@ -1,0 +1,34 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "TERYTws1/1.0.0": {
+        "dependencies": {
+          "Microsoft.Extensions.ApiDescription.Client": "3.0.0"
+        },
+        "runtime": {
+          "TERYTws1.dll": {}
+        }
+      },
+      "Microsoft.Extensions.ApiDescription.Client/3.0.0": {}
+    }
+  },
+  "libraries": {
+    "TERYTws1/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Microsoft.Extensions.ApiDescription.Client/3.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-EpGGEoBelJtt4IN32O02D+Lb4DjSFB1GUoItLa8GDzM4x/cqpCAKn5tRb6Fn7U3/rGlWjfLMGXW/t9zvYmPQtA==",
+      "path": "microsoft.extensions.apidescription.client/3.0.0",
+      "hashPath": "microsoft.extensions.apidescription.client.3.0.0.nupkg.sha512"
+    }
+  }
+}

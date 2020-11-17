@@ -10,10 +10,10 @@ C:\Users\Mateusz Kuźniak\VisualStudio2019 - Student Project\fakerGenerator\fake
 C:\Users\Mateusz Kuźniak\VisualStudio2019 - Student Project\fakerGenerator\fakers\generator\PeopleGenerator\PeopleGenerator\obj\Debug\netcoreapp3.1\PeopleGenerator.dll
 C:\Users\Mateusz Kuźniak\VisualStudio2019 - Student Project\fakerGenerator\fakers\generator\PeopleGenerator\PeopleGenerator\obj\Debug\netcoreapp3.1\PeopleGenerator.pdb
 C:\Users\Mateusz Kuźniak\VisualStudio2019 - Student Project\fakerGenerator\fakers\generator\PeopleGenerator\PeopleGenerator\obj\Debug\netcoreapp3.1\PeopleGenerator.genruntimeconfig.cache
-C:\Users\Mateusz Kuźniak\VisualStudio2019 - Student Project\fakerGenerator\fakers\generator\PeopleGenerator\PeopleGenerator\obj\Debug\netcoreapp3.1\PeopleGenerator.csproj.CoreCompileInputs.cache
 C:\Users\Mateusz Kuźniak\VisualStudio2019 - Student Project\fakerGenerator\fakers\generator\PeopleGenerator\PeopleGenerator\bin\Debug\netcoreapp3.1\EntityFramework.SqlServer.dll
 C:\Users\Mateusz Kuźniak\VisualStudio2019 - Student Project\fakerGenerator\fakers\generator\PeopleGenerator\PeopleGenerator\bin\Debug\netcoreapp3.1\EntityFramework.dll
 C:\Users\Mateusz Kuźniak\VisualStudio2019 - Student Project\fakerGenerator\fakers\generator\PeopleGenerator\PeopleGenerator\bin\Debug\netcoreapp3.1\Microsoft.Win32.SystemEvents.dll
+C:\Users\Mateusz Kuźniak\VisualStudio2019 - Student Project\fakerGenerator\fakers\generator\PeopleGenerator\PeopleGenerator\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
 C:\Users\Mateusz Kuźniak\VisualStudio2019 - Student Project\fakerGenerator\fakers\generator\PeopleGenerator\PeopleGenerator\bin\Debug\netcoreapp3.1\System.Data.SQLite.dll
 C:\Users\Mateusz Kuźniak\VisualStudio2019 - Student Project\fakerGenerator\fakers\generator\PeopleGenerator\PeopleGenerator\bin\Debug\netcoreapp3.1\System.CodeDom.dll
 C:\Users\Mateusz Kuźniak\VisualStudio2019 - Student Project\fakerGenerator\fakers\generator\PeopleGenerator\PeopleGenerator\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
@@ -38,3 +38,6 @@ C:\Users\Mateusz Kuźniak\VisualStudio2019 - Student Project\fakerGenerator\fake
 C:\Users\Mateusz Kuźniak\VisualStudio2019 - Student Project\fakerGenerator\fakers\generator\PeopleGenerator\PeopleGenerator\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\Mateusz Kuźniak\VisualStudio2019 - Student Project\fakerGenerator\fakers\generator\PeopleGenerator\PeopleGenerator\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
 C:\Users\Mateusz Kuźniak\VisualStudio2019 - Student Project\fakerGenerator\fakers\generator\PeopleGenerator\PeopleGenerator\obj\Debug\netcoreapp3.1\PeopleGenerator.csproj.CopyComplete
+C:\Users\Mateusz Kuźniak\VisualStudio2019 - Student Project\fakerGenerator\fakers\generator\PeopleGenerator\PeopleGenerator\bin\Debug\netcoreapp3.1\ExternalAPI.dll
+C:\Users\Mateusz Kuźniak\VisualStudio2019 - Student Project\fakerGenerator\fakers\generator\PeopleGenerator\PeopleGenerator\bin\Debug\netcoreapp3.1\ExternalAPI.pdb
+C:\Users\Mateusz Kuźniak\VisualStudio2019 - Student Project\fakerGenerator\fakers\generator\PeopleGenerator\PeopleGenerator\obj\Debug\netcoreapp3.1\PeopleGenerator.csproj.CoreCompileInputs.cache

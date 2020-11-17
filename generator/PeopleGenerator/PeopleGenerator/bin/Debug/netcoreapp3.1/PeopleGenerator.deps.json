@@ -8,6 +8,9 @@
     ".NETCoreApp,Version=v3.1": {
       "PeopleGenerator/1.0.0": {
         "dependencies": {
+          "ExternalAPI": "1.0.0",
+          "NSwag.ApiDescription.Client": "13.0.5",
+          "Newtonsoft.Json": "12.0.3",
           "System.Data.SQLite": "1.0.113.6"
         },
         "runtime": {
@@ -34,6 +37,7 @@
         }
       },
       "Microsoft.CSharp/4.6.0": {},
+      "Microsoft.Extensions.ApiDescription.Client/0.3.0-preview7.19365.7": {},
       "Microsoft.NETCore.Platforms/3.0.0": {},
       "Microsoft.Win32.Registry/4.6.0": {
         "dependencies": {
@@ -60,6 +64,21 @@
           }
         }
       },
+      "Newtonsoft.Json/12.0.3": {
+        "runtime": {
+          "lib/netstandard2.0/Newtonsoft.Json.dll": {
+            "assemblyVersion": "12.0.0.0",
+            "fileVersion": "12.0.3.23909"
+          }
+        }
+      },
+      "NSwag.ApiDescription.Client/13.0.5": {
+        "dependencies": {
+          "Microsoft.Extensions.ApiDescription.Client": "0.3.0-preview7.19365.7",
+          "NSwag.MSBuild": "13.0.5"
+        }
+      },
+      "NSwag.MSBuild/13.0.5": {},
       "runtime.native.System.Data.SqlClient.sni/4.6.0": {
         "dependencies": {
           "runtime.win-arm64.runtime.native.System.Data.SqlClient.sni": "4.4.0",
@@ -273,6 +292,14 @@
             "fileVersion": "4.700.19.46214"
           }
         }
+      },
+      "ExternalAPI/1.0.0": {
+        "dependencies": {
+          "Newtonsoft.Json": "12.0.3"
+        },
+        "runtime": {
+          "ExternalAPI.dll": {}
+        }
       }
     }
   },
@@ -296,6 +323,13 @@
       "path": "microsoft.csharp/4.6.0",
       "hashPath": "microsoft.csharp.4.6.0.nupkg.sha512"
     },
+    "Microsoft.Extensions.ApiDescription.Client/0.3.0-preview7.19365.7": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-nPMnqfOkUkPx+0CVjHs+EFY/yHoGjNgpPUbl08lec+1wmISCeVBVOlEiqXIyUhKQMQW6Ikc6E04TZJzK4beQ5Q==",
+      "path": "microsoft.extensions.apidescription.client/0.3.0-preview7.19365.7",
+      "hashPath": "microsoft.extensions.apidescription.client.0.3.0-preview7.19365.7.nupkg.sha512"
+    },
     "Microsoft.NETCore.Platforms/3.0.0": {
       "type": "package",
       "serviceable": true,
@@ -316,6 +350,27 @@
       "sha512": "sha512-Edg+pFW5C8WJb680Za2kTV8TqUi6Ahl/WldRVoOVJ23UQLpDHFspa+umgFjkWZw24ETsU99Cg+ErZz683M4chg==",
       "path": "microsoft.win32.systemevents/4.6.0",
       "hashPath": "microsoft.win32.systemevents.4.6.0.nupkg.sha512"
+    },
+    "Newtonsoft.Json/12.0.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-6mgjfnRB4jKMlzHSl+VD+oUc1IebOZabkbyWj2RiTgWwYPPuaK1H97G1sHqGwPlS5npiF5Q0OrxN1wni2n5QWg==",
+      "path": "newtonsoft.json/12.0.3",
+      "hashPath": "newtonsoft.json.12.0.3.nupkg.sha512"
+    },
+    "NSwag.ApiDescription.Client/13.0.5": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Zu5uTfiKtJiuzXHtgCmForzIkd2WvrFhcrg6yTiTRKPYo3az/Pl4JF+F5NmZtZ+3gIIrsf5fabJbbZ8L5BymIg==",
+      "path": "nswag.apidescription.client/13.0.5",
+      "hashPath": "nswag.apidescription.client.13.0.5.nupkg.sha512"
+    },
+    "NSwag.MSBuild/13.0.5": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-CjLWwC2p+HRGxmSAJY9xtOMMO9YczTtIiGVEPckrklXjc3dJ7OAT/caKHjE+9fYx1an+9qeDao2qxmMpCkGTXQ==",
+      "path": "nswag.msbuild/13.0.5",
+      "hashPath": "nswag.msbuild.13.0.5.nupkg.sha512"
     },
     "runtime.native.System.Data.SqlClient.sni/4.6.0": {
       "type": "package",
@@ -442,6 +497,11 @@
       "sha512": "sha512-GL4izk0KgeyXklUOHViAk7y1IOYVYcn8nDpJZgcCqNzTGv2xd+8rgGgMKMo8G9nvfEuRCrNxWnGc74EiuYH2YA==",
       "path": "system.windows.extensions/4.6.0",
       "hashPath": "system.windows.extensions.4.6.0.nupkg.sha512"
+    },
+    "ExternalAPI/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     }
   }
 }

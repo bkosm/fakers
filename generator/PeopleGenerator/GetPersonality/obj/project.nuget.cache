@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "7xgYNoaqKhoe1HEu0s2MhiZsye/or7bGd0NlIo2IIQNdGJGoB6IWJZa5L6WA0txnHpF2xEIESkNz1vJIQKKL/A==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Mateusz Kuźniak\\VisualStudio2019 - Student Project\\fakerGenerator\\fakers\\generator\\PeopleGenerator\\GetPersonality\\GetPersonality.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Mateusz Kuźniak\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
