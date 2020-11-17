@@ -1,9 +1,9 @@
 # FakersApi
 
-To start your Phoenix server:
+To start this Phoenix server:
 
   * Install dependencies with `mix deps.get`
-  * Create and migrate your database with `mix ecto.setup`
+  * Create the database with the database and generator modules
   * Start Phoenix endpoint with `mix phx.server`
 
 Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
