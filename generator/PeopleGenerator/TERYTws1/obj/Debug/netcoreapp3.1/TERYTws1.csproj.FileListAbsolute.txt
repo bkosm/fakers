@@ -1,5 +1,0 @@
-C:\Users\Mateusz Kuźniak\VisualStudio2019 - Student Project\fakerGenerator\fakers\generator\PeopleGenerator\TERYTws1\bin\Debug\netcoreapp3.1\TERYTws1.deps.json
-C:\Users\Mateusz Kuźniak\VisualStudio2019 - Student Project\fakerGenerator\fakers\generator\PeopleGenerator\TERYTws1\bin\Debug\netcoreapp3.1\TERYTws1.dll
-C:\Users\Mateusz Kuźniak\VisualStudio2019 - Student Project\fakerGenerator\fakers\generator\PeopleGenerator\TERYTws1\obj\Debug\netcoreapp3.1\TERYTws1.AssemblyInfoInputs.cache
-C:\Users\Mateusz Kuźniak\VisualStudio2019 - Student Project\fakerGenerator\fakers\generator\PeopleGenerator\TERYTws1\obj\Debug\netcoreapp3.1\TERYTws1.AssemblyInfo.cs
-C:\Users\Mateusz Kuźniak\VisualStudio2019 - Student Project\fakerGenerator\fakers\generator\PeopleGenerator\TERYTws1\obj\Debug\netcoreapp3.1\TERYTws1.csprojAssemblyReference.cache
