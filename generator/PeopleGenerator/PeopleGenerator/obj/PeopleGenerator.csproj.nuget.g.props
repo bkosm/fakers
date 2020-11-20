@@ -5,7 +5,7 @@
     <RestoreTool Condition=" '$(RestoreTool)' == '' ">NuGet</RestoreTool>
     <ProjectAssetsFile Condition=" '$(ProjectAssetsFile)' == '' ">$(MSBuildThisFileDirectory)project.assets.json</ProjectAssetsFile>
     <NuGetPackageRoot Condition=" '$(NuGetPackageRoot)' == '' ">$(UserProfile)\.nuget\packages\</NuGetPackageRoot>
-    <NuGetPackageFolders Condition=" '$(NuGetPackageFolders)' == '' ">C:\Users\JordanK\.nuget\packages\;C:\Microsoft\Xamarin\NuGet\</NuGetPackageFolders>
+    <NuGetPackageFolders Condition=" '$(NuGetPackageFolders)' == '' ">C:\Users\Mateusz Kuźniak\.nuget\packages\</NuGetPackageFolders>
     <NuGetProjectStyle Condition=" '$(NuGetProjectStyle)' == '' ">PackageReference</NuGetProjectStyle>
     <NuGetToolVersion Condition=" '$(NuGetToolVersion)' == '' ">5.7.0</NuGetToolVersion>
   </PropertyGroup>
@@ -22,8 +22,8 @@
     <Import Project="$(NuGetPackageRoot)nswag.apidescription.client\13.0.5\build\NSwag.ApiDescription.Client.props" Condition="Exists('$(NuGetPackageRoot)nswag.apidescription.client\13.0.5\build\NSwag.ApiDescription.Client.props')" />
   </ImportGroup>
   <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
-    <PkgEntityFramework Condition=" '$(PkgEntityFramework)' == '' ">C:\Users\JordanK\.nuget\packages\entityframework\6.3.0</PkgEntityFramework>
-    <PkgSystem_Data_SQLite_EF6 Condition=" '$(PkgSystem_Data_SQLite_EF6)' == '' ">C:\Users\JordanK\.nuget\packages\system.data.sqlite.ef6\1.0.113</PkgSystem_Data_SQLite_EF6>
-    <PkgNSwag_MSBuild Condition=" '$(PkgNSwag_MSBuild)' == '' ">C:\Users\JordanK\.nuget\packages\nswag.msbuild\13.0.5</PkgNSwag_MSBuild>
+    <PkgEntityFramework Condition=" '$(PkgEntityFramework)' == '' ">C:\Users\Mateusz Kuźniak\.nuget\packages\entityframework\6.3.0</PkgEntityFramework>
+    <PkgSystem_Data_SQLite_EF6 Condition=" '$(PkgSystem_Data_SQLite_EF6)' == '' ">C:\Users\Mateusz Kuźniak\.nuget\packages\system.data.sqlite.ef6\1.0.113</PkgSystem_Data_SQLite_EF6>
+    <PkgNSwag_MSBuild Condition=" '$(PkgNSwag_MSBuild)' == '' ">C:\Users\Mateusz Kuźniak\.nuget\packages\nswag.msbuild\13.0.5</PkgNSwag_MSBuild>
   </PropertyGroup>
 </Project>

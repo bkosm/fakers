@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Text;
-
+using RandomClass;
 /*
  * Generowania [x]  różnych maili dla "Łukasz Ziółkowski":
  *      -1000 ~ ok 0.23[s]

@@ -480,7 +480,8 @@
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
           "DisposableElement": "1.0.0",
-          "Newtonsoft.Json": "12.0.3"
+          "Newtonsoft.Json": "12.0.3",
+          "RandomClass": "1.0.0"
         },
         "compile": {
           "bin/placeholder/ExternalAPI.dll": {}
@@ -493,13 +494,39 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
-          "Newtonsoft.Json": "12.0.3"
+          "ExternalAPI": "1.0.0",
+          "Newtonsoft.Json": "12.0.3",
+          "RandomClass": "1.0.0"
         },
         "compile": {
           "bin/placeholder/GeneratorsClass.dll": {}
         },
         "runtime": {
           "bin/placeholder/GeneratorsClass.dll": {}
+        }
+      },
+      "GetPersonality/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "GeneratorsClass": "1.0.0",
+          "Newtonsoft.Json": "12.0.3"
+        },
+        "compile": {
+          "bin/placeholder/GetPersonality.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/GetPersonality.dll": {}
+        }
+      },
+      "RandomClass/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "compile": {
+          "bin/placeholder/RandomClass.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/RandomClass.dll": {}
         }
       }
     }
@@ -2767,12 +2794,23 @@
       "type": "project",
       "path": "../GeneratorsClass/GeneratorsClass.csproj",
       "msbuildProject": "../GeneratorsClass/GeneratorsClass.csproj"
+    },
+    "GetPersonality/1.0.0": {
+      "type": "project",
+      "path": "../GetPersonality/GetPersonality.csproj",
+      "msbuildProject": "../GetPersonality/GetPersonality.csproj"
+    },
+    "RandomClass/1.0.0": {
+      "type": "project",
+      "path": "../RandomClass/RandomClass.csproj",
+      "msbuildProject": "../RandomClass/RandomClass.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
       "ExternalAPI >= 1.0.0",
       "GeneratorsClass >= 1.0.0",
+      "GetPersonality >= 1.0.0",
       "Microsoft.Extensions.ApiDescription.Client >= 3.0.0",
       "NSwag.ApiDescription.Client >= 13.0.5",
       "Newtonsoft.Json >= 12.0.3",
@@ -2781,25 +2819,20 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\JordanK\\.nuget\\packages\\": {},
-    "C:\\Microsoft\\Xamarin\\NuGet\\": {}
+    "C:\\Users\\Mateusz Kuźniak\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\JordanK\\Desktop\\fakers\\generator\\PeopleGenerator\\PeopleGenerator\\PeopleGenerator.csproj",
+      "projectUniqueName": "C:\\Users\\Mateusz Kuźniak\\VisualStudio2019 - Student Project\\fakerGenerator\\fakers\\generator\\PeopleGenerator\\PeopleGenerator\\PeopleGenerator.csproj",
       "projectName": "PeopleGenerator",
-      "projectPath": "C:\\Users\\JordanK\\Desktop\\fakers\\generator\\PeopleGenerator\\PeopleGenerator\\PeopleGenerator.csproj",
-      "packagesPath": "C:\\Users\\JordanK\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\JordanK\\Desktop\\fakers\\generator\\PeopleGenerator\\PeopleGenerator\\obj\\",
+      "projectPath": "C:\\Users\\Mateusz Kuźniak\\VisualStudio2019 - Student Project\\fakerGenerator\\fakers\\generator\\PeopleGenerator\\PeopleGenerator\\PeopleGenerator.csproj",
+      "packagesPath": "C:\\Users\\Mateusz Kuźniak\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Mateusz Kuźniak\\VisualStudio2019 - Student Project\\fakerGenerator\\fakers\\generator\\PeopleGenerator\\PeopleGenerator\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Microsoft\\Xamarin\\NuGet\\"
-      ],
       "configFilePaths": [
-        "C:\\Users\\JordanK\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "C:\\Users\\Mateusz Kuźniak\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
@@ -2811,11 +2844,14 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\JordanK\\Desktop\\fakers\\generator\\PeopleGenerator\\ExternalAPI\\ExternalAPI.csproj": {
-              "projectPath": "C:\\Users\\JordanK\\Desktop\\fakers\\generator\\PeopleGenerator\\ExternalAPI\\ExternalAPI.csproj"
+            "C:\\Users\\Mateusz Kuźniak\\VisualStudio2019 - Student Project\\fakerGenerator\\fakers\\generator\\PeopleGenerator\\ExternalAPI\\ExternalAPI.csproj": {
+              "projectPath": "C:\\Users\\Mateusz Kuźniak\\VisualStudio2019 - Student Project\\fakerGenerator\\fakers\\generator\\PeopleGenerator\\ExternalAPI\\ExternalAPI.csproj"
             },
-            "C:\\Users\\JordanK\\Desktop\\fakers\\generator\\PeopleGenerator\\GeneratorsClass\\GeneratorsClass.csproj": {
-              "projectPath": "C:\\Users\\JordanK\\Desktop\\fakers\\generator\\PeopleGenerator\\GeneratorsClass\\GeneratorsClass.csproj"
+            "C:\\Users\\Mateusz Kuźniak\\VisualStudio2019 - Student Project\\fakerGenerator\\fakers\\generator\\PeopleGenerator\\GeneratorsClass\\GeneratorsClass.csproj": {
+              "projectPath": "C:\\Users\\Mateusz Kuźniak\\VisualStudio2019 - Student Project\\fakerGenerator\\fakers\\generator\\PeopleGenerator\\GeneratorsClass\\GeneratorsClass.csproj"
+            },
+            "C:\\Users\\Mateusz Kuźniak\\VisualStudio2019 - Student Project\\fakerGenerator\\fakers\\generator\\PeopleGenerator\\GetPersonality\\GetPersonality.csproj": {
+              "projectPath": "C:\\Users\\Mateusz Kuźniak\\VisualStudio2019 - Student Project\\fakerGenerator\\fakers\\generator\\PeopleGenerator\\GetPersonality\\GetPersonality.csproj"
             }
           }
         }

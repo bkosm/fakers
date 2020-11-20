@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "JxlzXuse3EBUB3obH9wzb+MBrwMUo4cJrWG+kDX5s5RsNMOG9pRePUGhcYLZAQJHQY8qWmioFlF9f0wyeY0TYg==",
+  "dgSpecHash": "V51o5hAVSFX6GTIEQZhz+nRunZwmvhkVyVg8sMLuDXAuyMcz0O3uS67dX1cfnRhOI8z1A+dd521sXGT9rJXMqQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\JordanK\\Desktop\\fakers\\generator\\PeopleGenerator\\TerytUslugaWs1\\TerytUslugaWs1.csproj",
+  "projectFilePath": "C:\\Users\\Mateusz Kuźniak\\VisualStudio2019 - Student Project\\fakerGenerator\\fakers\\generator\\PeopleGenerator\\TerytUslugaWs1\\TerytUslugaWs1.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\JordanK\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512"
+    "C:\\Users\\Mateusz Kuźniak\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512"
   ],
   "logs": []
 }

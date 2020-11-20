@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DisposableElement\DisposableElement.csproj" />
+    <ProjectReference Include="..\RandomClass\RandomClass.csproj" />
   </ItemGroup>
 
 </Project>

@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Net;
 using System.Runtime.CompilerServices;
 using System.Security.Cryptography.X509Certificates;
+using RandomClass;
 
 /*
  * url do poczytania = https://www.codeproject.com/Tips/397574/Use-Csharp-to-get-JSON-Data-from-the-Web-and-Map-i 
@@ -19,7 +20,7 @@ using System.Security.Cryptography.X509Certificates;
 
 namespace ExternalAPI
 {
-    public enum Gender { MALE, FEMALE, RANDOM};
+    public enum Gender { MALE, FEMALE, RANDOM };
     public static class GetDataFromJson
     {
         private static string _randomPeopleUrl = @"https://api.namefake.com/polish-poland/";
@@ -42,27 +43,28 @@ namespace ExternalAPI
 
         }
 
-        private static ClearDataPerson _skipTitle(ClearDataPerson person)
-        { 
-            if(person.Name != null )
-                person.Name = person.Name.Replace("inż. ", "").Replace("doc. ", "").Replace("mgr ", "").Replace("dr ", "");
-            return person;
-        }
-
-        public static ClearDataPerson getClearPerson(Gender gender)
+        public static ClearDataPerson getClearPerson(char sex)
         {
-            using (var person = _download_serialized_json_data<PersonFromAPI>(_randomPeopleUrl + ((gender == Gender.MALE) ? "male/" : ((gender == Gender.FEMALE) ? "female/" : ""))))
+            string secondName = null;
+            using (var person = _download_serialized_json_data<PersonFromAPI>(_randomPeopleUrl + ((sex == 'M') ? "male/" : ((sex == 'F') ? "female/" : ""))))
             {
-
-                return _skipTitle(new ClearDataPerson(person.name, person.address));
+                if (RandomNumber.Draw(0, 1) == 0)
+                {
+                    using (var addName = _download_serialized_json_data<PersonFromAPI>(_randomPeopleUrl + ((sex == 'M') ? "male/" : ((sex == 'F') ? "female/" : ""))))
+                    {
+                        secondName = addName.name;
+                    }
+                }
+                return new ClearDataPerson(person.name, secondName, person.address);
             }
         }
 
-        public static  ClearGeoAPI getGeo(string city, string street)
+
+        public static ClearGeoAPI getGeo(string city, string street)
         {
             using (var place = _download_serialized_json_data<GeoAPI>($"{_geoUrl}{street},{city}{_geoKEY}"))
-            {
-                return new ClearGeoAPI(place.features[0].properties.city, place.features[0].properties.street, place.features[0].properties.postcode,
+            { 
+                return new ClearGeoAPI(place.features[0].properties.city, place.features[0].properties.street,
                                        place.features[0].properties.state, place.features[0].properties.country, place.features[0].properties.lon.ToString(),
                                        place.features[0].properties.lat.ToString());
             }

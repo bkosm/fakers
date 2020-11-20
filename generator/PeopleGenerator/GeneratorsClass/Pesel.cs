@@ -1,4 +1,5 @@
 ﻿using System;
+using RandomClass;
 
 namespace GeneratorsClass
 {
@@ -61,7 +62,7 @@ namespace GeneratorsClass
         public Pesel()
         {
             int[] Pesel = new int[11];
-            DateTime birthDate = new BirthDate().getDate;
+            DateTime birthDate = new BirthDate().getBirthDate;
             char sex = new Sex().getSex;
 
             Pesel[0] = birthDate.Year % 100 / 10;

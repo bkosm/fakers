@@ -10,3 +10,5 @@ C:\Users\Mateusz Kuźniak\VisualStudio2019 - Student Project\fakerGenerator\fake
 C:\Users\Mateusz Kuźniak\VisualStudio2019 - Student Project\fakerGenerator\fakers\generator\PeopleGenerator\ExternalAPI\bin\Debug\netcoreapp3.1\DisposableElement.dll
 C:\Users\Mateusz Kuźniak\VisualStudio2019 - Student Project\fakerGenerator\fakers\generator\PeopleGenerator\ExternalAPI\bin\Debug\netcoreapp3.1\DisposableElement.pdb
 C:\Users\Mateusz Kuźniak\VisualStudio2019 - Student Project\fakerGenerator\fakers\generator\PeopleGenerator\ExternalAPI\obj\Debug\netcoreapp3.1\ExternalAPI.csproj.CopyComplete
+C:\Users\Mateusz Kuźniak\VisualStudio2019 - Student Project\fakerGenerator\fakers\generator\PeopleGenerator\ExternalAPI\bin\Debug\netcoreapp3.1\RandomClass.dll
+C:\Users\Mateusz Kuźniak\VisualStudio2019 - Student Project\fakerGenerator\fakers\generator\PeopleGenerator\ExternalAPI\bin\Debug\netcoreapp3.1\RandomClass.pdb

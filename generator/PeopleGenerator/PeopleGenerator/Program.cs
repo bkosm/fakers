@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.ServiceModel;
 using GeneratorsClass;
+using GetPersonality;
 
 namespace PeopleGenerator
 {
@@ -31,7 +32,7 @@ namespace PeopleGenerator
 
             //var place = ExternalAPI.GetDataFromJson.getGeo("poznan","mielzyńskiego");
             //var person = ExternalAPI.GetDataFromJson.getClearPerson(ExternalAPI.Gender.RANDOM);
-            var place = ExternalAPI.GetDataFromJson.getGeo("64-130", "Wolności");
+            //var place = ExternalAPI.GetDataFromJson.getGeo("64-130", "Wolności");
             //Console.WriteLine(place.query.parsed.city);
             //Console.WriteLine(place.query.parsed.street);
             //Console.WriteLine(place.features[0].properties.lon);
@@ -39,6 +40,13 @@ namespace PeopleGenerator
             //Console.WriteLine(place.features[0].properties.postcode);
 
 
+
+            HashSet<Person> person = new HashSet<Person>();
+
+            while(person.Count!=10)
+            {
+                person.Add(new Person());
+            }
 
             stopWatch.Stop();
             TimeSpan ts = stopWatch.Elapsed;
@@ -49,7 +57,7 @@ namespace PeopleGenerator
             //Console.WriteLine($"Rozmiar: {tab2.Length}" );
 
 
-            Console.ReadLine();
+             Console.ReadLine();
         }
 
     }

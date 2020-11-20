@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "J8LD3iBCwFquf1XKguNq9mw0+exwH+ZYiARuNqCc30a4YcqgeQsNA5mREvzYkpun1HWTdHGouZMJtm7u4zvwOA==",
+  "dgSpecHash": "MPP3xenZfCxTgUQ6kSwcPZfvqA5Zpr4bARUfvFpojJuwZH+y8rqxCMrwzPp8nV8o0uWB/ZEZRkLrsg0wbTcU5w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\JordanK\\Desktop\\fakers\\generator\\PeopleGenerator\\GetPersonality\\GetPersonality.csproj",
+  "projectFilePath": "C:\\Users\\Mateusz Kuźniak\\VisualStudio2019 - Student Project\\fakerGenerator\\fakers\\generator\\PeopleGenerator\\GetPersonality\\GetPersonality.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\JordanK\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512"
+    "C:\\Users\\Mateusz Kuźniak\\.nuget\\packages\\newtonsoft.json\\12.0.3\\newtonsoft.json.12.0.3.nupkg.sha512"
   ],
   "logs": []
 }

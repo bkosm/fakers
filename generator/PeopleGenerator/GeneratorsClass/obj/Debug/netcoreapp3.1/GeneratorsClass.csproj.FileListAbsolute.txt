@@ -7,3 +7,10 @@ C:\Users\Mateusz Kuźniak\VisualStudio2019 - Student Project\fakerGenerator\fake
 C:\Users\Mateusz Kuźniak\VisualStudio2019 - Student Project\fakerGenerator\fakers\generator\PeopleGenerator\GeneratorsClass\obj\Debug\netcoreapp3.1\GeneratorsClass.dll
 C:\Users\Mateusz Kuźniak\VisualStudio2019 - Student Project\fakerGenerator\fakers\generator\PeopleGenerator\GeneratorsClass\obj\Debug\netcoreapp3.1\GeneratorsClass.pdb
 C:\Users\Mateusz Kuźniak\VisualStudio2019 - Student Project\fakerGenerator\fakers\generator\PeopleGenerator\GeneratorsClass\obj\Debug\netcoreapp3.1\GeneratorsClass.csproj.CoreCompileInputs.cache
+C:\Users\Mateusz Kuźniak\VisualStudio2019 - Student Project\fakerGenerator\fakers\generator\PeopleGenerator\GeneratorsClass\bin\Debug\netcoreapp3.1\DisposableElement.dll
+C:\Users\Mateusz Kuźniak\VisualStudio2019 - Student Project\fakerGenerator\fakers\generator\PeopleGenerator\GeneratorsClass\bin\Debug\netcoreapp3.1\ExternalAPI.dll
+C:\Users\Mateusz Kuźniak\VisualStudio2019 - Student Project\fakerGenerator\fakers\generator\PeopleGenerator\GeneratorsClass\bin\Debug\netcoreapp3.1\RandomClass.dll
+C:\Users\Mateusz Kuźniak\VisualStudio2019 - Student Project\fakerGenerator\fakers\generator\PeopleGenerator\GeneratorsClass\bin\Debug\netcoreapp3.1\ExternalAPI.pdb
+C:\Users\Mateusz Kuźniak\VisualStudio2019 - Student Project\fakerGenerator\fakers\generator\PeopleGenerator\GeneratorsClass\bin\Debug\netcoreapp3.1\RandomClass.pdb
+C:\Users\Mateusz Kuźniak\VisualStudio2019 - Student Project\fakerGenerator\fakers\generator\PeopleGenerator\GeneratorsClass\bin\Debug\netcoreapp3.1\DisposableElement.pdb
+C:\Users\Mateusz Kuźniak\VisualStudio2019 - Student Project\fakerGenerator\fakers\generator\PeopleGenerator\GeneratorsClass\obj\Debug\netcoreapp3.1\GeneratorsClass.csproj.CopyComplete

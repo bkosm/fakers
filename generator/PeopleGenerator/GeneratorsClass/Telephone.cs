@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using RandomClass;
 
 /* 
  * W tej konfiguracji generacja miliona numerów wynosi około 6 sek 

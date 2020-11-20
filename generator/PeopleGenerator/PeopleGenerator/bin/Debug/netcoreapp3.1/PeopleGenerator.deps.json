@@ -10,6 +10,7 @@
         "dependencies": {
           "ExternalAPI": "1.0.0",
           "GeneratorsClass": "1.0.0",
+          "GetPersonality": "1.0.0",
           "Microsoft.Extensions.ApiDescription.Client": "3.0.0",
           "NSwag.ApiDescription.Client": "13.0.5",
           "Newtonsoft.Json": "12.0.3",
@@ -374,7 +375,8 @@
       "ExternalAPI/1.0.0": {
         "dependencies": {
           "DisposableElement": "1.0.0",
-          "Newtonsoft.Json": "12.0.3"
+          "Newtonsoft.Json": "12.0.3",
+          "RandomClass": "1.0.0"
         },
         "runtime": {
           "ExternalAPI.dll": {}
@@ -382,10 +384,26 @@
       },
       "GeneratorsClass/1.0.0": {
         "dependencies": {
-          "Newtonsoft.Json": "12.0.3"
+          "ExternalAPI": "1.0.0",
+          "Newtonsoft.Json": "12.0.3",
+          "RandomClass": "1.0.0"
         },
         "runtime": {
           "GeneratorsClass.dll": {}
+        }
+      },
+      "GetPersonality/1.0.0": {
+        "dependencies": {
+          "GeneratorsClass": "1.0.0",
+          "Newtonsoft.Json": "12.0.3"
+        },
+        "runtime": {
+          "GetPersonality.dll": {}
+        }
+      },
+      "RandomClass/1.0.0": {
+        "runtime": {
+          "RandomClass.dll": {}
         }
       }
     }
@@ -645,6 +663,16 @@
       "sha512": ""
     },
     "GeneratorsClass/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "GetPersonality/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "RandomClass/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
