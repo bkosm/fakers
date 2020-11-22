@@ -45,7 +45,7 @@ namespace GetPersonality
             _PESEL = new Pesel( _birthDate, _sex).getPesel;
             _setName (GetDataFromJson.getClearPerson(_sex)); //!!!!!!!!!!!!!!!!!!!!!!!!!!!!
             _email = Email.getMail(_firstName, _lastName);
-            //_phoneNumber = Telephone._getMultipleNumbers(1)[0];
+            _phoneNumber = Telephone.getPhoneNumber(1);
             _setAddres(GetDataFromJson.getGeo("", _street));
             
             if (_birthDate.Year < 1900) _isDead = true;

@@ -21,10 +21,10 @@ namespace GeneratorsClass
         /// <summary>
         /// Konstruktor statyczny, wywołuje się tylko raz
         /// </summary>
-        static Telephone()
-        {
-            _numberArray = _generateNumber();
-        }
+        //static Telephone()
+        //{
+        //    _numberArray = _generateNumber();
+        //}
 
         /// <summary>
         /// Generuje wszystkie możliwe numery 
@@ -74,7 +74,7 @@ namespace GeneratorsClass
         /// </summary>
         /// <param name="howMuch"></param>
         /// <returns></returns>
-        public static int[] _getMultipleNumbers(int howMuch)
+        public static int[] getMultipleNumbers(int howMuch)
         {
             using (var tab = new MyInt(howMuch))
             {
@@ -89,6 +89,13 @@ namespace GeneratorsClass
                 _changeArraySize(howMuch);
                 return tab.Tab;
             }
+        }
+
+        public static int getPhoneNumber(int howMuch)
+        {
+            int number = _numberWST[RandomNumber.Draw(0, _numberWST.Length - 1)];
+            number += RandomNumber.Draw(0, _endPointNumber);
+            return number;
         }
 
 
