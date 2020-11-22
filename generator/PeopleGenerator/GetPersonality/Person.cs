@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Text;
 using GeneratorsClass;
 using ExternalAPI;
+using RandomClass;
+
 
 namespace GetPersonality
 {
@@ -46,6 +48,14 @@ namespace GetPersonality
             //_phoneNumber = Telephone._getMultipleNumbers(1)[0];
             _setAddres(GetDataFromJson.getGeo("", _street));
             
+            if (_birthDate.Year < 1900) _isDead = true;
+            else if (RandomNumber.Draw(0, 99) > 90) _isDead = true;
+            else _isDead = false;
+
+            if (_isDead)
+                _deathDate = new DeathDate(_birthDate).getDeathDate;
+            else _deathDate = default;
+
             while(_city == null)
             {
                 _setAddres(GetDataFromJson.getGeo("", GetDataFromJson.getClearPerson(_sex).Street));
