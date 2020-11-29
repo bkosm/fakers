@@ -15,7 +15,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: rgb(97, 97, 97);
+  background-color: #282c34;
   --animation-duration: 1s;
 }
 
@@ -44,36 +44,36 @@ code {
 .graphiql-container {
   border-radius: 10px;
   background-color: rgb(0, 143, 179);
-  color: whitesmoke !important;
+  color: #32a6c2 !important;
 }
 
 .title {
-  background: none #4b4b4b !important;
+  background: none #21252b !important;
 }
 
 .editorWrap {
-  background: none #4b4b4b;
+  background: none #21252b;
 }
 
 .topBar {
   border-bottom: 1px solid black !important;
-  background: none #4b4b4b !important;
+  background: none #21252b !important;
 }
 
 .variable-editor {
-  background: none #4b4b4b !important;
+  background: none #21252b !important;
 }
 
 .search-box {
-  background: none #4b4b4b !important;
+  background: none #21252b !important;
 }
 
 .CodeMirror-gutters {
-  background: none #4b4b4b !important;
+  background: none #21252b !important;
 }
 
 .doc-explorer-contents {
-  background: none #4b4b4b !important;
+  background: none #21252b !important;
 }
 
 .historyPaneWrap{
@@ -86,19 +86,23 @@ code {
 
 .doc-explorer-title-bar {
   padding: 3px 0 3px 3px !important;
-  background: none #4b4b4b !important;
+  background: none #21252b !important;
 }
 
 .doc-category-title {
   color: white !important;
   text-align: center !important;
-  background: none #4b4b4b !important;
+  background: none #21252b !important;
 }
 
 .secondary-editor-title {
   border-top: 1px solid black !important;
   border-bottom: 1px solid black !important;
-  background: none #4b4b4b !important;
+  background: none #21252b !important;
+  color: whitesmoke !important;
+}
+
+.docExplorerHide{
   color: whitesmoke !important;
 }
 
@@ -114,8 +118,16 @@ code {
   color: whitesmoke !important;
 }
 
+.CodeMirror-lines{
+  color: #21252b !important;
+}
+
+.cm-comment {
+  color: #21252b !important;
+}
+
 .CodeMirror-vscrollbar {
-  background: none #4b4b4b !important;
+  background: none #21252b !important;
 }
 
 .CodeMirror-gutters {
@@ -131,15 +143,15 @@ code {
 }
 
 .variable-editor-title {
-  background: none#4b4b4b !important;
+  background: none#21252b !important;
 }
 
 .search-box {
-  background-color: #4b4b4b;
+  background-color: #21252b;
 }
 
 .toolbar {
-  background: none #4b4b4b !important;
+  background: none #21252b !important;
 }
 
 .toolbar-button {
@@ -155,7 +167,7 @@ code {
 }
 
 .docExplorerWrap {
-  background: none #4b4b4b !important;
+  background: none #21252b !important;
 }
 
 .CodeMirror-code {
@@ -269,7 +281,7 @@ ul {
   left: 0;
   right: 0;
   filter: blur(8px);
-  background-color: #3b3b3b;
+  background-color: #00708b;
   z-index: -1;
   border-radius: 50%;
   margin: -6px;
@@ -358,7 +370,7 @@ textarea {
 .connectButton{
   height: 33px;
   border-radius: 5px;
-  background-color: #a8a8a8;
+  background-color: #32a6c2;
   border: 1px black solid;
   position: fixed; 
   bottom: 5px; 
@@ -366,13 +378,13 @@ textarea {
 }
 
 .connectButton:hover{
-  background-color: #4b4b4b;
+  background-color: #8ca543;
 }
 
 .windowInput {
   flex: 1;
   height: 70px;
-  background-color: rgb(97, 97, 97);
+  background-color: #21252b;
   align-self: flex-end;
   position: fixed; 
   bottom: -30px; 
