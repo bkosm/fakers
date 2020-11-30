@@ -1,3 +1,0 @@
-C:\Users\Mateusz Kuźniak\VisualStudio2019 - Student Project\fakerGenerator\fakers\generator\PeopleGenerator\TerytUslugaWs1\obj\Debug\netcoreapp3.1\TerytUslugaWs1.AssemblyInfoInputs.cache
-C:\Users\Mateusz Kuźniak\VisualStudio2019 - Student Project\fakerGenerator\fakers\generator\PeopleGenerator\TerytUslugaWs1\obj\Debug\netcoreapp3.1\TerytUslugaWs1.AssemblyInfo.cs
-C:\Users\Mateusz Kuźniak\VisualStudio2019 - Student Project\fakerGenerator\fakers\generator\PeopleGenerator\TerytUslugaWs1\obj\Debug\netcoreapp3.1\TerytUslugaWs1.csproj.CoreCompileInputs.cache
