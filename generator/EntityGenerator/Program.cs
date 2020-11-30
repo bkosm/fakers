@@ -1,18 +1,22 @@
 ﻿using System;
 using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace EntityGenerator
 {
     internal static class Program
     {
-        private static void Main(string[] args)
+        private static async Task Main(string[] args)
         {
-            var context = new PeopleContext();
-
-            foreach (var person in context.People)
+            await ArgumentParser.RunWithParsedAsync(args, async parsed =>
             {
-                Console.WriteLine(person);
-            }
+                await using var context = new PeopleContext(parsed.GetConnectionString());
+                
+                //TODO generation stuff
+                await context.People.ForEachAsync(Console.WriteLine);
+                
+            });
         }
     }
 }

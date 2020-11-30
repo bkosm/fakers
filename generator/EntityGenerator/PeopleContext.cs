@@ -7,14 +7,11 @@ namespace EntityGenerator
 {
     public partial class PeopleContext : DbContext
     {
-        private const string ConnString = "Host=localhost;Database=fakers_db;Username=fakers_u;Password=fakers";
+        private static string _connString;
 
-        public PeopleContext()
+        public PeopleContext(string connectionString)
         {
-        }
-
-        public PeopleContext(DbContextOptions<PeopleContext> options) : base(options)
-        {
+            _connString = connectionString;
         }
 
         public virtual DbSet<Address> Addresses { get; set; }
@@ -30,7 +27,7 @@ namespace EntityGenerator
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseNpgsql(ConnString);
+                optionsBuilder.UseNpgsql(_connString);
             }
         }
 
