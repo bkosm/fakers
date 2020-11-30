@@ -1,9 +1,0 @@
-C:\Users\Mateusz Kuźniak\VisualStudio2019 - Student Project\fakerGenerator\fakers\generator\PeopleGenerator\DisposableElement\bin\Debug\netcoreapp3.1\DisposableElement.deps.json
-C:\Users\Mateusz Kuźniak\VisualStudio2019 - Student Project\fakerGenerator\fakers\generator\PeopleGenerator\DisposableElement\bin\Debug\netcoreapp3.1\DisposableElement.dll
-C:\Users\Mateusz Kuźniak\VisualStudio2019 - Student Project\fakerGenerator\fakers\generator\PeopleGenerator\DisposableElement\bin\Debug\netcoreapp3.1\DisposableElement.pdb
-C:\Users\Mateusz Kuźniak\VisualStudio2019 - Student Project\fakerGenerator\fakers\generator\PeopleGenerator\DisposableElement\obj\Debug\netcoreapp3.1\DisposableElement.AssemblyInfoInputs.cache
-C:\Users\Mateusz Kuźniak\VisualStudio2019 - Student Project\fakerGenerator\fakers\generator\PeopleGenerator\DisposableElement\obj\Debug\netcoreapp3.1\DisposableElement.AssemblyInfo.cs
-C:\Users\Mateusz Kuźniak\VisualStudio2019 - Student Project\fakerGenerator\fakers\generator\PeopleGenerator\DisposableElement\obj\Debug\netcoreapp3.1\DisposableElement.csproj.CoreCompileInputs.cache
-C:\Users\Mateusz Kuźniak\VisualStudio2019 - Student Project\fakerGenerator\fakers\generator\PeopleGenerator\DisposableElement\obj\Debug\netcoreapp3.1\DisposableElement.dll
-C:\Users\Mateusz Kuźniak\VisualStudio2019 - Student Project\fakerGenerator\fakers\generator\PeopleGenerator\DisposableElement\obj\Debug\netcoreapp3.1\DisposableElement.pdb
-C:\Users\Mateusz Kuźniak\VisualStudio2019 - Student Project\fakerGenerator\fakers\generator\PeopleGenerator\DisposableElement\obj\Debug\netcoreapp3.1\DisposableElement.csprojAssemblyReference.cache

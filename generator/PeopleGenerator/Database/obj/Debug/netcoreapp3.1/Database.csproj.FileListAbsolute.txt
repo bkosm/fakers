@@ -1,9 +1,0 @@
-C:\Users\Mateusz Kuźniak\VisualStudio2019 - Student Project\fakerGenerator\fakers\generator\PeopleGenerator\Database\bin\Debug\netcoreapp3.1\Database.deps.json
-C:\Users\Mateusz Kuźniak\VisualStudio2019 - Student Project\fakerGenerator\fakers\generator\PeopleGenerator\Database\bin\Debug\netcoreapp3.1\Database.dll
-C:\Users\Mateusz Kuźniak\VisualStudio2019 - Student Project\fakerGenerator\fakers\generator\PeopleGenerator\Database\obj\Debug\netcoreapp3.1\Database.csprojAssemblyReference.cache
-C:\Users\Mateusz Kuźniak\VisualStudio2019 - Student Project\fakerGenerator\fakers\generator\PeopleGenerator\Database\obj\Debug\netcoreapp3.1\Database.AssemblyInfoInputs.cache
-C:\Users\Mateusz Kuźniak\VisualStudio2019 - Student Project\fakerGenerator\fakers\generator\PeopleGenerator\Database\obj\Debug\netcoreapp3.1\Database.AssemblyInfo.cs
-C:\Users\Mateusz Kuźniak\VisualStudio2019 - Student Project\fakerGenerator\fakers\generator\PeopleGenerator\Database\bin\Debug\netcoreapp3.1\Database.pdb
-C:\Users\Mateusz Kuźniak\VisualStudio2019 - Student Project\fakerGenerator\fakers\generator\PeopleGenerator\Database\obj\Debug\netcoreapp3.1\Database.csproj.CoreCompileInputs.cache
-C:\Users\Mateusz Kuźniak\VisualStudio2019 - Student Project\fakerGenerator\fakers\generator\PeopleGenerator\Database\obj\Debug\netcoreapp3.1\Database.dll
-C:\Users\Mateusz Kuźniak\VisualStudio2019 - Student Project\fakerGenerator\fakers\generator\PeopleGenerator\Database\obj\Debug\netcoreapp3.1\Database.pdb
