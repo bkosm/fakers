@@ -41,22 +41,22 @@ namespace PeopleGenerator
 
 
 
-            HashSet<Person> person = new HashSet<Person>();
+            //HashSet<Person> person = new HashSet<Person>();
 
-            while(person.Count!=10)
-            {
-                var p = new Person();
-                person.Add(p);
-                Console.WriteLine(p);
-            }
+            //while(person.Count!=10)
+            //{
+            //    var p = new Person();
+            //    person.Add(p);
+            //    Console.WriteLine(p);
+            //}
 
-            stopWatch.Stop();
-            TimeSpan ts = stopWatch.Elapsed;
-            string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}.{3:00}",
-            ts.Hours, ts.Minutes, ts.Seconds,
-            ts.Milliseconds / 10);
-            Console.WriteLine("RunTime " + elapsedTime);
-            //Console.WriteLine($"Rozmiar: {tab2.Length}" );
+            //stopWatch.Stop();
+            //TimeSpan ts = stopWatch.Elapsed;
+            //string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}.{3:00}",
+            //ts.Hours, ts.Minutes, ts.Seconds,
+            //ts.Milliseconds / 10);
+            //Console.WriteLine("RunTime " + elapsedTime);
+            ////Console.WriteLine($"Rozmiar: {tab2.Length}" );
 
 
              Console.ReadLine();
