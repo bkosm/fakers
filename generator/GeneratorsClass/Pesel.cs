@@ -48,12 +48,12 @@ namespace GeneratorsClass
             Pesel[7] = RandomNumber.Draw(0, 9);
             Pesel[8] = RandomNumber.Draw(0, 9);
 
-            if (sex == 'M')
+            if (sex == 'm')
                 Pesel[9] = RandomNumber.Draw(0, 4) * 2 + 1;
             else
                 Pesel[9] = RandomNumber.Draw(0, 4) * 2;
 
-            Pesel[10] = 10 - (Pesel[0] + 3 * Pesel[1] + 7 * Pesel[2] + 9 * Pesel[3] + Pesel[4] + 3 * Pesel[5] + 7 * Pesel[6] + 9 * Pesel[7] + Pesel[8] + 3 * Pesel[9]) % 10;
+            Pesel[10] = (10 - (Pesel[0] + 3 * Pesel[1] + 7 * Pesel[2] + 9 * Pesel[3] + Pesel[4] + 3 * Pesel[5] + 7 * Pesel[6] + 9 * Pesel[7] + Pesel[8] + 3 * Pesel[9]) % 10) % 10;
 
             string s = string.Join("", Pesel);
             _pesel = s.ToCharArray();
@@ -102,12 +102,12 @@ namespace GeneratorsClass
             Pesel[7] = RandomNumber.Draw(0, 9);
             Pesel[8] = RandomNumber.Draw(0, 9);
 
-            if (sex == 'M')
+            if (sex == 'm')
                 Pesel[9] = RandomNumber.Draw(0, 4) * 2 + 1;
             else
                 Pesel[9] = RandomNumber.Draw(0, 4) * 2;
 
-            Pesel[10] = 10 - (Pesel[0] + 3 * Pesel[1] + 7 * Pesel[2] + 9 * Pesel[3] + Pesel[4] + 3 * Pesel[5] + 7 * Pesel[6] + 9 * Pesel[7] + Pesel[8] + 3 * Pesel[9]) % 10;
+            Pesel[10] = (10 - (Pesel[0] + 3 * Pesel[1] + 7 * Pesel[2] + 9 * Pesel[3] + Pesel[4] + 3 * Pesel[5] + 7 * Pesel[6] + 9 * Pesel[7] + Pesel[8] + 3 * Pesel[9]) % 10) % 10;
 
             string s = string.Join("", Pesel);
             _pesel = s.ToCharArray();

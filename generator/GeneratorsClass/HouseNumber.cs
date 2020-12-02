@@ -12,7 +12,10 @@ namespace GeneratorsClass
 
         static string GetNumber()
         {
-            return RandomNumber.Draw(1, 20).ToString();
+            if(RandomNumber.Draw(1,10) < 9)
+                return RandomNumber.Draw(1, 20).ToString();
+            else
+                return RandomNumber.Draw(21, 40).ToString();
         }
 
         static bool Draw()
@@ -23,10 +26,10 @@ namespace GeneratorsClass
                 return false;
         }
 
-        public static string GetHauseNumber()
+        public static string GetHouseNumber()
         {
             StringBuilder str = new StringBuilder();
-
+            str.Append(" ");
             str.Append(GetNumber());
             if (Draw())
                 str.Append(hauseLib[RandomNumber.Draw(0, hauseLib.Length-1 )]);
