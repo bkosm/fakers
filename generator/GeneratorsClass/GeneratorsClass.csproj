@@ -14,7 +14,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ExternalAPI\ExternalAPI.csproj" />
-    <ProjectReference Include="..\RandomClass\RandomClass.csproj" />
   </ItemGroup>
 
 </Project>
