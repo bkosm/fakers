@@ -23,8 +23,7 @@ namespace ExternalAPI
             Country = country;
             Longitude = longitude;
             Latiude = latiude;
-            
-            
+     
         }
 
         public string City { get => _city; set => _city = value; }

@@ -46,11 +46,11 @@ namespace ExternalAPI
         public static ClearDataPerson getClearPerson(char sex)
         {
             string secondName = null;
-            using (var person = _download_serialized_json_data<PersonFromAPI>(_randomPeopleUrl + ((sex == 'M') ? "male/" : ((sex == 'F') ? "female/" : ""))))
+            using (var person = _download_serialized_json_data<PersonFromAPI>(_randomPeopleUrl + ((sex == 'm') ? "male/" : ((sex == 'f') ? "female/" : ""))))
             {
                 if (RandomNumber.Draw(0, 1) == 0)
                 {
-                    using (var addName = _download_serialized_json_data<PersonFromAPI>(_randomPeopleUrl + ((sex == 'M') ? "male/" : ((sex == 'F') ? "female/" : ""))))
+                    using (var addName = _download_serialized_json_data<PersonFromAPI>(_randomPeopleUrl + ((sex == 'm') ? "male/" : ((sex == 'f') ? "female/" : ""))))
                     {
                         secondName = addName.name;
                     }
