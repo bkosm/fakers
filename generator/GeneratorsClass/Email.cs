@@ -15,11 +15,13 @@ using ExternalAPI;
 
 namespace GeneratorsClass
 {
-    public static class Email
+    public static class Email 
     {
         static string[] _popularEmail = new string[] {"gmail.com", "yahoo.com", "outlook.com", "protonmail.com", "aolmail.com",
                                             "zaho.com","gmx.com","icloud.com","yandex.com","mail.com", "o2.pl", "wp.pl", "onet.pl",
                                             "interia.pl", "gazeta.pl", "put.poznan.pl" };
+
+
 
         #region ADDITIONAL_FUNCTIONS
         /// <summary>
