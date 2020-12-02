@@ -11,6 +11,7 @@ namespace GeneratorsClass
         public string LastName { get; set; }
         public char Sex { get; set; }
         public string Street { get; set; }
+        public bool IsDead { get; set; }
 
         public DateTime BirthDate { get; set; }
 
@@ -20,6 +21,15 @@ namespace GeneratorsClass
             BirthDate = new BirthDate().getBirthDate;
             Pesel = new String(new Pesel(BirthDate, Sex).getPesel);
             SetName(GetDataFromJson.getClearPerson(Sex));
+            if (RandomNumber.Draw(0, 115) < DateTime.Now.Year - BirthDate.Year)
+            {
+                if (DateTime.Now.Year - BirthDate.Year > 75)
+                    IsDead = true;
+                else if (RandomNumber.Draw(1, 3) == 2)
+                    IsDead = true;
+            }
+            else
+                IsDead = false;
         }
 
         void SetName(ClearDataPerson person)
