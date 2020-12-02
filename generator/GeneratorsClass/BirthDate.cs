@@ -14,7 +14,12 @@ namespace GeneratorsClass
 
         public BirthDate()
         {
-            _date = new Date().getDate;
+            DateTime now = DateTime.Now;
+            
+            if(RandomNumber.Draw(1, 10) != 3)
+                _date = new Date(new DateTime(now.Year - 70, now.Month, now.Day)).getDate;
+            else
+                _date = new Date(new DateTime(now.Year - 200, now.Month, now.Day)).getDate;
         }
 
         public BirthDate(Pesel Pesel)
