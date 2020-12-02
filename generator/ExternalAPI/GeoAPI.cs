@@ -4,6 +4,7 @@ using System.Text;
 
 namespace ExternalAPI 
 {
+
     public class GeoAPI : DisposableElement.Disposable
     {
         public string type { get; set; }

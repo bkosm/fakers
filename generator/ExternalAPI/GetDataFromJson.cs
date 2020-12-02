@@ -5,6 +5,7 @@ using System.Net;
 using System.Runtime.CompilerServices;
 using System.Security.Cryptography.X509Certificates;
 using RandomClass;
+using System.Threading.Tasks;
 
 /*
  * url do poczytania = https://www.codeproject.com/Tips/397574/Use-Csharp-to-get-JSON-Data-from-the-Web-and-Map-i 
@@ -62,6 +63,7 @@ namespace ExternalAPI
 
         public static ClearGeoAPI getGeo(string city, string street)
         {
+            Task.Delay(1000);
             using (var place = _download_serialized_json_data<GeoAPI>($"{_geoUrl}{street},{city}{_geoKEY}"))
             { 
                 return new ClearGeoAPI(place.features[0].properties.city, place.features[0].properties.street,

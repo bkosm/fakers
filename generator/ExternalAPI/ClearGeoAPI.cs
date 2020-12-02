@@ -4,29 +4,49 @@ using System.Text;
 
 namespace ExternalAPI
 {
-    public  class ClearGeoAPI : DisposableElement.Disposable
+    public class ClearGeoAPI : DisposableElement.Disposable
     {
         string _city;
         string _street;
-        string _state;
+        string _voivodeship;
         string _country;
         string _longitude;
         string _latiude;
+        Action<string> _logger;
 
-
-        public ClearGeoAPI(string city, string street, string state, string country, string longitude, string latiude )
+        public ClearGeoAPI(string city, string street, string voivodeship, string country, string longitude, string latiude, Action<string> logger = null)
         {
+            _logger = logger ?? Console.WriteLine;
             City = city;
             Street = street;
-            State = state;
+            Voivodeship = voivodeship;
             Country = country;
-            Longitude= longitude;
+            Longitude = longitude;
             Latiude = latiude;
+            
+            
         }
 
         public string City { get => _city; set => _city = value; }
         public string Street { get => _street; set => _street = value; }
-        public string State { get => _state; set => _state = value; }
+        public string Voivodeship
+        {
+            get => _voivodeship;
+            set
+            {
+                if (value == "Lesser Poland Voivodeship")
+                    _voivodeship = "Małopolskie";
+                else if (value == "Łódź Voivodeship")
+                    _voivodeship = "Łódzkie";
+                else if (value == "Greater Poland")
+                    _voivodeship = "Wielkopolskie";
+                else if (value == "Silesian Voivodeship")
+                    _voivodeship = "Śląskie";
+                else _voivodeship = value;
+
+                _logger($"{DateTime.Now} Ustawniono województwo");
+            }
+        }
         public string Longitude { get => _longitude; set => _longitude = value; }
         public string Latiude { get => _latiude; set => _latiude = value; }
         public string Country { get => _country; set => _country = value; }
