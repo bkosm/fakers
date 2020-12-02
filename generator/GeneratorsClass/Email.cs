@@ -21,8 +21,6 @@ namespace GeneratorsClass
                                             "zaho.com","gmx.com","icloud.com","yandex.com","mail.com", "o2.pl", "wp.pl", "onet.pl",
                                             "interia.pl", "gazeta.pl", "put.poznan.pl" };
 
-
-
         #region ADDITIONAL_FUNCTIONS
         /// <summary>
         /// Usuwa znaki diakrytyczne: ł -> l
