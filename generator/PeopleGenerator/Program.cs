@@ -30,6 +30,12 @@ namespace PeopleGenerator
             Stopwatch stopWatch = new Stopwatch();
             stopWatch.Start();
 
+
+            for(int i =0; i <1000000; i++)
+            {
+                Console.WriteLine(Telephone.getPhoneNumber());
+            }
+
             //var place = ExternalAPI.GetDataFromJson.getGeo("poznan","mielzyńskiego");
             //var person = ExternalAPI.GetDataFromJson.getClearPerson(ExternalAPI.Gender.RANDOM);
             //var place = ExternalAPI.GetDataFromJson.getGeo("64-130", "Wolności");
