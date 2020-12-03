@@ -3,11 +3,9 @@ using ExternalAPI;
 
 namespace GeneratorsClass
 {
-    public class Pesel
+    public static class Pesel
     {
-        char[] _pesel;
-
-        public Pesel(DateTime birthDate, char sex)
+        public static char[] getPesel(DateTime birthDate, char sex)
         {
             int[] Pesel = new int[11];
 
@@ -56,14 +54,14 @@ namespace GeneratorsClass
             Pesel[10] = (10 - (Pesel[0] + 3 * Pesel[1] + 7 * Pesel[2] + 9 * Pesel[3] + Pesel[4] + 3 * Pesel[5] + 7 * Pesel[6] + 9 * Pesel[7] + Pesel[8] + 3 * Pesel[9]) % 10) % 10;
 
             string s = string.Join("", Pesel);
-            _pesel = s.ToCharArray();
+            return s.ToCharArray();
         }
 
-        public Pesel()
+        public static char[] getPesel()
         {
             int[] Pesel = new int[11];
-            DateTime birthDate = new BirthDate().getBirthDate;
-            char sex = new Sex().getSex;
+            DateTime birthDate = BirthDate.getBirthDate();
+            char sex = Sex.getSex();
 
             Pesel[0] = birthDate.Year % 100 / 10;
             Pesel[1] = birthDate.Year % 10;
@@ -110,9 +108,7 @@ namespace GeneratorsClass
             Pesel[10] = (10 - (Pesel[0] + 3 * Pesel[1] + 7 * Pesel[2] + 9 * Pesel[3] + Pesel[4] + 3 * Pesel[5] + 7 * Pesel[6] + 9 * Pesel[7] + Pesel[8] + 3 * Pesel[9]) % 10) % 10;
 
             string s = string.Join("", Pesel);
-            _pesel = s.ToCharArray();
+            return s.ToCharArray();
         }
-
-        public char[] getPesel { get => _pesel; }
     }
 }

@@ -5,30 +5,29 @@ using ExternalAPI;
 
 namespace GeneratorsClass
 {
-    public class Date
+    public static class Date
     {
-        int _day;
-        int _month;
-        int _year;
-        DateTime _date;
+        private static int _day;
+        private static int _month;
+        private static int _year;
 
-        public Date()
+        public static DateTime getDate()
         {
             _year = generateYear(1800);
             _month = generateMonth(1);
             _day = generateDay(1);
-            _date = new DateTime(_year, _month, _day);
+            return new DateTime(_year, _month, _day);
         }
 
-        public Date(DateTime date)
+        public static DateTime getDate(DateTime date)
         {
             _year = generateYear(date.Year);
             _month = generateMonth(date.Month);
             _day = generateDay(date.Day);
-            _date = new DateTime(_year, _month, _day);
+            return new DateTime(_year, _month, _day);
         }
 
-        int generateMonth(int month)
+        static int generateMonth(int month)
         {
             if (_year == DateTime.Now.Year)
                 return RandomNumber.Draw(month, DateTime.Now.Month);
@@ -36,12 +35,12 @@ namespace GeneratorsClass
                 return RandomNumber.Draw(1, 12);
         }
 
-        int generateYear(int year)
+        static int generateYear(int year)
         {
             return RandomNumber.Draw(year, System.DateTime.Now.Year);
         }
 
-        int generateDay(int day)
+        static int generateDay(int day)
         {
             if (_year == System.DateTime.Now.Year && _month == System.DateTime.Now.Month)
                 return RandomNumber.Draw(day, System.DateTime.Now.Day);
@@ -56,7 +55,5 @@ namespace GeneratorsClass
                 return RandomNumber.Draw(1, 30);
 
         }
-
-        public DateTime getDate { get => _date; }
     }
 }

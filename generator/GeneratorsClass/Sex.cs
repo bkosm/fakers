@@ -5,27 +5,23 @@ using ExternalAPI;
 
 namespace GeneratorsClass
 {
-    public class Sex
+    public static class Sex
     {
-        char _sex;
-
-        public Sex()
+        public static char getSex()
         {
             if (RandomNumber.Draw(0, 1) == 0)
-                _sex = 'm';
+                return 'm';
             else
-                _sex = 'f';
+                return 'f';
         }
 
-        public Sex(Pesel pesel)
+        public static char getSex(char[] pesel)
         {
-            int sexNumber = (int)Char.GetNumericValue(pesel.getPesel[9]);
+            int sexNumber = (int)Char.GetNumericValue(pesel[9]);
             if (sexNumber % 2 == 1)
-                _sex = 'm';
+                return 'm';
             else
-                _sex = 'f';
+                return 'f';
         }
-
-        public char getSex { get => _sex; }
     }
 }

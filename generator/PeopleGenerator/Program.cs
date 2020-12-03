@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.ServiceModel;
 using GeneratorsClass;
-using GetPersonality;
 
 namespace PeopleGenerator
 {
@@ -33,7 +32,8 @@ namespace PeopleGenerator
 
             for(int i =0; i <1000000; i++)
             {
-                Console.WriteLine(Telephone.getPhoneNumber());
+                //Console.WriteLine(Telephone.getPhoneNumber());
+                Console.WriteLine(new Person());
             }
 
             //var place = ExternalAPI.GetDataFromJson.getGeo("poznan","mielzyńskiego");

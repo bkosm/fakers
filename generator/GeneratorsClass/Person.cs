@@ -17,9 +17,9 @@ namespace GeneratorsClass
 
         public Person()
         {
-            Sex = new Sex().getSex;
-            BirthDate = new BirthDate().getBirthDate;
-            Pesel = new String(new Pesel(BirthDate, Sex).getPesel);
+            Sex = GeneratorsClass.Sex.getSex();
+            BirthDate = GeneratorsClass.BirthDate.getBirthDate();
+            Pesel = new String(GeneratorsClass.Pesel.getPesel(BirthDate, Sex));
             SetName(GetDataFromJson.getClearPerson(Sex));
             if (RandomNumber.Draw(0, 115) < DateTime.Now.Year - BirthDate.Year)
             {
@@ -38,6 +38,11 @@ namespace GeneratorsClass
             SecondName = person.SecondName;
             LastName = person.LastName;
             Street = person.Street;
+        }
+
+        public override string ToString()
+        {
+            return $"{FirstName} {SecondName} {LastName} {Sex} {Pesel} {BirthDate.ToShortDateString()}";
         }
     }
 }

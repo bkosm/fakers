@@ -44,7 +44,7 @@ namespace EntityGenerator
         }
 
 
-        static model.PersonAddress MergePersonAddress(model.Person person, model.Address address, Date date)
+        static model.PersonAddress MergePersonAddress(model.Person person, model.Address address, DateTime date)
         {
             var personAddress = new model.PersonAddress();
 
@@ -52,20 +52,20 @@ namespace EntityGenerator
             {
                 personAddress.Person = person;
                 personAddress.Address = address;
-                personAddress.Assigned = date.getDate;
+                personAddress.Assigned = date;
             }
 
             return personAddress;
 
         }
 
-        static model.PersonContact MergePersonContact(model.Person person, model.Contact contact, Date date)
+        static model.PersonContact MergePersonContact(model.Person person, model.Contact contact, DateTime date)
         {
             var personContact = new model.PersonContact
             {
                 Person = person,
                 Contact = contact,
-                Assigned = date.getDate
+                Assigned = date
             };
             return personContact;
         }
@@ -90,7 +90,7 @@ namespace EntityGenerator
                 while (true)
                 {
                     DateTime startTime = new DateTime(2020, 10, 1);
-                    var date = new GeneratorsClass.Date(startTime);
+                    var date = Date.getDate(startTime);
 
                     Thread.Sleep(1000);
                     GeneratorsClass.Person localPeroson = new GeneratorsClass.Person();
@@ -103,7 +103,7 @@ namespace EntityGenerator
                         var deceasedPerson = new model.DeceasedPerson
                         {
                             Person = person,
-                            DateOfDeath = new GeneratorsClass.DeathDate(localPeroson.BirthDate).getDeathDate
+                            DateOfDeath = DeathDate.getDeathDate(localPeroson.BirthDate)
                         };
                         context.DeceasedPeople.Add(deceasedPerson);
                         context.SaveChanges();

@@ -4,12 +4,11 @@ using System.Text;
 
 namespace GeneratorsClass
 {
-    public class DeathDate
+    public static class DeathDate
     {
-        DateTime _date;
-
-        public DeathDate(DateTime birthDate){ _date = new Date(birthDate).getDate; }
-
-        public DateTime getDeathDate { get => _date; }
+        public static DateTime getDeathDate(DateTime birthDate)
+        {
+            return Date.getDate(birthDate);
+        }
     }
 }
