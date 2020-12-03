@@ -12,91 +12,167 @@ namespace EntityGenerator
     {
         static model.Person PersonToPerson(GeneratorsClass.Person temp)
         {
-            model.Person person = new model.Person
-            {
-                Sex = temp.Sex,
-                BirthDate = temp.BirthDate,
-                Pesel = temp.Pesel,
-                FirstName = temp.FirstName,
-                SecondName = temp.SecondName,
-                LastName = temp.LastName
-            };
 
-            return person;
+            try
+            {
+                Logger.generatorPersonToPerson();
+                model.Person person = new model.Person
+                {
+                    Sex = temp.Sex,
+                    BirthDate = temp.BirthDate,
+                    Pesel = temp.Pesel,
+                    FirstName = temp.FirstName,
+                    SecondName = temp.SecondName,
+                    LastName = temp.LastName
+                };
+                return person;
+            }
+            catch (Exception e)
+            {
+                Logger.log(e);
+                return null;
+            }
         }
 
         static model.Address SetAddress(string street)
         {
-            ClearGeoAPI geo = GetDataFromJson.getGeo("", street);
-
-            if (geo.City == null)
-                return null;
-
-            model.Address address = new model.Address
+            try
             {
-                City = geo.City,
-                Street = street + HouseNumber.GetHouseNumber(),
-                Voivodeship = geo.Voivodeship,
-                Location = new String($"{geo.Latiude}, {geo.Longitude}")
-            };
+                Logger.generatorSetAddress();
 
-            return address;
+                ClearGeoAPI geo = GetDataFromJson.getGeo("", street);
+                try
+                {
+                    if (geo == null)
+                        throw new NullReferenceException();
+                }
+                catch (NullReferenceException e)
+                {
+                    Logger.log(e);
+                    return null;
+                }
+
+
+                if (geo.City == null)
+                {
+                    Logger.generatorSetAddressError();
+                    return null;
+                }
+
+                if (geo.City == street)
+                {
+                    Logger.generatorSetAddressTheSameError();
+                    return null;
+                }
+
+                model.Address address = new model.Address
+                {
+                    City = geo.City,
+                    Street = street + HouseNumber.GetHouseNumber(),
+                    Voivodeship = geo.Voivodeship,
+                    Location = new String($"{geo.Latiude}, {geo.Longitude}")
+                };
+
+                return address;
+            }
+            catch (Exception e)
+            {
+                Logger.log(e);
+                return null;
+            }
+
         }
 
 
         static model.PersonAddress MergePersonAddress(model.Person person, model.Address address, DateTime date)
         {
-            var personAddress = new model.PersonAddress();
-
-            if (address.City != null)
+            Logger.generatorMergePA();
+            try
             {
-                personAddress.Person = person;
-                personAddress.Address = address;
-                personAddress.Assigned = date;
+                var personAddress = new model.PersonAddress();
+
+                if (address.City != null)
+                {
+                    personAddress.Person = person;
+                    personAddress.Address = address;
+
+                    if (RandomNumber.Draw(1, 10) < 8)
+                        personAddress.Assigned = person.BirthDate;
+                    else
+                        personAddress.Assigned = Date.getDate(person.BirthDate);
+                }
+
+                return personAddress;
             }
-
-            return personAddress;
-
+            catch (Exception e)
+            {
+                Logger.log(e);
+                return null;
+            }
         }
 
-        static model.PersonContact MergePersonContact(model.Person person, model.Contact contact, DateTime date)
+        static model.PersonContact MergePersonContact(model.Person person, model.Contact contact)
         {
-            var personContact = new model.PersonContact
+            var date = Date.getDate(person.BirthDate);
+
+            try
             {
-                Person = person,
-                Contact = contact,
-                Assigned = date
-            };
-            return personContact;
+                var personContact = new model.PersonContact
+                {
+                    Person = person,
+                    Contact = contact,
+                    Assigned = date
+                };
+                return personContact;
+            }
+            catch (Exception e)
+            {
+                Logger.log(e);
+                return null;
+            }
+
         }
 
         static model.Contact SetContact(string firstName, string lastName)
         {
-            var contact = new model.Contact
+            Logger.generatorSetContact();
+            try
             {
-                Email = Email.getMail(firstName, lastName)
-            };
-            if (RandomNumber.Draw(0, 2) < 2)
-                contact.PhoneNumber = Telephone.getPhoneNumber();
-            return contact;
+                var contact = new model.Contact
+                {
+                    Email = Email.getMail(firstName, lastName)
+                };
+                if (RandomNumber.Draw(0, 2) < 2)
+                    contact.PhoneNumber = Telephone.getPhoneNumber();
+                return contact;
+            }
+            catch (Exception e)
+            {
+                Logger.log(e);
+                return null;
+            }
         }
 
         public static void Generate(PeopleContext context, int? amount = null)
         {
+            Logger.generatorMain();
             int i = 0;
             try
             {
 
                 while (true)
                 {
+                    i++;
+                    Logger.start();
                     DateTime startTime = new DateTime(2020, 10, 1);
                     var date = Date.getDate(startTime);
 
-                    Thread.Sleep(1000);
+                    Thread.Sleep(2000);
                     GeneratorsClass.Person localPeroson = new GeneratorsClass.Person();
 
                     var person = PersonToPerson(localPeroson);
                     context.People.Add(person);
+                    context.SaveChanges();
 
                     if (localPeroson.IsDead == true)
                     {
@@ -110,21 +186,26 @@ namespace EntityGenerator
                         continue;
                     }
 
+
                     if (DateTime.Today.Year - person.BirthDate.Year < 65)
                     {
                         var contact = SetContact(person.FirstName, person.LastName);
                         context.Contacts.Add(contact);
 
-                        var personContact = MergePersonContact(person, contact, date);
+                        context.SaveChanges();
+
+                        var personContact = MergePersonContact(person, contact);
                         contact.PersonContacts.Add(personContact);
                         if (RandomNumber.Draw(1, 5) == 5 && context.Contacts.Count() - 2 > 0)
-                            context.PersonContacts.Add(MergePersonContact(person, context.Contacts.Skip(RandomNumber.Draw(0, context.Contacts.Count() - 2)).First(), date));
+                            context.PersonContacts.Add(MergePersonContact(person, context.Contacts.Skip(RandomNumber.Draw(0, context.Contacts.Count() - 2)).First()));
+                        context.SaveChanges();
                     }
                     else
                     {
                         if (RandomNumber.Draw(1, 10) == 5 && context.Contacts.Count() - 2 > 0)
                         {
-                            context.PersonContacts.Add(MergePersonContact(person, context.Contacts.Skip(RandomNumber.Draw(0, context.Contacts.Count() - 2)).First(), date));
+                            context.PersonContacts.Add(MergePersonContact(person, context.Contacts.Skip(RandomNumber.Draw(0, context.Contacts.Count() - 2)).First()));
+                            context.SaveChanges();
                         }
                     }
 
@@ -132,9 +213,12 @@ namespace EntityGenerator
                     var address = SetAddress(localPeroson.Street);
 
                     model.PersonAddress personAddress = new model.PersonAddress();
+                    context.SaveChanges();
+
                     if (address != null)
                     {
                         context.Addresses.Add(address);
+                        context.SaveChanges();
                         personAddress = MergePersonAddress(person, address, date);
                     }
                     else
@@ -143,21 +227,17 @@ namespace EntityGenerator
                             personAddress = MergePersonAddress(person, context.Addresses.Skip(RandomNumber.Draw(0, context.Addresses.Count() - 2)).First(), date);
                     }
                     context.PersonAddresses.Add(personAddress);
+                    context.SaveChanges();
 
 
                     if (RandomNumber.Draw(1, 5) == 5 && context.Contacts.Count() - 2 > 0)
                         context.PersonAddresses.Add(MergePersonAddress(person, context.Addresses.Skip(RandomNumber.Draw(0, context.Addresses.Count() - 2)).First(), date));
 
-
-                    if (i % 1000 == 0)
-                        context.SaveChanges();
-                    if (amount != null && amount == i)
+                    if (amount != null && amount <= i)
                         break;
+
+                    context.SaveChanges();
                 }
-
-                context.SaveChanges();
-
-
 
             }
             catch (Exception e)
@@ -165,7 +245,7 @@ namespace EntityGenerator
                 Console.WriteLine(e.Message);
             }
 
-
+            context.SaveChanges();
         }
     }
 }

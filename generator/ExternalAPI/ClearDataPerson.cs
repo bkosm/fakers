@@ -28,6 +28,7 @@ namespace ExternalAPI
 
         public ClearDataPerson(string name, string secondName, string address)
         {
+            Logger.clearPersonStart();
             name = _skipTitle(name);
             secondName = _skipTitle(secondName);
 

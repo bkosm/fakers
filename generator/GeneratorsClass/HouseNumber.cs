@@ -6,12 +6,12 @@ namespace GeneratorsClass
 {
     public static class HouseNumber
     {
-        
-        static string[] hauseLib = new String[]{"a","b","c","d","e","f"};
+
+        static string[] hauseLib = new String[] { "a", "b", "c", "d", "e", "f" };
 
         static string GetNumber()
         {
-            if(RandomNumber.Draw(1,10) < 9)
+            if (RandomNumber.Draw(1, 10) < 9)
                 return RandomNumber.Draw(1, 20).ToString();
             else
                 return RandomNumber.Draw(21, 40).ToString();
@@ -27,15 +27,25 @@ namespace GeneratorsClass
 
         public static string GetHouseNumber()
         {
-            StringBuilder str = new StringBuilder();
-            str.Append(" ");
-            str.Append(GetNumber());
-            if (Draw())
-                str.Append(hauseLib[RandomNumber.Draw(0, hauseLib.Length-1 )]);
-            if (Draw())
-                str.Append($"\\{GetNumber()}");
-            return str.ToString();
-        }
+            Logger.houseStart();
+            try
+            {
+                StringBuilder str = new StringBuilder();
+                str.Append(" ");
+                str.Append(GetNumber());
+                if (Draw())
+                    str.Append(hauseLib[RandomNumber.Draw(0, hauseLib.Length - 1)]);
+                if (Draw())
+                    str.Append($"\\{GetNumber()}");
+                return str.ToString();
 
+            }
+            catch (Exception e)
+            {
+                Logger.log(e);
+                return null;
+            }
+
+        }
     }
 }

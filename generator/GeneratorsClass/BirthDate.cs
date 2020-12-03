@@ -9,11 +9,21 @@ namespace GeneratorsClass
     {
         public static DateTime getBirthDate()
         {
-            DateTime now = DateTime.Now;
+            try
+            {
+                Logger.birthDateStart();
+                DateTime now = DateTime.Now;
 
-            if (RandomNumber.Draw(1, 10) != 3)
-                return Date.getDate(new DateTime(now.Year - 70, now.Month, now.Day));
-            return Date.getDate(new DateTime(now.Year - 200, now.Month, now.Day));
+                if (RandomNumber.Draw(1, 10) != 3)
+                    return Date.getDate(new DateTime(now.Year - 70, now.Month, now.Day));
+                return Date.getDate(new DateTime(now.Year - 200, now.Month, now.Day));
+            }
+            catch (Exception e)
+            {
+                Logger.log(e);
+                return getBirthDate();
+            }
+
         }
 
         public static DateTime getBirthDate(char[] pesel)

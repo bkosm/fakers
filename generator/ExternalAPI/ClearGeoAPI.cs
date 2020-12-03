@@ -10,11 +10,10 @@ namespace ExternalAPI
         string _country;
         string _longitude;
         string _latiude;
-        Action<string> _logger;
 
-        public ClearGeoAPI(string city, string street, string voivodeship, string country, string longitude, string latiude, Action<string> logger = null)
+        public ClearGeoAPI(string city, string street, string voivodeship, string country, string longitude, string latiude)
         {
-            _logger = logger ?? Console.WriteLine;
+            Logger.clearGeoStart();
             City = city;
             Street = street;
             Voivodeship = voivodeship;
@@ -40,8 +39,7 @@ namespace ExternalAPI
                 else if (value == "Silesian Voivodeship")
                     _voivodeship = "Śląskie";
                 else _voivodeship = value;
-
-                _logger($"{DateTime.Now} Ustawniono województwo");
+               
             }
         }
         public string Longitude { get => _longitude; set => _longitude = value; }

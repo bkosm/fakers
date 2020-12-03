@@ -9,10 +9,20 @@ namespace GeneratorsClass
     {
         public static char getSex()
         {
-            if (RandomNumber.Draw(0, 1) == 0)
-                return 'm';
-            else
-                return 'f';
+            try
+            {
+                Logger.sexStart();
+                if (RandomNumber.Draw(0, 1) == 0)
+                    return 'm';
+                else
+                    return 'f';
+            }
+            catch (Exception e)
+            {
+                Logger.log(e);
+                return getSex();
+            }
+
         }
 
         public static char getSex(char[] pesel)

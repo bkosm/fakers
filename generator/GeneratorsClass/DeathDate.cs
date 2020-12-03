@@ -1,6 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
+using ExternalAPI;
 
 namespace GeneratorsClass
 {
@@ -8,7 +7,17 @@ namespace GeneratorsClass
     {
         public static DateTime getDeathDate(DateTime birthDate)
         {
-            return Date.getDate(birthDate);
+            try
+            {
+                Logger.deathDateStart();
+                return Date.getDate(birthDate);
+            }
+            catch (Exception e)
+            {
+                Logger.log(e);
+                return getDeathDate(birthDate);
+            }
+
         }
     }
 }

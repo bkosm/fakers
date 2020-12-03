@@ -17,6 +17,7 @@ namespace GeneratorsClass
 
         public Person()
         {
+            Logger.personStart();
             Sex = GeneratorsClass.Sex.getSex();
             BirthDate = GeneratorsClass.BirthDate.getBirthDate();
             Pesel = new String(GeneratorsClass.Pesel.getPesel(BirthDate, Sex));

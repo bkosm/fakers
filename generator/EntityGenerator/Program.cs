@@ -19,7 +19,6 @@ namespace EntityGenerator
 
                 Generator.Generate(context, amount);
 
-                //await context.Addresses.ForEachAsync(Console.WriteLine);
             });
 
            
