@@ -1,17 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
 using System.Text;
 using ExternalAPI;
-/*
- * Generowania [x]  różnych maili dla "Łukasz Ziółkowski":
- *      -1000 ~ ok 0.23[s]
- *      -10000 ~ ok 0.38[s]
- *      -156580 ~ ok 43.72[s]
- *      -Powyżej  150tys czas zwiększa się wykładniczo 
- *      
- */
 
 namespace GeneratorsClass
 {
