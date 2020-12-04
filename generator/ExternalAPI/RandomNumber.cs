@@ -2,7 +2,7 @@
 
 using System.Security.Cryptography;
 
-namespace RandomClass
+namespace ExternalAPI
 {
     public static class RandomNumber
     {

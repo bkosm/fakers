@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace ExternalAPI 
+﻿namespace ExternalAPI 
 {
+
     public class GeoAPI : DisposableElement.Disposable
     {
         public string type { get; set; }

@@ -22,7 +22,6 @@
   <ItemGroup>
     <ProjectReference Include="..\ExternalAPI\ExternalAPI.csproj" />
     <ProjectReference Include="..\GeneratorsClass\GeneratorsClass.csproj" />
-    <ProjectReference Include="..\GetPersonality\GetPersonality.csproj" />
   </ItemGroup>
 
 </Project>

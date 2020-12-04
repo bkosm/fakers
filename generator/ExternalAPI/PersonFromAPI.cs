@@ -1,8 +1,4 @@
-﻿using System;
-using System.ComponentModel;
-
-
-/* url do poczytania: https://docs.microsoft.com/en-us/dotnet/api/system.idisposable?view=net-5.0 */
+﻿/* url do poczytania: https://docs.microsoft.com/en-us/dotnet/api/system.idisposable?view=net-5.0 */
 
 namespace ExternalAPI
 {
@@ -13,8 +9,7 @@ namespace ExternalAPI
         #endregion
 
         #region VARIABLE_PERSONAL_DATA
-        public string name
-        { get; set; }
+        public string name { get; set; }
         public string address { get; set; }
 
         #region UNUSED

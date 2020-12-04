@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.ServiceModel;
 using GeneratorsClass;
-using GetPersonality;
 
 namespace PeopleGenerator
 {
@@ -30,6 +29,13 @@ namespace PeopleGenerator
             Stopwatch stopWatch = new Stopwatch();
             stopWatch.Start();
 
+
+            for(int i =0; i <1000000; i++)
+            {
+                //Console.WriteLine(Telephone.getPhoneNumber());
+                Console.WriteLine(new Person());
+            }
+
             //var place = ExternalAPI.GetDataFromJson.getGeo("poznan","mielzyńskiego");
             //var person = ExternalAPI.GetDataFromJson.getClearPerson(ExternalAPI.Gender.RANDOM);
             //var place = ExternalAPI.GetDataFromJson.getGeo("64-130", "Wolności");
@@ -41,22 +47,22 @@ namespace PeopleGenerator
 
 
 
-            HashSet<Person> person = new HashSet<Person>();
+            //HashSet<Person> person = new HashSet<Person>();
 
-            while(person.Count!=10)
-            {
-                var p = new Person();
-                person.Add(p);
-                Console.WriteLine(p);
-            }
+            //while(person.Count!=10)
+            //{
+            //    var p = new Person();
+            //    person.Add(p);
+            //    Console.WriteLine(p);
+            //}
 
-            stopWatch.Stop();
-            TimeSpan ts = stopWatch.Elapsed;
-            string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}.{3:00}",
-            ts.Hours, ts.Minutes, ts.Seconds,
-            ts.Milliseconds / 10);
-            Console.WriteLine("RunTime " + elapsedTime);
-            //Console.WriteLine($"Rozmiar: {tab2.Length}" );
+            //stopWatch.Stop();
+            //TimeSpan ts = stopWatch.Elapsed;
+            //string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}.{3:00}",
+            //ts.Hours, ts.Minutes, ts.Seconds,
+            //ts.Milliseconds / 10);
+            //Console.WriteLine("RunTime " + elapsedTime);
+            ////Console.WriteLine($"Rozmiar: {tab2.Length}" );
 
 
              Console.ReadLine();

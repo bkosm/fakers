@@ -1,15 +1,23 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
+using ExternalAPI;
 
 namespace GeneratorsClass
 {
-    public class DeathDate
+    public static class DeathDate
     {
-        DateTime _date;
+        public static DateTime getDeathDate(DateTime birthDate)
+        {
+            try
+            {
+                Logger.deathDateStart();
+                return Date.getDate(birthDate);
+            }
+            catch (Exception e)
+            {
+                Logger.log(e);
+                return getDeathDate(birthDate);
+            }
 
-        public DeathDate(DateTime birthDate){ _date = new Date(birthDate).getDate; }
-
-        public DateTime getDeathDate { get => _date; }
+        }
     }
 }
