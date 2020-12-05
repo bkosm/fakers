@@ -20,32 +20,32 @@ namespace ExternalAPI
         }
 
         #region EMAIL
-        public static void emailStart() { Console.WriteLine($"{data()} Generating an e-mail address"); }
-        public static void emailClassic() { Console.WriteLine($"{data()} Generating a classic e-mail address"); }
-        public static void emailFirst() { Console.WriteLine($"{data()} Generating a firstLetter e-mail address"); }
-        public static void emailName() { Console.WriteLine($"{data()} Generating a name e-mail address"); }
-        public static void emailDifferent() { Console.WriteLine($"{data()} Generating a different e-mail address"); }
-        public static void emailDiacritics() { Console.WriteLine($"{data()} Removing diacritics"); }
-        public static void emailDomain() { Console.WriteLine($"{data()} Getting the domain address"); }
+        public static void emailStart() { cw($"{data()} Generating an e-mail address"); }
+        public static void emailClassic() { cw($"{data()} Generating a classic e-mail address"); }
+        public static void emailFirst() { cw($"{data()} Generating a firstLetter e-mail address"); }
+        public static void emailName() { cw($"{data()} Generating a name e-mail address"); }
+        public static void emailDifferent() { cw($"{data()} Generating a different e-mail address"); }
+        public static void emailDiacritics() { cw($"{data()} Removing diacritics"); }
+        public static void emailDomain() { cw($"{data()} Getting the domain address"); }
         #endregion
 
         #region HOUSE_NUMBER
-        public static void houseStart() { Console.WriteLine($"{data()} Getting a house number"); }
+        public static void houseStart() { cw($"{data()} Getting a house number"); }
         #endregion
 
         #region PERSON
-        public static void personStart() { Console.WriteLine($"{data()} Generating a person"); }
+        public static void personStart() { cw($"{data()} Generating a person"); }
         #endregion
 
         #region API
-        public static void clearPersonStart() { Console.WriteLine($"{data()} Generating a clearPerson"); }
-        public static void clearGeoStart() { Console.WriteLine($"{data()} Generating a clearGeoAPI"); }
-        public static void jsonGeoStart() { Console.WriteLine($"{data()} Get GEO data from JSON"); }
-        public static void jsonPersonStart() { Console.WriteLine($"{data()} Get Person data from JSON"); }
+        public static void clearPersonStart() { cw($"{data()} Generating a clearPerson"); }
+        public static void clearGeoStart() { cw($"{data()} Generating a clearGeoAPI"); }
+        public static void jsonGeoStart() { cw($"{data()} Get GEO data from JSON"); }
+        public static void jsonPersonStart() { cw($"{data()} Get Person data from JSON"); }
         #endregion
 
         #region TELEPHONE
-        public static void telephoneStart() { Console.WriteLine($"{data()} Generating a phone number"); }
+        public static void telephoneStart() { cw($"{data()} Generating a phone number"); }
         #endregion
 
 
