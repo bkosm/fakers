@@ -9,8 +9,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GeneratorsClass", "Generato
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExternalAPI", "ExternalAPI\ExternalAPI.csproj", "{E88F38F4-C6A2-4EF7-918C-6C6DB6160490}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DisposableElement", "DisposableElement\DisposableElement.csproj", "{DDFBDC09-0094-49E6-9857-5BA296FF9D4D}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EntityGenerator", "EntityGenerator\EntityGenerator.csproj", "{FCBE3C70-171F-40BC-9F85-F561E48F5733}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PeopleGenerator", "PeopleGenerator\PeopleGenerator.csproj", "{7103FCAB-1EDF-4738-A23E-6AF8102AA06D}"
@@ -33,10 +31,6 @@ Global
 		{E88F38F4-C6A2-4EF7-918C-6C6DB6160490}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E88F38F4-C6A2-4EF7-918C-6C6DB6160490}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E88F38F4-C6A2-4EF7-918C-6C6DB6160490}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DDFBDC09-0094-49E6-9857-5BA296FF9D4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DDFBDC09-0094-49E6-9857-5BA296FF9D4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DDFBDC09-0094-49E6-9857-5BA296FF9D4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DDFBDC09-0094-49E6-9857-5BA296FF9D4D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{FCBE3C70-171F-40BC-9F85-F561E48F5733}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{FCBE3C70-171F-40BC-9F85-F561E48F5733}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FCBE3C70-171F-40BC-9F85-F561E48F5733}.Release|Any CPU.ActiveCfg = Release|Any CPU

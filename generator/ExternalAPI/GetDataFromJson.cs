@@ -49,18 +49,17 @@ namespace ExternalAPI
             string secondName = null;
             try
             {
-                using (var person = _download_serialized_json_data<PersonFromAPI>(_randomPeopleUrl + ((sex == 'm') ? "male/" : ((sex == 'f') ? "female/" : ""))))
+                var person = _download_serialized_json_data<PersonFromAPI>(_randomPeopleUrl + ((sex == 'm') ? "male/" : ((sex == 'f') ? "female/" : "")));
+
+                if (RandomNumber.Draw(0, 1) == 0)
                 {
-                    if (RandomNumber.Draw(0, 1) == 0)
-                    {
-                        using (var addName = _download_serialized_json_data<PersonFromAPI>(_randomPeopleUrl + ((sex == 'm') ? "male/" : ((sex == 'f') ? "female/" : ""))))
-                        {
-                            secondName = addName.name;
-                        }
-                    }
-                    return new ClearDataPerson(person.name, secondName, person.address);
+                    var addName = _download_serialized_json_data<PersonFromAPI>(_randomPeopleUrl + ((sex == 'm') ? "male/" : ((sex == 'f') ? "female/" : "")));
+                    secondName = addName.name;
                 }
-            }catch(Exception e)
+                return new ClearDataPerson(person.name, secondName, person.address);
+
+            }
+            catch (Exception e)
             {
                 Logger.log(e);
                 return null;
@@ -73,13 +72,14 @@ namespace ExternalAPI
             Logger.jsonGeoStart();
             try
             {
-                using (var place = _download_serialized_json_data<GeoAPI>($"{_geoUrl}{street},{city}{_geoKEY}"))
-                {
-                    return new ClearGeoAPI(place.features[0].properties.city, place.features[0].properties.street,
+                var place = _download_serialized_json_data<GeoAPI>($"{_geoUrl}{street},{city}{_geoKEY}");
+
+                return new ClearGeoAPI(place.features[0].properties.city, place.features[0].properties.street,
                                            place.features[0].properties.state, place.features[0].properties.country, place.features[0].properties.lon.ToString(),
                                            place.features[0].properties.lat.ToString());
-                }
-            }catch(Exception e)
+
+            }
+            catch (Exception e)
             {
                 Logger.log(e);
                 return new ClearGeoAPI("null", "null", "null", "null", "null", "null");

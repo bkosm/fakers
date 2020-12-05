@@ -17,7 +17,7 @@ namespace EntityGenerator
                 await using var context = new PeopleContext(parsed.GetConnectionString());
                 var amount = parsed.GenerationAmount;
 
-                Generator.Generate(context, amount);
+                Generator.Generate(context, 100);
 
             });
 

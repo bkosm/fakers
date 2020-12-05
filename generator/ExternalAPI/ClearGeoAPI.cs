@@ -2,7 +2,7 @@
 
 namespace ExternalAPI
 {
-    public class ClearGeoAPI : DisposableElement.Disposable
+    public class ClearGeoAPI
     {
         string _city;
         string _street;
@@ -48,7 +48,6 @@ namespace ExternalAPI
 
         ~ClearGeoAPI()
         {
-            Dispose(false);
         }
     }
 }
