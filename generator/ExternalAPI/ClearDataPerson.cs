@@ -30,12 +30,17 @@ namespace ExternalAPI
         {
             Logger.clearPersonStart();
             name = _skipTitle(name);
+            
             secondName = _skipTitle(secondName);
 
             var nameTab = splitString(name);
             _firstName = nameTab[0];
             if(secondName!=null)
-                _secondName = splitString(secondName)[0];
+            {
+                secondName = splitString(secondName)[0];
+                if (secondName != _firstName)
+                    _secondName = secondName;
+            }
             _lastName = nameTab[1];    
             _street = splitString(address)[0];
         }
