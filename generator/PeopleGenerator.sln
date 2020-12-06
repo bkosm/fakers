@@ -11,8 +11,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExternalAPI", "ExternalAPI\
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EntityGenerator", "EntityGenerator\EntityGenerator.csproj", "{FCBE3C70-171F-40BC-9F85-F561E48F5733}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PeopleGenerator", "PeopleGenerator\PeopleGenerator.csproj", "{7103FCAB-1EDF-4738-A23E-6AF8102AA06D}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,10 +33,6 @@ Global
 		{FCBE3C70-171F-40BC-9F85-F561E48F5733}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FCBE3C70-171F-40BC-9F85-F561E48F5733}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FCBE3C70-171F-40BC-9F85-F561E48F5733}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7103FCAB-1EDF-4738-A23E-6AF8102AA06D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7103FCAB-1EDF-4738-A23E-6AF8102AA06D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7103FCAB-1EDF-4738-A23E-6AF8102AA06D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7103FCAB-1EDF-4738-A23E-6AF8102AA06D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

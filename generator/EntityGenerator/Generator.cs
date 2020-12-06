@@ -268,8 +268,7 @@ namespace EntityGenerator
                     if (RandomNumber.Draw(1, 5) == 5 && context.Contacts.Count() > 2)
                         context.PersonAddresses.Add(MergePersonAddress(person, context.Addresses.Skip(RandomNumber.Draw(0, context.Addresses.Count() - 2)).First(), date));
 
-                    if (amount != null && amount <= i)
-                        break;
+                    if (amount != null && amount <= i) break;
 
                     context.SaveChanges();
                 }
