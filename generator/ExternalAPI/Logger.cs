@@ -39,6 +39,7 @@ namespace ExternalAPI
 
         #region API
         public static void clearPersonStart() { cw($"{data()} Generating a clearPerson"); }
+        public static void clearPersonNameNull() { cw($"{data()} Person name is null"); }
         public static void clearGeoStart() { cw($"{data()} Generating a clearGeoAPI"); }
         public static void jsonGeoStart() { cw($"{data()} Get GEO data from JSON"); }
         public static void jsonPersonStart() { cw($"{data()} Get Person data from JSON"); }
@@ -56,6 +57,7 @@ namespace ExternalAPI
         public static void generatorMergePA() { cw($"{data()} Merging personAddress"); }
         public static void generatorMergePC() { cw($"{data()} Merging personContact"); }
         public static void generatorSetContact() { cw($"{data()} Setting contact"); }
+        public static void generatorOneMoreContact() { cw($"{data()} Setting one more contact"); }
         public static void generatorMain() { cw($"{data()} Generating mainPerson"); }///////
         public static void start() { cw($"\n{DateTime.Now}\t--- {++loggNumber} NEW PERSON --- "); }
         public static void generatorSetAddressError() { cw($"{data()} ERROR (Setting address): city is null"); }

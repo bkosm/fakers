@@ -37,6 +37,8 @@ namespace GeneratorsClass
         {
             FirstName = person.FirstName;
             SecondName = person.SecondName;
+            if (FirstName == SecondName)
+                SecondName = null;
             LastName = person.LastName;
             Street = person.Street;
         }

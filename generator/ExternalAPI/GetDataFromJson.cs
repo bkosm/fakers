@@ -49,14 +49,19 @@ namespace ExternalAPI
             string secondName = null;
             try
             {
-                var person = _download_serialized_json_data<PersonFromAPI>(_randomPeopleUrl + ((sex == 'm') ? "male/" : ((sex == 'f') ? "female/" : "")));
-
-                if (RandomNumber.Draw(0, 1) == 0)
+               while(true)
                 {
-                    var addName = _download_serialized_json_data<PersonFromAPI>(_randomPeopleUrl + ((sex == 'm') ? "male/" : ((sex == 'f') ? "female/" : "")));
-                    secondName = addName.name;
+                    var person = _download_serialized_json_data<PersonFromAPI>(_randomPeopleUrl + ((sex == 'm') ? "male/" : ((sex == 'f') ? "female/" : "")));
+
+                    if (RandomNumber.Draw(0, 1) == 0)
+                    {
+                        var addName = _download_serialized_json_data<PersonFromAPI>(_randomPeopleUrl + ((sex == 'm') ? "male/" : ((sex == 'f') ? "female/" : "")));
+                        secondName = addName.name;
+                    }
+                    if(person.name != null)
+                        return new ClearDataPerson(person.name, secondName, person.address);
+                    Logger.clearPersonNameNull();
                 }
-                return new ClearDataPerson(person.name, secondName, person.address);
 
             }
             catch (Exception e)
