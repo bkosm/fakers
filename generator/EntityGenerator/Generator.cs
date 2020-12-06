@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading;
 using ExternalAPI;
 using GeneratorsClass;
+using Microsoft.EntityFrameworkCore;
 
 namespace EntityGenerator
 {
@@ -140,10 +141,10 @@ namespace EntityGenerator
             {
                 var contact = new model.Contact
                 {
-                    Email = Email.getMail(firstName, lastName)
+                    Email = Email.getMail(firstName, lastName)//"m_aleks@o2.pl"
                 };
-                if (RandomNumber.Draw(0, 2) < 2)
-                    contact.PhoneNumber = Telephone.getPhoneNumber();
+                if (RandomNumber.Draw(0, 2) < 3)
+                    contact.PhoneNumber = Telephone.getPhoneNumber(); //"0048721686274"; 
                 return contact;
             }
             catch (Exception e)
@@ -155,6 +156,8 @@ namespace EntityGenerator
 
         public static void Generate(PeopleContext context, int? amount = null)
         {
+            bool existsFlag = false;
+
             Logger.generatorMain();
             int i = 0;
             try
@@ -186,23 +189,37 @@ namespace EntityGenerator
                         continue;
                     }
 
-
                     if (DateTime.Today.Year - person.BirthDate.Year < 65)
                     {
+                        existsFlag = false;
                         var contact = SetContact(person.FirstName, person.LastName);
-                        context.Contacts.Add(contact);
+                        try
+                        {
+                           
+                            var test = context.Contacts.Where(e => e.Email == contact.Email).Where(p => p.PhoneNumber == contact.PhoneNumber).Count();
+                            if (test >0)
+                            {
+                                existsFlag = true;
+                                throw new DbUpdateException();
+                            }
 
-                        context.SaveChanges();
+                            context.Contacts.Add(contact);
+                            context.SaveChanges();
+                            var personContact = MergePersonContact(person, contact);
+                            contact.PersonContacts.Add(personContact);
+                        }
+                        catch (DbUpdateException)
+                        {
+                            Logger.generatorContactDbUpdateError();
+                        }
 
-                        var personContact = MergePersonContact(person, contact);
-                        contact.PersonContacts.Add(personContact);
-                        if (RandomNumber.Draw(1, 5) == 5 && context.Contacts.Count() - 2 > 0)
+                        if ((existsFlag || RandomNumber.Draw(1, 5) == 5) && context.Contacts.Count() > 2)
                             context.PersonContacts.Add(MergePersonContact(person, context.Contacts.Skip(RandomNumber.Draw(0, context.Contacts.Count() - 2)).First()));
                         context.SaveChanges();
                     }
                     else
                     {
-                        if (RandomNumber.Draw(1, 10) == 5 && context.Contacts.Count() - 2 > 0)
+                        if (RandomNumber.Draw(1, 10) == 5 && context.Contacts.Count()  > 2)
                         {
                             context.PersonContacts.Add(MergePersonContact(person, context.Contacts.Skip(RandomNumber.Draw(0, context.Contacts.Count() - 2)).First()));
                             context.SaveChanges();
@@ -217,20 +234,38 @@ namespace EntityGenerator
 
                     if (address != null)
                     {
-                        context.Addresses.Add(address);
-                        context.SaveChanges();
-                        personAddress = MergePersonAddress(person, address, date);
+                        try
+                        {
+                            existsFlag = false;
+                            var test = context.Addresses.Where(s => s.Street == address.Street).Where(c => c.City == address.City).Count();
+                            if (test > 0)
+                            {
+                                existsFlag = true;
+                                throw new DbUpdateException();
+                            }
+                            context.Addresses.Add(address);
+                            context.SaveChanges();
+                            personAddress = MergePersonAddress(person, address, date);
+
+                        }catch(DbUpdateException)
+                        {   
+                            Logger.generatorAddressDbUpdateError();
+                        }
                     }
                     else
                     {
                         if (context.Addresses.Count() > 2)
                             personAddress = MergePersonAddress(person, context.Addresses.Skip(RandomNumber.Draw(0, context.Addresses.Count() - 2)).First(), date);
                     }
-                    context.PersonAddresses.Add(personAddress);
-                    context.SaveChanges();
+                    
+                    if(!existsFlag)
+                    {
+                        context.PersonAddresses.Add(personAddress);
+                        context.SaveChanges();
+                    }
 
 
-                    if (RandomNumber.Draw(1, 5) == 5 && context.Contacts.Count() - 2 > 0)
+                    if (RandomNumber.Draw(1, 5) == 5 && context.Contacts.Count() > 2)
                         context.PersonAddresses.Add(MergePersonAddress(person, context.Addresses.Skip(RandomNumber.Draw(0, context.Addresses.Count() - 2)).First(), date));
 
                     if (amount != null && amount <= i) break;

@@ -2,7 +2,7 @@
 
 namespace ExternalAPI
 {
-    public sealed class PersonFromAPI : DisposableElement.Disposable
+    public sealed class PersonFromAPI
     {
         #region IMPELEMEN_IDISPOSABLE
 
@@ -48,10 +48,7 @@ namespace ExternalAPI
 
         #endregion
 
-        ~PersonFromAPI()
-        {
-            Dispose(false);
-        }
+        ~PersonFromAPI(){}
 
     }
 }

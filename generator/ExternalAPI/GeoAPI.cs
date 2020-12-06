@@ -1,66 +1,51 @@
 ﻿namespace ExternalAPI 
 {
 
-    public class GeoAPI : DisposableElement.Disposable
+    public class GeoAPI
     {
         public string type { get; set; }
         public Feature[] features { get; set; }
         public Query query { get; set; }
 
-        ~GeoAPI()
-        {
-            Dispose(false);
-        }
+        ~GeoAPI(){}
     }
 
-    public class Query : DisposableElement.Disposable
+    public class Query 
     {
         public string text { get; set; }
         public Parsed parsed { get; set; }
 
-        ~Query()
-        {
-            Dispose(false);
-        }
+        ~Query(){}
     }
 
-    public class Parsed : DisposableElement.Disposable
+    public class Parsed 
     {
         public string street { get; set; }
         public string city { get; set; }
         public string expected_type { get; set; }
 
-        ~Parsed()
-        {
-            Dispose(false);
-        }
+        ~Parsed(){}
     }
 
-    public class Feature : DisposableElement.Disposable
+    public class Feature 
     {
         public string type { get; set; }
         public Geometry geometry { get; set; }
         public Properties properties { get; set; }
         public float[] bbox { get; set; }
 
-        ~Feature()
-        {
-            Dispose(false);
-        }
+        ~Feature(){}
     }
 
-    public class Geometry : DisposableElement.Disposable
+    public class Geometry
     {
         public string type { get; set; }
         public float[] coordinates { get; set; }
 
-        ~Geometry()
-        {
-            Dispose(false);
-        }
+        ~Geometry(){}
     }
 
-    public class Properties : DisposableElement.Disposable
+    public class Properties 
     {
         public string name { get; set; }
         public string street { get; set; }
@@ -84,36 +69,27 @@
         public string suburb { get; set; }
         public string municipality { get; set; }
 
-        ~Properties()
-        {
-            Dispose(false);
-        }
+        ~Properties(){}
     }
 
-    public class Datasource : DisposableElement.Disposable
+    public class Datasource 
     {
         public string sourcename { get; set; }
         public string attribution { get; set; }
         public string license { get; set; }
         public string url { get; set; }
 
-        ~Datasource()
-        {
-            Dispose(false);
-        }
+        ~Datasource(){}
     }
 
-    public class Rank : DisposableElement.Disposable
+    public class Rank 
     {
         public float popularity { get; set; }
         public float confidence { get; set; }
         public string match_type { get; set; }
         public float importance { get; set; }
 
-        ~Rank()
-        {
-            Dispose(false);
-        }
+        ~Rank(){}
     }
 
 }

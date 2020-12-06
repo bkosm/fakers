@@ -18,6 +18,7 @@ namespace ExternalAPI
             double multiplier = Math.Max(0, (asciiValueOfRandomCharacter / 255d)- 0.00000000001d);
             int range = maxValue - minValue + 1;
 
+
             double randomValueRange = Math.Floor(multiplier * range);
             return (int)(minValue + randomValueRange);
         }
