@@ -10,7 +10,7 @@ namespace GeneratorsClass
             try
             {
                 Logger.deathDateStart();
-                return Date.getDate(birthDate);
+                return Date.getDeathDate(birthDate);
             }
             catch (Exception e)
             {
