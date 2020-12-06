@@ -18,7 +18,6 @@ namespace EntityGenerator
                 var amount = parsed.GenerationAmount;
 
                 Generator.Generate(context, 100);
-
             });
 
            
