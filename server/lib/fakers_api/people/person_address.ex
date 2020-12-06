@@ -7,8 +7,8 @@ defmodule FakersApi.People.PersonAddress do
   schema "person_address" do
     field :assigned, :date
 
-    belongs_to :person, Person
-    belongs_to :address, Address
+    belongs_to :person, Person, primary_key: true
+    belongs_to :address, Address, primary_key: true
   end
 
   @doc false

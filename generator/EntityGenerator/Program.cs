@@ -17,10 +17,10 @@ namespace EntityGenerator
                 await using var context = new PeopleContext(parsed.GetConnectionString());
                 var amount = parsed.GenerationAmount;
 
-                Generator.Generate(context, 100);
-            });
 
-           
+                Generator.Generate(context, amount);
+
+            });
         }
     }
 }

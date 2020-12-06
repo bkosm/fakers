@@ -7,6 +7,19 @@ defmodule FakersApi.People do
   alias FakersApi.Repo
 
   alias FakersApi.People.Person
+  alias FakersApi.People.DeceasedPerson
+
+  @doc """
+  Transforms an atom keyed map into a keyword list.
+  Used in Ecto query filtering.
+
+  ## Examples
+
+      iex> to_keyword_list(%{id: 3, name: "sth"})
+      [{:id, 3}, {:name, "sth"}]
+
+  """
+  def to_keyword_list(%{} = map), do: Enum.map(map, fn {key, value} -> {key, value} end)
 
   @doc """
   Returns the list of people.
@@ -17,8 +30,34 @@ defmodule FakersApi.People do
       [%Person{}, ...]
 
   """
-  def list_people do
-    Repo.all(Person)
+
+  def list_people, do: Repo.all(Person)
+
+  def list_people_by_filters(%{only_alive: only_alive} = input_object) when only_alive do
+    query =
+      from dp in DeceasedPerson,
+        right_join: p in Person,
+        on: p.id == dp.person_id,
+        where: is_nil(dp.person_id)
+
+    input_object
+    |> Map.delete(:only_alive)
+    |> to_keyword_list()
+    |> Enum.reduce(query, fn {key, value}, query ->
+      from [dp, p] in query, where: field(p, ^key) == ^value
+    end)
+    |> select([dp, p], p)
+    |> Repo.all()
+  end
+
+  def list_people_by_filters(input_object) do
+    input_object
+    |> Map.delete(:only_alive)
+    |> to_keyword_list()
+    |> Enum.reduce(Person, fn {key, value}, query ->
+      from p in query, where: field(p, ^key) == ^value
+    end)
+    |> Repo.all()
   end
 
   @doc """
@@ -36,6 +75,7 @@ defmodule FakersApi.People do
 
   """
   def get_person!(id), do: Repo.get!(Person, id)
+  def get_person(id), do: Repo.get(Person, id)
 
   @doc """
   Creates a person.
@@ -117,6 +157,15 @@ defmodule FakersApi.People do
     Repo.all(Address)
   end
 
+  def list_addresses_by_filters(input_object) do
+    input_object
+    |> to_keyword_list()
+    |> Enum.reduce(Address, fn {key, value}, query ->
+      from p in query, where: field(p, ^key) == ^value
+    end)
+    |> Repo.all()
+  end
+
   @doc """
   Gets a single address.
 
@@ -132,6 +181,7 @@ defmodule FakersApi.People do
 
   """
   def get_address!(id), do: Repo.get!(Address, id)
+  def get_address(id), do: Repo.get(Address, id)
 
   @doc """
   Creates a address.
@@ -213,6 +263,15 @@ defmodule FakersApi.People do
     Repo.all(Contact)
   end
 
+  def list_contacts_by_filters(input_object) do
+    input_object
+    |> to_keyword_list()
+    |> Enum.reduce(Address, fn {key, value}, query ->
+      from p in query, where: field(p, ^key) == ^value
+    end)
+    |> Repo.all()
+  end
+
   @doc """
   Gets a single contact.
 
@@ -228,6 +287,7 @@ defmodule FakersApi.People do
 
   """
   def get_contact!(id), do: Repo.get!(Contact, id)
+  def get_contact(id), do: Repo.get(Contact, id)
 
   @doc """
   Creates a contact.
@@ -316,15 +376,20 @@ defmodule FakersApi.People do
 
   ## Examples
 
-      iex> get_person_address_by_person!(123)
+      iex> get_person_address!(123, 3)
       %PersonAddress{}
 
-      iex> get_person_address!(456)
+      iex> get_person_address!(456, 123)
       ** (Ecto.NoResultsError)
 
   """
-  def get_person_address_by_person!(id), do: Repo.get_by!(PersonAddress, person_id: id)
-  def get_person_address_by_address!(id), do: Repo.get_by!(PersonAddress, address_id: id)
+  def get_person_address!(person_id, address_id) do
+    Repo.get_by!(PersonAddress, person_id: person_id, address_id: address_id)
+  end
+
+  def get_person_address(person_id, address_id) do
+    Repo.get_by(PersonAddress, person_id: person_id, address_id: address_id)
+  end
 
   @doc """
   Creates a person_address.
@@ -359,15 +424,7 @@ defmodule FakersApi.People do
 
   """
   def delete_person_address(%PersonAddress{} = person_address) do
-    query = 
-      from u in PersonAddress,
-      where: u.address_id == ^person_address.address_id,
-      where: u.person_id == ^person_address.person_id
-    
-    case Repo.delete_all(query) do
-      {1, nil} -> {:ok, person_address}
-      _ -> {:error, PersonAddress.changeset(person_address, %{})}
-    end
+    Repo.delete(person_address)
   end
 
   @doc """
@@ -381,5 +438,233 @@ defmodule FakersApi.People do
   """
   def change_person_address(%PersonAddress{} = person_address, attrs \\ %{}) do
     PersonAddress.changeset(person_address, attrs)
+  end
+
+  alias FakersApi.People.PersonContact
+
+  @doc """
+  Returns the list of person_contact.
+
+  ## Examples
+
+      iex> list_person_contact()
+      [%PersonContact{}, ...]
+
+  """
+  def list_person_contact do
+    Repo.all(PersonContact)
+  end
+
+  @doc """
+  Gets a single person_contact.
+
+  Raises `Ecto.NoResultsError` if the Person contact does not exist.
+
+  ## Examples
+
+      iex> get_person_contact!(123, 2)
+      %PersonContact{}
+
+      iex> get_person_contact!(456, 3)
+      ** (Ecto.NoResultsError)
+
+  """
+  def get_person_contact!(person_id, contact_id) do
+    Repo.get_by!(PersonContact, person_id: person_id, contact_id: contact_id)
+  end
+
+  def get_person_contact(person_id, contact_id) do
+    Repo.get_by(PersonContact, person_id: person_id, contact_id: contact_id)
+  end
+
+  @doc """
+  Creates a person_contact.
+
+  """
+  def create_person_contact(attrs, %Person{} = person, %Contact{} = contact) do
+    person_contact = Ecto.build_assoc(person, :person_contacts)
+
+    Ecto.build_assoc(contact, :person_contacts, person_contact)
+    |> PersonContact.changeset(attrs)
+    |> Repo.insert()
+  end
+
+  @doc """
+  Deletes a person_contact.
+
+  ## Examples
+
+      iex> delete_person_contact(person_contact)
+      {:ok, %PersonContact{}}
+
+      iex> delete_person_contact(person_contact)
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def delete_person_contact(%PersonContact{} = person_contact) do
+    Repo.delete(person_contact)
+  end
+
+  @doc """
+  Returns an `%Ecto.Changeset{}` for tracking person_contact changes.
+
+  ## Examples
+
+      iex> change_person_contact(person_contact)
+      %Ecto.Changeset{data: %PersonContact{}}
+
+  """
+  def change_person_contact(%PersonContact{} = person_contact, attrs \\ %{}) do
+    PersonContact.changeset(person_contact, attrs)
+  end
+
+  @doc """
+  Returns the list of deceased_person.
+
+  ## Examples
+
+      iex> list_deceased_person()
+      [%DeceasedPerson{}, ...]
+
+  """
+  def list_deceased_people do
+    Repo.all(DeceasedPerson)
+  end
+
+  def list_deceased_people_by_filters(input_object) do
+    input_object
+    |> to_keyword_list()
+    |> Enum.reduce(DeceasedPerson, fn {key, value}, query ->
+      from p in query, where: field(p, ^key) == ^value
+    end) |> IO.inspect()
+    |> Repo.all()
+  end
+
+  @doc """
+  Gets a single deceased_person.
+
+  Raises `Ecto.NoResultsError` if the Deceased person does not exist.
+
+  ## Examples
+
+      iex> get_deceased_person!(123)
+      %DeceasedPerson{}
+
+      iex> get_deceased_person!(456)
+      ** (Ecto.NoResultsError)
+
+  """
+  def get_deceased_person!(id), do: Repo.get_by!(DeceasedPerson, person_id: id)
+  def get_deceased_person(id), do: Repo.get_by(DeceasedPerson, person_id: id)
+
+  @doc """
+  Creates a deceased_person.
+
+  ## Examples
+
+      iex> create_deceased_person(%{field: value})
+      {:ok, %DeceasedPerson{}}
+
+      iex> create_deceased_person(%{field: bad_value})
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def create_deceased_person(attrs, %Person{} = person) do
+    Ecto.build_assoc(person, :deceased_person)
+    |> DeceasedPerson.changeset(attrs)
+    |> Repo.insert()
+  end
+
+  @doc """
+  Updates a deceased_person.
+
+  ## Examples
+
+      iex> update_deceased_person(deceased_person, %{field: new_value})
+      {:ok, %DeceasedPerson{}}
+
+      iex> update_deceased_person(deceased_person, %{field: bad_value})
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def update_deceased_person(%DeceasedPerson{} = deceased_person, attrs) do
+    deceased_person
+    |> DeceasedPerson.changeset(attrs)
+    |> Repo.update()
+  end
+
+  @doc """
+  Deletes a deceased_person.
+
+  ## Examples
+
+      iex> delete_deceased_person(deceased_person)
+      {:ok, %DeceasedPerson{}}
+
+      iex> delete_deceased_person(deceased_person)
+      {:error, %Ecto.Changeset{}}
+
+  """
+  def delete_deceased_person(%DeceasedPerson{} = deceased_person) do
+    Repo.delete(deceased_person)
+  end
+
+  @doc """
+  Returns an `%Ecto.Changeset{}` for tracking deceased_person changes.
+
+  ## Examples
+
+      iex> change_deceased_person(deceased_person)
+      %Ecto.Changeset{data: %DeceasedPerson{}}
+
+  """
+  def change_deceased_person(%DeceasedPerson{} = deceased_person, attrs \\ %{}) do
+    DeceasedPerson.changeset(deceased_person, attrs)
+  end
+
+  @doc """
+  Dataloader initalizer.
+
+  """
+  def data, do: Dataloader.Ecto.new(Repo, query: &query/2)
+
+  def query(PersonAddress, %{sort_order: order, limit: limit}) when limit > 0 do
+    PersonAddress
+    |> order_by(^[{order, :assigned}])
+    |> limit(^limit)
+  end
+
+  def query(PersonAddress, %{limit: limit}) when limit > 0 do
+    PersonAddress
+    |> limit(^limit)
+  end
+
+  def query(PersonAddress, %{sort_order: order}) do
+    PersonAddress
+    |> order_by(^[{order, :assigned}])
+  end
+
+  def query(PersonContact, %{sort_order: order, limit: limit}) when limit > 0 do
+    PersonContact
+    |> order_by(^[{order, :assigned}])
+    |> limit(^limit)
+  end
+
+  def query(PersonContact, %{limit: limit}) when limit > 0 do
+    PersonContact
+    |> limit(^limit)
+  end
+
+  def query(PersonContact, %{sort_order: order}) do
+    PersonContact
+    |> order_by(^[{order, :assigned}])
+  end
+
+  @doc """
+  Generic dataloader handler.
+
+  """
+  def query(queryable, _params) do
+    queryable
   end
 end

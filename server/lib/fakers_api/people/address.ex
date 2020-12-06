@@ -9,7 +9,8 @@ defmodule FakersApi.People.Address do
     field :street, :string
     field :voivodeship, :string
 
-    has_many :person_addresses, PersonAddress, on_delete: :delete_all
+    has_many :person_addresses, PersonAddress
+    has_many :people, through: [:person_addresses, :person]
   end
 
   @doc false

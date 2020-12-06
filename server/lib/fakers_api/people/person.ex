@@ -1,7 +1,7 @@
 defmodule FakersApi.People.Person do
   use Ecto.Schema
   import Ecto.Changeset
-  alias FakersApi.People.PersonAddress
+  alias FakersApi.People.{PersonAddress, PersonContact, DeceasedPerson}
 
   schema "person" do
     field :birth_date, :date
@@ -11,7 +11,13 @@ defmodule FakersApi.People.Person do
     field :second_name, :string
     field :sex, :string
 
-    has_many :person_addresses, PersonAddress, on_delete: :delete_all
+    has_many :person_addresses, PersonAddress
+    has_many :addresses, through: [:person_addresses, :address]
+
+    has_many :person_contacts, PersonContact
+    has_many :contacts, through: [:person_contacts, :contact]
+
+    has_one :deceased_person, DeceasedPerson
   end
 
   @doc false
