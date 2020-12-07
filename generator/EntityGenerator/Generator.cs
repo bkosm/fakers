@@ -97,7 +97,7 @@ namespace EntityGenerator
 
                 if (address.City != null)
                 {
-                    
+
                     personAddress.Person = person;
                     personAddress.Address = address;
 
@@ -161,6 +161,18 @@ namespace EntityGenerator
         }
         #endregion
 
+        #region DEAD
+        static model.DeceasedPerson isDead(model.Person person, Person localPerson)
+        {
+            var deceasedPerson = new model.DeceasedPerson
+            {
+                Person = person,
+                DateOfDeath = DeathDate.getDeathDate(localPerson.BirthDate)
+            };
+
+            return deceasedPerson;
+        }
+        #endregion
 
         public static void Generate(PeopleContext context, int? amount = null)
         {
@@ -179,7 +191,7 @@ namespace EntityGenerator
                     var date = Date.getDate(startTime);
 
                     Thread.Sleep(2000);
-                    
+
                     #region PERSON
                     GeneratorsClass.Person localPeroson = new GeneratorsClass.Person();
 
@@ -191,11 +203,7 @@ namespace EntityGenerator
                     #region IS_DEAD
                     if (localPeroson.IsDead == true)
                     {
-                        var deceasedPerson = new model.DeceasedPerson
-                        {
-                            Person = person,
-                            DateOfDeath = DeathDate.getDeathDate(localPeroson.BirthDate)
-                        };
+                        var deceasedPerson = isDead(person, localPeroson);
                         context.DeceasedPeople.Add(deceasedPerson);
                         context.SaveChanges();
                         continue;
@@ -204,7 +212,7 @@ namespace EntityGenerator
 
                     #region CONCTACT
                     int inc = 1;
-                    while(true)
+                    while (true)
                     {
                         if (DateTime.Today.Year - person.BirthDate.Year < 65)
                         {
@@ -231,7 +239,7 @@ namespace EntityGenerator
                                 break;
                             }
 
-                            if ((existsFlag || RandomNumber.Draw(1, (int)Math.Pow(100,inc)) == 5) && context.Contacts.Count() > 2)
+                            if ((existsFlag || RandomNumber.Draw(1, (int)Math.Pow(100, inc)) == 5) && context.Contacts.Count() > 2)
                                 context.PersonContacts.Add(MergePersonContact(person, context.Contacts.Skip(RandomNumber.Draw(0, context.Contacts.Count() - 2)).First()));
                         }
                         else
@@ -244,7 +252,7 @@ namespace EntityGenerator
 
                         context.SaveChanges();
 
-                        if (RandomNumber.Draw(1, (int)Math.Pow(2,inc)) > 1)
+                        if (RandomNumber.Draw(1, (int)Math.Pow(2, inc)) > 1)
                             break;
                         else
                         {
@@ -258,7 +266,6 @@ namespace EntityGenerator
                     var address = SetAddress(localPeroson.Street);
 
                     model.PersonAddress personAddress = new model.PersonAddress();
-                                      
 
                     if (address.Street != "null" && address.City != "null")
                     {
@@ -276,21 +283,29 @@ namespace EntityGenerator
                             context.SaveChanges();
                             personAddress = MergePersonAddress(person, address, date);
 
-                        }catch(DbUpdateException)
-                        {   
+                        }
+                        catch (DbUpdateException)
+                        {
                             Logger.generatorAddressDbUpdateError();
                         }
                     }
-                    else
+                    else if (context.Addresses.Select(x => x.Id).Count() > 2)
                     {
                         existsFlag = false;
-                        if (context.Addresses.Count() > 2)
-                            personAddress = MergePersonAddress(person, context.Addresses.Skip(RandomNumber.Draw(0, context.Addresses.Count() - 2)).First(), date);
-                        if (context.PersonAddresses.Where(x => x.AddressId == personAddress.AddressId).Where(x => x.PersonId == personAddress.PersonId).Any())
+                        personAddress = MergePersonAddress(person, context.Addresses.Skip(RandomNumber.Draw(0, context.Addresses.Count() - 2)).First(), date);
+                        if (context.PersonAddresses.Where(x => x.AddressId == personAddress.AddressId).Where(x => x.PersonId == personAddress.PersonId).Count() > 0)
                             existsFlag = true;
                     }
-                    
-                    if(!existsFlag)
+                    else
+                    {
+                        var deceasedPerson = isDead(person, localPeroson);
+                        context.DeceasedPeople.Add(deceasedPerson);
+                        context.SaveChanges();
+                        continue;
+                    }
+                   
+
+                    if (!existsFlag)
                     {
                         context.PersonAddresses.Add(personAddress);
                         context.SaveChanges();
