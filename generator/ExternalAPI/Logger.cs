@@ -55,7 +55,9 @@ namespace ExternalAPI
         public static void generatorPersonToPerson() { cw($"{data()} Casting person to person"); }
         public static void generatorSetAddress() { cw($"{data()} Setting address"); }
         public static void generatorMergePA() { cw($"{data()} Merging personAddress"); }
+        public static void generatorExistsPA() { cw($"{data()} ERROR (PersonAddress): The person already lives at the address -> duplicate value"); }
         public static void generatorMergePC() { cw($"{data()} Merging personContact"); }
+        public static void generatorExistsPC() { cw($"{data()} ERROR (PersonContact): Person already contains contact -> duplicate value"); }
         public static void generatorSetContact() { cw($"{data()} Setting contact"); }
         public static void generatorOneMoreContact() { cw($"{data()} Setting one more contact"); }
         public static void generatorMain() { cw($"{data()} Generating mainPerson"); }///////
