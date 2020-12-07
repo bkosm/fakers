@@ -127,7 +127,7 @@ namespace EntityGenerator
                 {
                     Email = Email.getMail(firstName, lastName)//"m_aleks@o2.pl"
                 };
-                if (RandomNumber.Draw(0, 2) < 3)
+                if (RandomNumber.Draw(1, 3) < 3)
                     contact.PhoneNumber = Telephone.getPhoneNumber(); //"0048721686274"; 
                 return contact;
             }
@@ -246,7 +246,9 @@ namespace EntityGenerator
                         {
                             if (RandomNumber.Draw(1, 10) == 5 && context.Contacts.Count() > 2)
                             {
-                                context.PersonContacts.Add(MergePersonContact(person, context.Contacts.Skip(RandomNumber.Draw(0, context.Contacts.Count() - 2)).First()));
+                                var drawContact = context.Contacts.Skip(RandomNumber.Draw(0, context.Contacts.Count() - 2)).First();
+                                if (context.PersonContacts.Where(p=>p.PersonId == person.Id).Where(c=>c.ContactId == drawContact.Id).Count() == 0)  
+                                    context.PersonContacts.Add(MergePersonContact(person, drawContact));
                             }
                         }
 
@@ -313,7 +315,11 @@ namespace EntityGenerator
 
 
                     if (RandomNumber.Draw(1, 5) == 5 && context.Addresses.Count() > 2)
-                        context.PersonAddresses.Add(MergePersonAddress(person, context.Addresses.Skip(RandomNumber.Draw(0, context.Addresses.Count() - 2)).First(), date));
+                    {
+                        var drawAddress = context.Addresses.Skip(RandomNumber.Draw(0, context.Addresses.Count() - 2)).First();
+                        if(context.PersonAddresses.Where(x => x.AddressId == personAddress.AddressId).Where(x => x.PersonId == personAddress.PersonId).Count() == 0)
+                            context.PersonAddresses.Add(MergePersonAddress(person, drawAddress, date));
+                    }
 
 
                     #endregion
@@ -322,7 +328,6 @@ namespace EntityGenerator
                     if (amount != null && amount <= i)
                         break;
                     #endregion
-
 
                     context.SaveChanges();
                 }
