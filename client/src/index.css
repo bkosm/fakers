@@ -76,11 +76,11 @@ code {
   background: none #21252b !important;
 }
 
-.historyPaneWrap{
+.historyPaneWrap {
   color: black;
 }
 
-.history-title{
+.history-title {
   padding: 3px 0 3px 3px !important;
 }
 
@@ -102,7 +102,7 @@ code {
   color: whitesmoke !important;
 }
 
-.docExplorerHide{
+.docExplorerHide {
   color: whitesmoke !important;
 }
 
@@ -118,7 +118,7 @@ code {
   color: whitesmoke !important;
 }
 
-.CodeMirror-lines{
+.CodeMirror-lines {
   color: #21252b !important;
 }
 
@@ -265,8 +265,8 @@ ul {
   color: whitesmoke !important;
 }
 
-.DbGraph{
-    width: 80%;
+.DbGraph {
+  width: 80%;
 }
 
 .navitemicon {
@@ -367,17 +367,17 @@ textarea {
   margin-bottom: 0;
 }
 
-.connectButton{
+.connectButton {
   height: 33px;
   border-radius: 5px;
   background-color: #32a6c2;
   border: 1px black solid;
-  position: fixed; 
-  bottom: 5px; 
+  position: fixed;
+  bottom: 5px;
   right: 5px;
 }
 
-.connectButton:hover{
+.connectButton:hover {
   background-color: #8ca543;
 }
 
@@ -386,8 +386,8 @@ textarea {
   height: 70px;
   background-color: #21252b;
   align-self: flex-end;
-  position: fixed; 
-  bottom: -30px; 
+  position: fixed;
+  bottom: -30px;
   right: 130px;
 }
 
@@ -395,5 +395,45 @@ textarea {
   flex: 2;
   background-color: aquamarine;
   border-radius: 10px;
+  border: 1px black solid;
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background-color: #000000b6;
+  z-index: 10;
+}
+
+@keyframes slide-in {
+  100% {
+    transform: translate(-50%, -50%);
+  }
+}
+.alert {
+  padding: 25px 50px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 10;
+  background-color: #008cba;
+  transform: translate(-50%, -400%);
+  border-radius: 10px;
+
+  animation: slide-in 0.75s forwards;
+}
+.alert__title {
+  font-size: 2rem;
+}
+
+.alert__message {
+  font-size: 1.5rem;
+}
+
+.alert__button {
+  display: block;
+  padding: 10px 20px;
+  border-radius: 5px;
+  background-color: #32a6c2;
   border: 1px black solid;
 }
