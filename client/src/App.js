@@ -12,15 +12,9 @@ function App() {
       <Router>
         <NavBarContainer />
         <Switch>
-          <Route exact path='/'>
-            <Home></Home>
-          </Route>
-          <Route path='/Info'>
-            <Info></Info>
-          </Route>
-          <Route path='/Graph'>
-            <Graph></Graph>
-          </Route>
+          <Route exact path='/Fakers' component={Home} />
+          <Route path='/Info' component={Info} />
+          <Route path='/Graph' component={Graph} />
         </Switch>
       </Router>
     </div>
