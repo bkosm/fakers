@@ -1,27 +1,27 @@
 {
   "files": {
-    "main.css": "/fakers/static/css/main.e7af9721.chunk.css",
-    "main.js": "/fakers/static/js/main.1221abf6.chunk.js",
-    "main.js.map": "/fakers/static/js/main.1221abf6.chunk.js.map",
-    "runtime-main.js": "/fakers/static/js/runtime-main.c136d803.js",
-    "runtime-main.js.map": "/fakers/static/js/runtime-main.c136d803.js.map",
-    "static/css/2.c8adf17a.chunk.css": "/fakers/static/css/2.c8adf17a.chunk.css",
-    "static/js/2.fa6fba7e.chunk.js": "/fakers/static/js/2.fa6fba7e.chunk.js",
-    "static/js/2.fa6fba7e.chunk.js.map": "/fakers/static/js/2.fa6fba7e.chunk.js.map",
-    "static/js/3.0807e0f9.chunk.js": "/fakers/static/js/3.0807e0f9.chunk.js",
-    "static/js/3.0807e0f9.chunk.js.map": "/fakers/static/js/3.0807e0f9.chunk.js.map",
-    "index.html": "/fakers/index.html",
-    "static/css/2.c8adf17a.chunk.css.map": "/fakers/static/css/2.c8adf17a.chunk.css.map",
-    "static/css/main.e7af9721.chunk.css.map": "/fakers/static/css/main.e7af9721.chunk.css.map",
-    "static/js/2.fa6fba7e.chunk.js.LICENSE.txt": "/fakers/static/js/2.fa6fba7e.chunk.js.LICENSE.txt",
-    "static/media/fakers_db.15fe56c4.png": "/fakers/static/media/fakers_db.15fe56c4.png",
-    "static/media/logo512frs.4a77846e.png": "/fakers/static/media/logo512frs.4a77846e.png"
+    "main.css": "/Fakers/static/css/main.a46ce70f.chunk.css",
+    "main.js": "/Fakers/static/js/main.809ba0ef.chunk.js",
+    "main.js.map": "/Fakers/static/js/main.809ba0ef.chunk.js.map",
+    "runtime-main.js": "/Fakers/static/js/runtime-main.af66c420.js",
+    "runtime-main.js.map": "/Fakers/static/js/runtime-main.af66c420.js.map",
+    "static/css/2.c8adf17a.chunk.css": "/Fakers/static/css/2.c8adf17a.chunk.css",
+    "static/js/2.e9678c18.chunk.js": "/Fakers/static/js/2.e9678c18.chunk.js",
+    "static/js/2.e9678c18.chunk.js.map": "/Fakers/static/js/2.e9678c18.chunk.js.map",
+    "static/js/3.bd699ab7.chunk.js": "/Fakers/static/js/3.bd699ab7.chunk.js",
+    "static/js/3.bd699ab7.chunk.js.map": "/Fakers/static/js/3.bd699ab7.chunk.js.map",
+    "index.html": "/Fakers/index.html",
+    "static/css/2.c8adf17a.chunk.css.map": "/Fakers/static/css/2.c8adf17a.chunk.css.map",
+    "static/css/main.a46ce70f.chunk.css.map": "/Fakers/static/css/main.a46ce70f.chunk.css.map",
+    "static/js/2.e9678c18.chunk.js.LICENSE.txt": "/Fakers/static/js/2.e9678c18.chunk.js.LICENSE.txt",
+    "static/media/fakers_db.15fe56c4.png": "/Fakers/static/media/fakers_db.15fe56c4.png",
+    "static/media/logo512frs.4a77846e.png": "/Fakers/static/media/logo512frs.4a77846e.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.c136d803.js",
+    "static/js/runtime-main.af66c420.js",
     "static/css/2.c8adf17a.chunk.css",
-    "static/js/2.fa6fba7e.chunk.js",
-    "static/css/main.e7af9721.chunk.css",
-    "static/js/main.1221abf6.chunk.js"
+    "static/js/2.e9678c18.chunk.js",
+    "static/css/main.a46ce70f.chunk.css",
+    "static/js/main.809ba0ef.chunk.js"
   ]
 }
