@@ -35,7 +35,7 @@ const NavBarContainer = () => {
       >
         <NavItem
           icon={<img className="navitemicon" src={HomeIcon} alt="home-icon" />}
-          to={"/"}
+          to={"/fakers"}
         />
         <NavItem
           icon={<img className="navitemicon" src={GitHub} alt="logo" />}
@@ -44,11 +44,11 @@ const NavBarContainer = () => {
         />
         <NavItem
           icon={<img className="navitemicon" src={DataBase} alt="logo" />}
-          to={"/Graph"}
+          to={"/graph"}
         />
         <NavItem
           icon={<img className="navitemicon" src={InfoLogo} alt="logo" />}
-          to={"/Info"}
+          to={"/info"}
         />
       </NavBar>
     </>
