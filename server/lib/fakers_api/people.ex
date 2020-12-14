@@ -408,7 +408,13 @@ defmodule FakersApi.People do
 
     Ecto.build_assoc(address, :person_addresses, person_address)
     |> PersonAddress.changeset(attrs)
-    |> Repo.insert()
+    |> Repo.insert(returning: true)
+  end
+
+  def update_person_address(attrs, %PersonAddress{} = person_address) do
+    person_address
+    |> PersonAddress.changeset(attrs)
+    |> Repo.update()
   end
 
   @doc """
@@ -486,7 +492,13 @@ defmodule FakersApi.People do
 
     Ecto.build_assoc(contact, :person_contacts, person_contact)
     |> PersonContact.changeset(attrs)
-    |> Repo.insert()
+    |> Repo.insert(returning: true)
+  end
+
+  def update_person_contact(attrs, %PersonContact{} = person_contact) do
+    person_contact
+    |> PersonContact.changeset(attrs)
+    |> Repo.update()
   end
 
   @doc """
@@ -536,7 +548,8 @@ defmodule FakersApi.People do
     |> to_keyword_list()
     |> Enum.reduce(DeceasedPerson, fn {key, value}, query ->
       from p in query, where: field(p, ^key) == ^value
-    end) |> IO.inspect()
+    end)
+    |> IO.inspect()
     |> Repo.all()
   end
 
