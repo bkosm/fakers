@@ -8,7 +8,7 @@ To start this Phoenix server:
 
 Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 
-## GraphQL auto-generated diagram
+## GraphQLviz auto-generated diagram
 
 <p align="center">
   <img src="/server/diagrams/graph.png" width=2824 title="Graph">
