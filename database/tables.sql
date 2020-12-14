@@ -5,7 +5,7 @@ CREATE TABLE IF NOT EXISTS address (
     city VARCHAR NOT NULL,
     voivodeship VARCHAR NOT NULL,
 
-    location VARCHAR NOT NULL, -- link or coords
+    location VARCHAR NOT NULL, -- coords
 	
 	UNIQUE (street, city, voivodeship, location)
 );
@@ -59,7 +59,8 @@ CREATE TABLE IF NOT EXISTS person_address (
 
     PRIMARY KEY (person_id, address_id),
 
-    assigned DATE NOT NULL DEFAULT CURRENT_TIMESTAMP
+    assigned DATE NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	is_primary BOOL NOT NULL DEFAULT FALSE
 );
 
 GRANT ALL ON person_address TO fakers_u;
@@ -72,7 +73,8 @@ CREATE TABLE IF NOT EXISTS person_contact (
 
     PRIMARY KEY (person_id, contact_id),
 
-    assigned DATE NOT NULL DEFAULT CURRENT_TIMESTAMP
+    assigned DATE NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	is_primary BOOL NOT NULL DEFAULT FALSE
 );
 
 GRANT ALL ON person_contact TO fakers_u;
