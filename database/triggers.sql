@@ -48,6 +48,7 @@ $$ LANGUAGE plpgsql;
 
 CREATE TRIGGER before_insert_update
 BEFORE INSERT OR UPDATE ON person_contact
+FOR EACH ROW
 WHEN (pg_trigger_depth() < 1)
 EXECUTE PROCEDURE before_insert_update_person_contact();
 
