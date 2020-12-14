@@ -100,6 +100,8 @@ defmodule FakersApiWeb.GraphQL.Schema.Types.Objects do
     @desc "The associated address."
     field :address, list_of(:address), resolve: dataloader(People)
 
+    @desc "Is this contact considered the main one for associated person?"
+    field :is_primary, non_null(:boolean)
   end
 
   @desc "An object that represents an association between a person and a contact."
@@ -114,6 +116,9 @@ defmodule FakersApiWeb.GraphQL.Schema.Types.Objects do
 
     @desc "The associated address."
     field :contact, list_of(:contact), resolve: dataloader(People)
+
+    @desc "Is this contact considered the main one for associated person?"
+    field :is_primary, non_null(:boolean)
   end
 
   @desc "An object that represents a deceased person."
