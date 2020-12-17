@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 
-function QueryInputWindow(props) {
-  const [input, setInput] = useState('');
-  const onSubmit = () => props.onSubmit(input);
+function QueryInputWindow({ value, onSubmit }) {
+  const [input, setInput] = useState(value);
+  const handleSubmit = () => onSubmit(input);
 
   return (
     <div className='windowInput'>
@@ -10,7 +10,7 @@ function QueryInputWindow(props) {
         className='connectButton'
         type='submit'
         value='Connect'
-        onClick={onSubmit}
+        onClick={handleSubmit}
       />
       <textarea
         placeholder='GraphQL API server address'

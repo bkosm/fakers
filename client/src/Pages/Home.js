@@ -4,11 +4,13 @@ import GraphiQL from 'graphiql';
 import 'graphiql/graphiql.min.css';
 import QueryInputWindow from '../Components/QueryInputWindow';
 import Alert from '../Components/Alert';
+import useQuery from '../Hooks/useQuery';
 
 const urlRegex = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&//=]*)/;
 
 function Home() {
-  const [serverUrl, setServerUrl] = useState(null);
+  const initServerUrl = useQuery('api') ?? '';
+  const [serverUrl, setServerUrl] = useState(initServerUrl);
 
   const [alertVisible, setAlertVisible] = useState(false);
   const [connectionResponse, setConnectionResponse] = useState({
