@@ -41,7 +41,14 @@ Written in C# - `.NET Core 3.1`. Generates person data and persists it in the da
 
 To start generating people data make sure to have a local Postgres database defined as in Database section and run:
 
-### Geoapify note
+```sh
+cd generator
+dotnet run --project EntityGenerator
+```
+
+It will loop forever until an interrupt is sent. At this point you can start the server to make it internet-available.
+
+#### Geoapify note
 
 As of now, a key is provided within the app. It allows for up to 100K requests/month and is a standard free tier service. 
 
@@ -50,13 +57,6 @@ When deploying it in your own environment please obtain your own key and modify 
 __**This will likely change after presentation (23.12.2020) and a separate key will be required.**__
 
 ---
-
-```sh
-cd generator
-dotnet run --project EntityGenerator
-```
-
-It will loop forever until an interrupt is sent. At this point you can start the server to make it internet-available.
 
 ## ORM Server
 
