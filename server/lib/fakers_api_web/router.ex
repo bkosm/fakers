@@ -2,6 +2,8 @@ defmodule FakersApiWeb.Router do
   use FakersApiWeb, :router
 
   pipeline :graphql do
+    plug CORSPlug, origin: "*"
+    plug :accepts, ["json"]
   end
 
   scope "/api" do
@@ -24,7 +26,5 @@ defmodule FakersApiWeb.Router do
       pipe_through [:fetch_session, :protect_from_forgery]
       live_dashboard "/dashboard", metrics: FakersApiWeb.Telemetry
     end
-
-    forward "/", Absinthe.Plug.GraphiQL, schema: FakersApiWeb.GraphQL.Schema
   end
 end
